@@ -36,7 +36,7 @@ export default function OrganisingCommittee() {
   return (
     <section className="py-24 bg-[#f8f9fa] dark:bg-slate-900 relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute inset-0 bg-[url('/images/pattern-bg.svg')] opacity-5 pointer-events-none" />
+      {/* Decorative background pattern (removed missing svg) */}
       <div className="absolute top-40 left-0 w-72 h-72 bg-orange-400/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-40 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 

@@ -47,7 +47,7 @@ export default function Header() {
               className={`text-sm font-medium transition-colors duration-200 relative pb-1 border-b-2 ${
                 link.name === 'Home'
                   ? 'text-[#1F83C6] border-[#1F83C6]'
-                  : 'text-slate-600 border-transparent hover:text-[#1F83C6]'
+                  : 'text-slate-800 border-transparent hover:text-[#1F83C6]'
               }`}
             >
               {link.name}
