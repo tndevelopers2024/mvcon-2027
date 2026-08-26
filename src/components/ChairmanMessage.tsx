@@ -68,13 +68,13 @@ export default function ChairmanMessage() {
 
               <div className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-10 space-y-5">
                 <p>
-                  It gives me immense pleasure to welcome you to the inaugural edition of MVCON, a new forum for a plethora of scientific sessions from MV Diabetes. With over <span className="font-semibold text-slate-900 dark:text-white">75 years of legacy</span> in pioneering diabetes care, MV Diabetes has stood as a leader in both comprehensive diabetes management and advanced diabetic foot care.
+                  It gives me immense pleasure to welcome you to the second edition of MVCON, a new forum for a plethora of scientific sessions from MV Diabetes. With over <span className="font-semibold text-slate-900 dark:text-white">75 years of legacy</span> in pioneering diabetes care, MV Diabetes has stood as a leader in both comprehensive diabetes management and advanced diabetic foot care.
                 </p>
                 <p>
                   MVCON builds on this legacy, creating a scientific platform where diabetologists, surgeons, and paramedics can come together to learn, exchange, and collaborate. With a special expertise on diabetic foot—an area where MV Diabetes has earned both national and international recognition—we aim to advance skills, share innovations, and improve clinical outcomes for patients across the globe.
                 </p>
                 <p>
-                  As the National President of RSSDI, India’s largest organization for healthcare professionals and researchers in diabetes, and the Honorary President of D-Foot International, I have dedicated my mission to developing a multidisciplinary approach to reduce preventable amputations worldwide. MVCON reflects this strategic vision, &amp; I look forward to welcoming you to Chennai, to a prestigious event that promises learning, inspiration, and collaboration for the diabetes community.
+                  As the Immediate Past President of RSSDI, India’s largest organization for healthcare professionals and researchers in diabetes, and the Honorary President of D-Foot International, I have dedicated my mission to developing a multidisciplinary approach to reduce preventable amputations worldwide. MVCON reflects this strategic vision, &amp; I look forward to welcoming you to Chennai, to a prestigious event that promises learning, inspiration, and collaboration for the diabetes community.
                 </p>
               </div>
 

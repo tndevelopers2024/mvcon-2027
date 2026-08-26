@@ -6,13 +6,13 @@ const highlights = [
     id: '01',
     title: 'Wide Range of Sessions',
     icon: Microscope,
-    imageSrc: '/images/hero-banner1.JPG',
+    imageSrc: '/images/highlight1.jpg',
   },
   {
     id: '02',
     title: 'Live Workshops',
     icon: MonitorPlay,
-    imageSrc: '/images/hero-banner2.JPG',
+    imageSrc: '/images/highlight2.jpg',
   },
   {
     id: '03',

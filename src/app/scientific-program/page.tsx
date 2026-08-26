@@ -13,9 +13,9 @@ export default function ScientificProgramPage() {
       <div className="relative w-full h-[400px] flex items-center justify-center overflow-hidden bg-slate-900 mt-0">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-banner2.JPG" 
+            src="/images/scientific/scientific-bg.jpg" 
             alt="Scientific Program" 
-            className="w-full h-full object-cover opacity-30" 
+            className="w-full h-full object-cover object-top opacity-30" 
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
         </div>

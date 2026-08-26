@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { User, Upload, Mail, Phone, Briefcase, Award, MapPin, Map, Ticket, ShieldCheck, ArrowRight, ArrowLeft, Check } from 'lucide-react';
+import { User, Building2, Upload, Mail, Phone, Briefcase, Award, MapPin, Map, Ticket, ShieldCheck, ArrowRight, ArrowLeft, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
@@ -13,9 +13,28 @@ const steps = [
 
 export default function RegisterPage() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [profilePhoto, setProfilePhoto] = useState<File | null>(null);
 
   const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, steps.length));
   const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1));
+
+  const handleNext = () => {
+    const stepDiv = document.getElementById(`step${currentStep}`);
+    if (stepDiv) {
+      const inputs = stepDiv.querySelectorAll<HTMLInputElement | HTMLSelectElement>('input:not([type="file"]), select');
+      let isValid = true;
+      for (const input of Array.from(inputs)) {
+        if (!input.checkValidity()) {
+          input.reportValidity();
+          isValid = false;
+          break;
+        }
+      }
+      if (!isValid) return;
+
+    }
+    nextStep();
+  };
 
   const variants = {
     initial: { opacity: 0, x: 20 },
@@ -87,6 +106,7 @@ export default function RegisterPage() {
               {/* STEP 1: Personal Details */}
               {currentStep === 1 && (
                 <motion.div
+                  id="step1"
                   key="step1"
                   variants={variants}
                   initial="initial"
@@ -100,7 +120,14 @@ export default function RegisterPage() {
                       <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <User className="h-5 w-5 text-slate-400 group-focus-within:text-[#1F83C6] transition-colors" />
                       </div>
-                      <input type="text" placeholder="Full Name" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
+                      <input type="text" required placeholder="Full Name" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
+                    </div>
+
+                    <div className="relative group">
+                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <Building2 className="h-5 w-5 text-slate-400 group-focus-within:text-[#1F83C6] transition-colors" />
+                      </div>
+                      <input type="text" required placeholder="Institution" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -108,27 +135,58 @@ export default function RegisterPage() {
                         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                           <Mail className="h-5 w-5 text-slate-400 group-focus-within:text-[#1F83C6] transition-colors" />
                         </div>
-                        <input type="email" placeholder="Email Address" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
+                        <input type="email" required placeholder="Email Address" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
                       </div>
 
                       <div className="relative group">
                         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                           <Phone className="h-5 w-5 text-slate-400 group-focus-within:text-[#1F83C6] transition-colors" />
                         </div>
-                        <input type="tel" placeholder="Phone Number" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
+                        <input type="tel" required placeholder="Phone Number" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
                       </div>
                     </div>
 
                     {/* Profile Photo Upload */}
-                    <div className="mt-6 p-6 rounded-2xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center gap-4 bg-slate-50 hover:bg-slate-100 hover:border-[#1F83C6] transition-colors group cursor-pointer">
-                      <div className="w-16 h-16 rounded-full bg-white border border-slate-200 flex items-center justify-center group-hover:shadow-md transition-shadow">
-                        <Upload className="w-6 h-6 text-[#1F83C6]" />
-                      </div>
-                      <div className="text-center">
-                        <p className="text-sm font-bold text-slate-700">Click to upload profile photo</p>
-                        <p className="text-xs text-slate-400 mt-1">SVG, PNG, JPG or GIF (max. 2MB)</p>
-                      </div>
-                    </div>
+                    <label className="mt-6 p-6 rounded-2xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center gap-4 bg-slate-50 hover:bg-slate-100 hover:border-[#1F83C6] transition-colors group cursor-pointer relative">
+                      <input 
+                        type="file" 
+                        accept="image/*" 
+                        className="hidden" 
+                        onChange={(e) => {
+                          if (e.target.files && e.target.files[0]) {
+                            setProfilePhoto(e.target.files[0]);
+                          }
+                        }}
+                      />
+                      {profilePhoto ? (
+                        <div className="flex flex-col items-center gap-3 w-full">
+                          <div className="relative w-24 h-24 rounded-full border-4 border-white shadow-md overflow-hidden group-hover:shadow-lg transition-shadow">
+                            <img 
+                              src={URL.createObjectURL(profilePhoto)} 
+                              alt="Preview" 
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                              <Upload className="w-6 h-6 text-white" />
+                            </div>
+                          </div>
+                          <div className="text-center">
+                            <p className="text-sm font-bold text-slate-700 max-w-[200px] truncate">{profilePhoto.name}</p>
+                            <p className="text-xs text-[#1F83C6] mt-1 font-medium">Click to change photo</p>
+                          </div>
+                        </div>
+                      ) : (
+                        <>
+                          <div className="w-16 h-16 rounded-full bg-white border border-slate-200 flex items-center justify-center group-hover:shadow-md transition-shadow">
+                            <Upload className="w-6 h-6 text-[#1F83C6]" />
+                          </div>
+                          <div className="text-center">
+                            <p className="text-sm font-bold text-slate-700">Click to upload profile photo (Optional)</p>
+                            <p className="text-xs text-slate-400 mt-1">SVG, PNG, JPG or GIF (max. 2MB)</p>
+                          </div>
+                        </>
+                      )}
+                    </label>
                   </div>
                 </motion.div>
               )}
@@ -136,6 +194,7 @@ export default function RegisterPage() {
               {/* STEP 2: Professional Profile */}
               {currentStep === 2 && (
                 <motion.div
+                  id="step2"
                   key="step2"
                   variants={variants}
                   initial="initial"
@@ -149,7 +208,7 @@ export default function RegisterPage() {
                       <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <Briefcase className="h-5 w-5 text-slate-400 group-focus-within:text-[#1F83C6] transition-colors z-10" />
                       </div>
-                      <select className="w-full pl-12 pr-10 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 appearance-none relative z-0">
+                      <select required className="w-full pl-12 pr-10 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 appearance-none relative z-0">
                         <option value="" disabled selected>Select your Profession</option>
                         <option value="PG">Post Graduate (PG)</option>
                         <option value="Consultant">Consultant</option>
@@ -165,14 +224,14 @@ export default function RegisterPage() {
                       <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <Award className="h-5 w-5 text-slate-400 group-focus-within:text-[#1F83C6] transition-colors" />
                       </div>
-                      <input type="text" placeholder="Designation" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
+                      <input type="text" required placeholder="Designation" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
                     </div>
 
                     <div className="relative group">
                       <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <ShieldCheck className="h-5 w-5 text-slate-400 group-focus-within:text-[#1F83C6] transition-colors" />
                       </div>
-                      <input type="text" placeholder="State Medical Council Number (Optional)" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
+                      <input type="text" required placeholder="State Medical Council Number" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
                     </div>
                   </div>
                 </motion.div>
@@ -181,6 +240,7 @@ export default function RegisterPage() {
               {/* STEP 3: Location & Billing */}
               {currentStep === 3 && (
                 <motion.div
+                  id="step3"
                   key="step3"
                   variants={variants}
                   initial="initial"
@@ -195,14 +255,14 @@ export default function RegisterPage() {
                         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                           <MapPin className="h-5 w-5 text-slate-400 group-focus-within:text-[#1F83C6] transition-colors" />
                         </div>
-                        <input type="text" placeholder="City" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
+                        <input type="text" required placeholder="City" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
                       </div>
 
                       <div className="relative group">
                         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                           <Map className="h-5 w-5 text-slate-400 group-focus-within:text-[#1F83C6] transition-colors" />
                         </div>
-                        <input type="text" placeholder="State" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
+                        <input type="text" required placeholder="State" className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1F83C6]/20 focus:border-[#1F83C6] focus:bg-white transition-all font-medium text-slate-700 placeholder:text-slate-400 placeholder:font-normal" />
                       </div>
                     </div>
 
@@ -235,7 +295,7 @@ export default function RegisterPage() {
               {currentStep < steps.length ? (
                 <button 
                   type="button" 
-                  onClick={nextStep}
+                  onClick={handleNext}
                   className="flex items-center gap-2 px-8 py-3 bg-[#1F83C6] hover:bg-[#156ca5] text-white rounded-xl font-bold shadow-md shadow-[#1F83C6]/20 hover:shadow-lg hover:-translate-y-0.5 transition-all"
                 >
                   Continue <ArrowRight className="w-5 h-5" />

@@ -28,10 +28,10 @@ export default function Footer() {
               <p className="text-slate-400 font-medium text-lg">Secure your spot for the premier diabetes update.</p>
             </div>
             
-            <button className="relative z-10 flex-shrink-0 bg-white text-slate-900 hover:bg-slate-100 px-8 py-4 rounded-xl font-bold text-lg transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center gap-3">
+            <Link href="/register" className="relative z-10 flex-shrink-0 bg-white text-slate-900 hover:bg-slate-100 px-8 py-4 rounded-xl font-bold text-lg transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center gap-3">
               Register Now
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -99,15 +99,15 @@ export default function Footer() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div className="pt-1">
-                  <strong className="block text-white font-medium mb-1">GReaT Ceremonies</strong>
-                  by GRT Hotels. 41, Giriyappa Rd, T. Nagar, Chennai
+                  <strong className="block text-white font-medium mb-1">Radisson Blu Hotel & Suites GRT Chennai</strong>
+                  (near airport), Chennai
                 </div>
               </li>
               <li className="flex items-center gap-4 text-slate-400 group">
                 <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:text-primary transition-colors">
                   <Mail className="w-5 h-5" />
                 </div>
-                <span className="group-hover:text-white transition-colors"><Link href="mailto:mvcon@mvdiabetes.in">mvcon@mvdiabetes.in</Link></span>
+                <span className="group-hover:text-white transition-colors"><Link href="mailto:mvconofficial@gmail.com">mvconofficial@gmail.com</Link></span>
               </li>
               <li className="flex items-center gap-4 text-slate-400 group">
                 <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:text-primary transition-colors">

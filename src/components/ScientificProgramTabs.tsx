@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Calendar, MapPin, Search, Clock } from 'lucide-react';
+import { Calendar, MapPin, Search, Clock, Users, Microscope, MessageSquare, Network } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { scheduleData } from '../data/schedule';
 
@@ -9,9 +9,9 @@ type Tab = 'overview' | 'day1' | 'day2' | 'day3' | 'register';
 type Hall = 'A' | 'B';
 
 const days = [
-  { id: 'day1' as Tab, label: 'Day 01', dayName: 'Friday', date: '1st', monthYear: 'JAN 2027' },
-  { id: 'day2' as Tab, label: 'Day 02', dayName: 'Saturday', date: '2nd', monthYear: 'JAN 2027' },
-  { id: 'day3' as Tab, label: 'Day 03', dayName: 'Sunday', date: '3rd', monthYear: 'JAN 2027' },
+  { id: 'day1' as Tab, label: 'Day 01', dayName: 'Friday', date: '19th', monthYear: 'MAR 2027' },
+  { id: 'day2' as Tab, label: 'Day 02', dayName: 'Saturday', date: '20th', monthYear: 'MAR 2027' },
+  { id: 'day3' as Tab, label: 'Day 03', dayName: 'Sunday', date: '21st', monthYear: 'MAR 2027' },
 ];
 
 const halls = [
@@ -105,11 +105,8 @@ export default function ScientificProgramTabs() {
                     isActive ? 'border-[#FDE047]' : 'border-slate-200 hover:border-slate-300'
                   }`}
                 >
-                  <div className="bg-black text-white text-[10px] font-bold py-1 w-full text-center tracking-wider">
-                    {hall.label}
-                  </div>
                   <div className={`flex-1 flex items-center justify-center w-full px-4 transition-colors ${isActive ? 'bg-[#FDE047]' : 'bg-white'}`}>
-                    <span className={`text-sm font-medium ${isActive ? 'text-slate-900' : 'text-slate-600'}`}>
+                    <span className={`text-sm font-medium text-center ${isActive ? 'text-slate-900' : 'text-slate-600'}`}>
                       {hall.name}
                     </span>
                   </div>
@@ -162,21 +159,22 @@ export default function ScientificProgramTabs() {
               {/* Overview Content */}
               {activeTab === 'overview' && (
                 <div className="flex flex-col items-center justify-center text-center h-full min-h-[300px]">
-                  <div className="flex items-center justify-center gap-12 md:gap-24 mb-12">
-                    <img src="/images/logo.png" alt="MV Diabetes Logo" className="h-16 md:h-20 object-contain" />
-                    <div className="text-xl font-bold text-slate-400">DRC Logo</div>
+                  <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16 lg:gap-24 mb-12 w-full max-w-5xl mx-auto">
+                    <img src="/images/logo1.png" alt="Sponsor Logo Left" className="h-16 md:h-20 object-contain" />
+                    <img src="/images/logo.png" alt="MVCON Logo" className="h-20 md:h-28 object-contain scale-110" />
+                    <img src="/images/logo3.png" alt="Sponsor Logo Right" className="h-16 md:h-20 object-contain" />
                   </div>
                   
                   <h2 className="text-5xl md:text-7xl font-extrabold text-[#1F83C6] mb-12 tracking-tight">
                     MVCON 2027
                   </h2>
 
-                  <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+                  <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-20">
                     <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-full border border-slate-200 shadow-sm text-slate-700 font-semibold">
                       <div className="w-10 h-10 rounded-full bg-[#F26522] flex items-center justify-center text-white shrink-0">
                         <Calendar className="w-5 h-5" />
                       </div>
-                      1, 2, 3 January 2027
+                      19, 20, 21 March 2027
                     </div>
                     
                     <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-full border border-slate-200 shadow-sm text-slate-700 font-semibold">
@@ -184,6 +182,66 @@ export default function ScientificProgramTabs() {
                         <MapPin className="w-5 h-5" />
                       </div>
                       GRT Hotels, T.Nagar, Chennai
+                    </div>
+                  </div>
+
+                  {/* Chairman Profile */}
+                  <div className="w-full max-w-sm mx-auto bg-slate-50/80 backdrop-blur-sm rounded-2xl shadow-sm border border-slate-200 p-4 mb-24">
+                    <div className="w-full aspect-[4/3] sm:h-[280px] rounded-xl overflow-hidden mb-4">
+                      <img src="/images/chairman.jpg" alt="Dr. Vijay Viswanathan" className="w-full h-full object-cover object-top" />
+                    </div>
+                    <div className="bg-[#FDE047] rounded-xl py-4 px-6 text-center shadow-sm">
+                      <h3 className="font-bold text-slate-900 text-lg mb-1">Dr. Vijay Viswanathan</h3>
+                      <p className="text-slate-800 text-sm font-semibold">Head &amp; Chief Diabetologist</p>
+                      <p className="text-slate-800 text-sm">MV Hospital for Diabetes, Chennai</p>
+                    </div>
+                  </div>
+
+                  {/* Conference Highlights */}
+                  <div className="w-full max-w-6xl mx-auto mb-10">
+                    <h3 className="text-3xl font-extrabold text-[#1F83C6] mb-12">Conference Highlights</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                      
+                      <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+                        <div className="w-14 h-14 rounded-full bg-[#F26522]/10 flex items-center justify-center mb-6 text-[#F26522]">
+                          <Users className="w-7 h-7" />
+                        </div>
+                        <p className="text-slate-700 font-medium text-sm leading-relaxed">
+                          <strong className="block text-slate-900 mb-1">Wide range of sessions:</strong>
+                          Talks on diabetes and management of its complications such as kidney, eye, heart and dedicated sessions on diabetic foot
+                        </p>
+                      </div>
+
+                      <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+                        <div className="w-14 h-14 rounded-full bg-[#F26522]/10 flex items-center justify-center mb-6 text-[#F26522]">
+                          <Microscope className="w-7 h-7" />
+                        </div>
+                        <p className="text-slate-700 font-medium text-sm leading-relaxed">
+                          <strong className="block text-slate-900 mb-1">Live workshops:</strong>
+                          Hands-on debridement practice and demonstrations of advanced techniques such as Negative Pressure Wound Therapy.
+                        </p>
+                      </div>
+
+                      <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+                        <div className="w-14 h-14 rounded-full bg-[#F26522]/10 flex items-center justify-center mb-6 text-[#F26522]">
+                          <MessageSquare className="w-7 h-7" />
+                        </div>
+                        <p className="text-slate-700 font-medium text-sm leading-relaxed">
+                          <strong className="block text-slate-900 mb-1">Scientific exchanges:</strong>
+                          Symposiums, Panel discussions, Original research presentations (oral and poster), Quiz competition, and Debates
+                        </p>
+                      </div>
+
+                      <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+                        <div className="w-14 h-14 rounded-full bg-[#F26522]/10 flex items-center justify-center mb-6 text-[#F26522]">
+                          <Network className="w-7 h-7" />
+                        </div>
+                        <p className="text-slate-700 font-medium text-sm leading-relaxed">
+                          <strong className="block text-slate-900 mb-1">Networking opportunity:</strong>
+                          A dedicated Delegate Lounge for interaction with peers and faculty
+                        </p>
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -205,7 +263,7 @@ export default function ScientificProgramTabs() {
                     {scheduleData[activeTab]?.[activeHall] ? (
                       <div className="relative">
                         {/* Global Timeline Line */}
-                        <div className="absolute left-[120px] top-4 bottom-0 w-0.5 bg-slate-100 hidden md:block" />
+                        <div className="absolute left-[140px] top-4 bottom-0 w-0.5 bg-slate-100 hidden md:block" />
                         
                         <div className="space-y-6">
                           {scheduleData[activeTab][activeHall].filter(item => {
@@ -216,12 +274,24 @@ export default function ScientificProgramTabs() {
                             <div key={index} className="relative flex flex-col md:flex-row gap-4 md:gap-8 w-full group">
                               
                               {/* Desktop Timeline */}
-                              <div className="hidden md:flex flex-col items-end w-[100px] shrink-0 pt-5 relative">
+                              <div className="hidden md:flex flex-col items-center w-[120px] shrink-0 pt-3 relative">
                                 <div className="absolute right-[-30px] top-[26px] w-4 h-4 rounded-full bg-white border-4 border-[#1F83C6] shadow-sm z-10 transition-transform group-hover:scale-125" />
-                                <span className="text-sm font-extrabold text-[#1F83C6] whitespace-nowrap">{item.time.split(' – ')[0] || item.time.split(' ')[0]}</span>
-                                {item.time.includes('–') && (
-                                  <span className="text-xs font-bold text-slate-400 mt-0.5">{item.time.split(' – ')[1]}</span>
-                                )}
+                                <div className="flex flex-col items-center justify-center w-full min-h-[54px] bg-[#1F83C6]/5 border border-[#1F83C6]/10 px-2 py-1.5 rounded-xl shadow-sm text-center">
+                                  {(() => {
+                                    const parts = item.time.split(/\s*[-–]\s*/);
+                                    if (parts.length > 1) {
+                                      return (
+                                        <>
+                                          <span className="text-[12px] font-extrabold text-[#1F83C6] leading-tight">{parts[0]}</span>
+                                          <span className="text-[11px] font-bold text-slate-500 mt-0.5 leading-tight">{parts[1]}</span>
+                                        </>
+                                      );
+                                    }
+                                    return (
+                                      <span className="text-[12px] font-extrabold text-[#1F83C6] leading-tight">{item.time}</span>
+                                    );
+                                  })()}
+                                </div>
                               </div>
                               
                               {/* Content Card */}

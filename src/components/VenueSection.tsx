@@ -46,7 +46,7 @@ export default function VenueSection() {
           <ScrollReveal className="w-full lg:w-1/2 flex flex-col" direction="right">
             <div className="relative w-full h-[400px] lg:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white dark:border-slate-800 group">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.9335307117003!2d80.2454703!3d13.0399029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52672ddd6e4001%3A0x9d58f9c9658fc6f1!2sGReaT%20Ceremonies%20by%20GRT%20Hotels!5e0!3m2!1sen!2sin!4v1787651740272!5m2!1sen!2sin" 
+                src="https://maps.google.com/maps?q=Radisson+Blu+Hotel+%26+Suites+GRT+Chennai&t=&z=13&ie=UTF8&iwloc=&output=embed" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
@@ -58,11 +58,11 @@ export default function VenueSection() {
               
               {/* Floating Overlay Card on the map */}
               <div className="absolute bottom-6 left-6 right-6 md:right-auto md:w-72 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 transform md:translate-y-4 group-hover:translate-y-0 transition-transform duration-500 opacity-90 group-hover:opacity-100">
-                <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-1">GReaT Ceremonies</h3>
+                <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-1">Radisson Blu Hotel & Suites GRT Chennai</h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
-                  by GRT Hotels. 41, Giriyappa Rd, T. Nagar, Chennai
+                  (near airport), Chennai
                 </p>
-                <a href="https://maps.app.goo.gl/tKD8fonbiQgX4Ec39" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full gap-2 bg-primary hover:bg-blue-600 text-white py-3 px-4 rounded-xl text-sm font-semibold transition-colors shadow-md">
+                <a href="https://www.google.com/maps/search/Radisson+Blu+Hotel+%26+Suites+GRT+Chennai" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full gap-2 bg-primary hover:bg-blue-600 text-white py-3 px-4 rounded-xl text-sm font-semibold transition-colors shadow-md">
                   <Navigation className="w-4 h-4" /> Open in Maps
                 </a>
               </div>

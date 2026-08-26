@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "MVCON",
+  title: "2nd Edition MVCON",
   description: "Annual Scientific Update on Diabetes & Diabetic Foot Care",
 };
 
