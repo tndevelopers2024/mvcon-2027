@@ -36,7 +36,7 @@ export default function AbstractPage() {
       </section>
 
       {/* Content Sections */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 -mt-16 relative z-20 space-y-24">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 -mt-16 relative z-20 space-y-24">
         
         {/* Section 1: Timeline (Image Left, Text Right) */}
         <section className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden flex flex-col lg:flex-row group">
@@ -136,7 +136,7 @@ export default function AbstractPage() {
             </div>
 
             {/* Bottom: Structure (col-span-3) */}
-            <div className="lg:col-span-3 bg-gradient-to-br from-[#0A3D73] to-[#041E42] rounded-[2rem] p-8 md:p-10 shadow-xl relative overflow-hidden text-white">
+            <div className="lg:col-span-3 mt-8 lg:mt-12 bg-gradient-to-br from-[#0A3D73] to-[#041E42] rounded-[2rem] p-8 md:p-10 shadow-xl relative overflow-hidden text-white">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[#1F83C6]/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
               
               <h3 className="font-bold text-white text-2xl mb-8 flex items-center gap-3 relative z-10">

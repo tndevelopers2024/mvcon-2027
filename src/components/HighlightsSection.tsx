@@ -18,7 +18,7 @@ const highlights = [
     id: '03',
     title: 'Scientific Exchanges',
     icon: MessageSquare,
-    imageSrc: '/images/hero-banner3.JPG',
+    imageSrc: '/images/highlight3.jpg',
   },
   {
     id: '04',
@@ -49,32 +49,30 @@ export default function HighlightsSection() {
             const Icon = item.icon;
             return (
               <ScrollReveal key={item.id} direction="up" delay={index * 150}>
-                <div className="group relative h-64 overflow-hidden rounded-2xl border border-border-color shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer bg-slate-50 dark:bg-slate-800">
-                  {/* Background Image (Revealed on Hover) */}
-                  <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                <div className="group flex flex-col h-full overflow-hidden rounded-2xl border border-border-color shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer bg-white dark:bg-slate-800">
+                  {/* Thumbnail Image */}
+                  <div className="relative h-48 w-full overflow-hidden">
                     <Image
                       src={item.imageSrc}
                       alt={item.title}
                       fill
-                      className="object-cover transform scale-110 group-hover:scale-100 transition-transform duration-700"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
-                    {/* Dark overlay to ensure text is readable against the background image */}
-                    <div className="absolute inset-0 bg-black/60 transition-opacity duration-700" />
                   </div>
 
-                  {/* Card Content (z-10 ensures it sits above the background) */}
-                  <div className="absolute inset-0 z-10 flex flex-col justify-end p-8 transition-colors duration-500">
-                    <Icon className="w-8 h-8 mb-auto text-primary group-hover:text-white transition-colors duration-500" />
-                    
-                    <div>
-                      <span className="text-sm font-bold text-text-muted group-hover:text-white/70 transition-colors duration-500 mb-2 block">
-                        {item.id}
-                      </span>
-                      <h3 className="text-xl font-bold text-foreground group-hover:text-white transition-colors duration-500">
-                        {item.title}
-                      </h3>
+                  {/* Card Content */}
+                  <div className="flex flex-col flex-grow p-6 relative bg-slate-50 dark:bg-slate-800">
+                    <div className="absolute -top-8 right-6 bg-white dark:bg-slate-700 p-3 rounded-xl shadow-md border border-slate-100 dark:border-slate-600 transition-transform duration-500 group-hover:-translate-y-2">
+                      <Icon className="w-6 h-6 text-primary" />
                     </div>
+                    
+                    <span className="text-sm font-bold text-primary mb-2 block">
+                      {item.id}
+                    </span>
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                      {item.title}
+                    </h3>
                   </div>
                 </div>
               </ScrollReveal>

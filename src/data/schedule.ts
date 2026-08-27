@@ -20,374 +20,152 @@ export type DaySchedule = {
 export const scheduleData: Record<string, DaySchedule> = {
   day1: {
     A: [
-      {
-        time: '08:00 AM onwards',
-        title: 'Registration from 8:00 AM onwards',
-        isBreak: true
-      },
-      {
-        time: '09:00 AM – 09:20 AM',
-        title: 'Imeglimin- A powerhouse approach to Type 2 Diabetes',
-        faculty: 'Dr.Selva Pandian',
-        chairpersons: 'Dr.C.R.Anand Moses, Dr.P.Dharmarajan'
-      },
-      {
-        time: '09:20 AM – 09:40 AM',
-        title: 'Double burden: Navigating diabetes and tuberculosis',
-        faculty: 'Dr.Chandrasekar S',
-        chairpersons: 'Dr.C.R.Anand Moses, Dr.P.Dharmarajan'
-      },
-      {
-        time: '09:40 AM – 10:00 AM',
-        title: 'Fatty Liver (MASLD) - Role of Saroglitazar: Dual PPAR Agonist',
-        faculty: 'Dr.G.Vijayakumar',
-        chairpersons: 'Dr.M.Shunmugavelu, Dr.C.Muralidharan'
-      },
-      {
-        time: '10:00 AM – 10:30 AM',
-        title: 'Managing Heart failure in People with Diabetes',
-        faculty: 'Dr.A.Panneer Selvam',
-        chairpersons: 'Dr.M.Shunmugavelu, Dr.C.Muralidharan'
-      },
-      {
-        time: '10:30 AM - 11:00 AM',
-        title: 'What should be the target for FBS - best practices for basalog Insulin',
-        faculty: 'Dr.M.Shunmugavelu',
-        chairpersons: 'Dr.Selva Pandian, Dr.C.Balaji'
-      },
-      {
-        time: '11:00 AM - 11:30 AM',
-        title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA',
-        isBreak: true
-      },
-      {
-        time: '11:30 AM - 12:00 PM',
-        title: 'Demonstration of High Risk Feet',
-        faculty: 'Dr. Vijay Viswanathan / Ms.Seena',
-        chairpersons: 'Dr.C.Muralidharan, Dr.Aarathy Kannan'
-      },
-      {
-        time: '12:00 PM - 12:30 PM',
-        title: 'Recurrence of DFU - The Indian Strategy for prevention',
-        faculty: 'Dr.Senthil G',
-        chairpersons: 'Dr.C.Muralidharan, Dr.Aarathy Kannan'
-      },
-      {
-        time: '12:30 PM - 1:00 PM',
-        title: 'Mechanical offloading (Unburden the wound)',
-        faculty: 'Dr. Viswanathan Vishnu Vijay',
-        chairpersons: 'Dr.Prashanth Arun, Dr.Shanthi'
-      },
-      {
-        time: '1:00 PM – 1:30 PM',
-        title: 'Surgical offloading',
-        faculty: 'Dr.Senthil G',
-        chairpersons: 'Dr.Shanthi, Dr.Rajasenthil'
-      },
-      {
-        time: '1:30 PM - 2:30 PM',
-        title: 'LUNCH & VISIT TO THE STALLS /POSTER AREA',
-        isBreak: true
-      },
-      {
-        time: '2:30 PM - 3:00 PM',
-        title: 'Redefining limb salvage: New frontiers in technology',
-        faculty: 'Dr.Milind Ruke',
-        chairpersons: 'Dr.Senthil G, Dr.Rajasenthil'
-      },
-      {
-        time: '3:00 PM - 3:30 PM',
-        title: 'Making sense of Targets in Hypertension control',
-        faculty: 'Dr.S.N.Narasingan',
-        chairpersons: 'Dr.M.Shunmugavelu, Dr.C.Muralidharan'
-      },
-      {
-        time: '3:30 PM - 4:30 PM',
-        title: 'MV Life Time Achievement Award\nInauguration & Key Note lecture',
-        faculty: 'Dr.Jitendra Singh'
-      },
-      {
-        time: '4:30 PM - 5:00 PM',
-        title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA',
-        isBreak: true
-      },
-      {
-        time: '5:00 PM - 5:30 PM',
-        title: 'The role of microbiota in the management of diabetes and hypertension',
-        faculty: 'Dr.A.Muruganathan',
-        chairpersons: 'Dr.G.Prakash, Dr.A.Shanmugam'
-      },
-      {
-        time: '5:30 PM - 6:00 PM',
-        title: 'Management of hyperglycemia during DFU',
-        faculty: 'Dr.R M Anjana',
-        chairpersons: 'Dr.Vijay Viswanathan, Dr.Prashanth Arun'
-      },
-      {
-        time: '6:00 PM - 6:30 PM',
-        title: 'Charcot foot: Timely diagnosis and treatment to prevent amputation',
-        faculty: 'Dr.Johny J Kannampilly',
-        chairpersons: 'Dr.Vijay Viswanathan, Dr.Thangavelu Easwaran'
-      },
-      {
-        time: '6:30 PM – 7:00 PM',
-        title: 'Disease modifying outcome from glucose control to metabolic protection',
-        faculty: 'Dr.G.Vijayakumar',
-        chairpersons: 'Dr.C.Balaji, Dr.A.Shanmugam'
-      },
-      {
-        time: '07:00 PM - 07:30 PM',
-        title: 'Secondary diabetes: Unravelling the hidden causes',
-        faculty: 'Dr.A.Shanmugam',
-        chairpersons: 'Dr.C.Muralidharan, Dr.K.Shanmugam'
-      },
-      {
-        time: '07:30 PM - 08:00 PM',
-        title: 'Gut dysbiosis, NUSH and metabolic disparities',
-        faculty: 'Dr.Krishna G Seshadri',
-        chairpersons: 'Dr.A.Shanmugam, Dr.G.Vijayakumar'
-      },
-      {
-        time: '08:00 PM onwards',
-        title: 'Networking Dinner',
-        isBreak: true
-      }
+      { time: '08:00 AM onwards', title: 'Registration from 8:00 AM onwards', isBreak: true },
+      { time: '09:00 AM – 09:20 AM', title: 'Type 2 Diabetes Is Not One Disease — Understanding the Different Phenotypes', faculty: 'TBD' },
+      { time: '09:20 AM – 09:40 AM', title: 'Beyond HbA1c — What Does Glucose Actually Look Like in Our Patients?', faculty: 'TBD' },
+      { time: '09:40 AM – 10:00 AM', title: 'Choosing the First Drug — Does One Algorithm Fit Everyone?', faculty: 'TBD' },
+      { time: '10:00 AM - 10:20 AM', title: 'GLP-1 Therapy — Choosing the Right Patient, Dose and Goal', faculty: 'TBD' },
+      { time: '10:20 AM - 10:40 AM', title: 'Dual Incretin Therapy — What Does the Extra Benefit Really Mean?', faculty: 'TBD' },
+      { time: '10:40 AM - 11:00 AM', title: 'The Patient Who Doesn\'t Respond to GLP-1 Therapy — What Next?', faculty: 'TBD' },
+      { time: '11:00 AM - 11:30 AM', title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '11:30 AM - 12:00 PM', title: 'Demonstration of High Risk Feet', faculty: 'Vijay Viswanathan / Ms.Seena Rajsekar & Ms.Bamila Selvaraj' },
+      { time: '12:00 PM - 12:20 PM', title: 'TBD', faculty: 'Prashanth Vas' },
+      { time: '12:20 PM - 12:40 PM', title: 'Ischaemic Diabetic Foot — When Does the Patient Need Revascularisation?', faculty: 'Ravikumar R' },
+      { time: '12:40 PM - 1:00 PM', title: 'Mechanical Offloading: From Footwear to Surgical Solutions', faculty: 'Viswanathan Vishnu Vijay' },
+      { time: '1:00 PM - 1:30 PM', title: 'Surgical offloading', faculty: 'Senthil G' },
+      { time: '1:30 PM - 2:30 PM', title: 'LUNCH & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '2:30 PM - 2:50 PM', title: 'Type 1 Diabetes in the Modern Era — Beyond HbA1c', faculty: 'TBD' },
+      { time: '2:50 PM - 3:10 PM', title: 'Automated Insulin Delivery — From Technology to Routine Care', faculty: 'TBD' },
+      { time: '3:10 PM - 3:30 PM', title: 'Living with Type 1 Diabetes: Technology, Psychology and Quality of Life', faculty: 'TBD' },
+      { time: '3:30 PM - 4:30 PM', title: 'MV Life Time Achievement Award\nInauguration & Key Note lecture', faculty: 'TBD' },
+      { time: '4:30 PM - 5:00 PM', title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '5:00 PM - 5:20 PM', title: 'CGM for the Real-World Patient — Who Should Get It?', faculty: 'TBD' },
+      { time: '5:20 PM - 5:40 PM', title: 'From Sensor to Prescription — Interpreting CGM Like a Clinician', faculty: 'TBD' },
+      { time: '5:40 PM - 6:00 PM', title: 'Artificial Intelligence in Diabetology — What Is Ready for Prime Time?', faculty: 'TBD' },
+      { time: '6:00 PM - 6:20 PM', title: 'Cardiovascular Risk Begins Before Diabetes — Can We Intervene Earlier?', faculty: 'TBD' },
+      { time: '6:20 PM - 6:40 PM', title: 'Choosing Diabetes Therapy by Cardiovascular Phenotype', faculty: 'TBD' },
+      { time: '6:40 PM - 7:00 PM', title: 'Heart Failure in Diabetes — The Patient Sitting in Front of Us', faculty: 'TBD' },
+      { time: '07:00 PM onwards', title: 'Dinner 7pm onwards', isBreak: true }
     ],
     B: [
-      {
-        time: '08:00 AM onwards',
-        title: 'Registration from 8:00 AM onwards',
-        isBreak: true
-      },
-      {
-        time: '09:00 AM – 09:40 AM',
-        title: 'Paper Presentations (MVOP01 - MVOP05)',
-        subSessions: [
-          {
-            title: 'MVOP01-Exosomal microRNAs as Emerging Regulators of Ferroptosis and Their Potential in the Development of Novel Therapeutic Strategies for Human Disease',
-            faculty: 'Adhira Prakash',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP02-A comparative study of management of diabetic foot ulcer with human epidermal growth factor vs placental extract gel',
-            faculty: 'Shreyas V Nair',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP03-Exploring the association between Hypomagnesemia and Diabetic nephropathy',
-            faculty: 'Lakshmana Prasanth Katragad',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP04-DNA Methylation-Induced Nrf2 Dysfunction In Diabetic Foot Ulcers: Implications for Epigenetic Therapy',
-            faculty: 'Kannan Harithpriya',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP05-Mangiferin-regulated NRF2 signaling attenuates hyperglycemic stress in macrophages',
-            faculty: 'Ravichandran Jayasuriya',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          }
-        ]
-      },
-      {
-        time: '09:40 AM – 10:00 AM',
-        title: 'Unmasking Anemia in Diabetes',
-        faculty: 'Dr. V.P. Sriram',
-        chairpersons: 'Dr.Kannan Natarajan, Dr.C Balaji'
-      },
-      {
-        time: '10:00 AM – 10:20 AM',
-        title: 'International Vs National - ADA Vs RSSDI guidelines What\'s New / What Next / What\'s the difference ?',
-        faculty: 'Dr.K.Uma Mahesh',
-        chairpersons: 'Dr.Kannan Natarajan, Dr.C Balaji'
-      },
-      {
-        time: '10:20 AM - 10:40 AM',
-        title: 'The invisible threat: Identifying asymptomatic diabetes in clinical practice',
-        faculty: 'Dr.Aarathy Kannan',
-        chairpersons: 'Dr.Suresh Kanna S ,Dr.B.Kannan'
-      },
-      {
-        time: '10:40 AM - 11:00 AM',
-        title: 'The silent erosion: Unveiling the double burden of diabetes and sarcopenia',
-        faculty: 'Dr. Vishnu Priya Reddy',
-        chairpersons: 'Dr.N.N.Anand, Dr.B.Kannan'
-      },
-      {
-        time: '11:00 AM - 11:30 AM',
-        title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA',
-        isBreak: true
-      },
-      {
-        time: '11:30 AM – 12:00 PM',
-        title: 'Demonstration of High Risk Feet in Hall A',
-        faculty: 'Dr. Vijay Viswanathan / Ms.Seena',
-        chairpersons: 'Dr.C.Muralidharan, Dr.Aarathy Kannan'
-      },
-      {
-        time: '12:00 PM - 12:30 PM',
-        title: 'Periodontitis as the sixth complication of Diabetes: Integrating Oral health into Primary Diabetes Care',
-        faculty: 'Dr.Vinitha Ramachanadran',
-        chairpersons: 'Dr.N.Bhavatharani, Dr.G.Prakash'
-      },
-      {
-        time: '12:30 PM - 1:00 PM',
-        title: 'Surrogate measures in routine clinical practice',
-        faculty: 'Dr.Satyavani K',
-        chairpersons: 'Dr.N.Bhavatharani, Dr.G.Prakash'
-      },
-      {
-        time: '01:00 PM – 01:30 PM',
-        title: 'Paper Presentations (MVOP06 - MVOP09)',
-        subSessions: [
-          {
-            title: 'MVOP06-Non Diabetic Renal Pathologies In Diabetic Patients : A Biopsy Based Perspective',
-            faculty: 'Pon Abinaya',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP07-Hydroxytyrosol Targets Hyperglycemia-Induced Endothelial Dysfunction: A Network Pharmacology and In Vitro Investigation',
-            faculty: 'DK GokulRaj',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP08- Efficacy of Topical Timolol Vs Normal Saline In The Healing Of Chronic Diabetic Foot Ulcers',
-            faculty: 'Divya Padmakumar',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP09- Prolonged QTc in Type 2 Diabetes: An Under-Recognized Cardiovascular Risk Signal',
-            faculty: 'Vraj rajesh kumar shah',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          }
-        ]
-      },
-      {
-        time: '1:30 PM - 2:30 PM',
-        title: 'LUNCH & VISIT TO THE STALLS /POSTER AREA',
-        isBreak: true
-      },
-      {
-        time: '2:30 PM - 3:30 PM',
-        title: 'Paper Presentations (MVOP10 - MVOP16)',
-        subSessions: [
-          {
-            title: 'MVOP10-Uncovering the Therapeutic Potential of Lobeglitazone in Diabetic Nephropathy through Network Pharmacology and Molecular Docking',
-            faculty: 'Kalaimani M',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP11-Integrative Management Preventing Amputation in Chronic Non-Healing Diabetic Foot Ulcer',
-            faculty: 'P.Revin Selvan',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP12- Comparative Effectiveness of Topical Oxygen Therapy and Negative Pressure Wound Therapy In Diabetic Foot Ulcers: A Prospective Study',
-            faculty: 'Rohith Balaji SR',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP13-Clinico-Microbiological Profile and Antibiotic Susceptibility Pattern of Diabetic Foot Infections Background',
-            faculty: 'Jacob C Jacob',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP14-Effect of Sulforaphane on Wound Healing by Mitigating Oxieptosis under Hyperglycemic Microenvironment',
-            faculty: 'Kavyashree Srikanth',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP15- Correlation of Cognitive Function With Urine Albumin Creatinine Ratio in Type 2 Diabetes',
-            faculty: 'Niveda',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP16 - Emerging Role of ESMOLOL HYDROCHLORIDE TOPICAL GEL 14% in Diabetic Foot Ulcer (DFU) Management- Early Clinical Experience',
-            faculty: 'Thangavelu Easwaran',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          }
-        ]
-      },
-      {
-        time: '3:30 PM - 4:30 PM',
-        title: 'MV Life Time Achievement Award in Hall A\nInauguration & Key Note lecture in Hall A',
-        faculty: 'Dr.Jitendra Singh'
-      },
-      {
-        time: '4:30 PM - 5:00 PM',
-        title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA',
-        isBreak: true
-      },
-      {
-        time: '5:00 PM - 5:30 PM',
-        title: 'Retina reimagined: Technology transforming Diabetic Retinopathy screening',
-        faculty: 'Dr.Manoj Khatri',
-        chairpersons: 'Dr.Kannan Natarajan, Dr.Mitalee H Barman'
-      },
-      {
-        time: '5:30 PM - 6:00 PM',
-        title: 'Work place bullying and violence as risk factors for type 2 diabetes',
-        faculty: 'Dr.Keerthi Prabhu',
-        chairpersons: 'Dr.Kannan Natarajan, Dr.K.Shanmugam'
-      },
-      {
-        time: '6:00 PM - 6:30 PM',
-        title: 'Breathing while you sleep: Unmasking OSA',
-        faculty: 'Dr.N Ramakrishnan',
-        chairpersons: 'Dr.Leela Baid, Dr.K.Shanmugam'
-      },
-      {
-        time: '6:30 PM - 07:30 PM',
-        title: 'Paper Presentations (MVOP17 - MVOP23)',
-        subSessions: [
-          {
-            title: 'MVOP17- Inhibition of Ferroptosis in Pancreatic β Cells: A Comprehensive In Silico, In Vitro, and In Vivo Approach for Diabetes Therapy',
-            faculty: 'Murali Krishna Prasad',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP18-Digital Health Technology Use and Barriers in Type 2 Diabetes Care',
-            faculty: 'Sagarika Duggirala',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP19-Early Microvascular Burden in Young-Onset Type 2 Diabetes Mellitus',
-            faculty: 'Shantanu Gondkar',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP20-Double Vision in Diabetes: A Sixth Nerve Surprise',
-            faculty: 'Sivaprakasan K',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP21-The Incidental Metabolic Crisis',
-            faculty: 'Varun M',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP22-The Pathogenic Role of Ferroptosis in GDM-Related Placental Dysfunction',
-            faculty: 'S Monisha',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          },
-          {
-            title: 'MVOP23- Prevalence of different stages of heart failure among People with Type 2 Diabetes',
-            faculty: 'Naresh kumar S',
-            chairpersons: 'Judges: Dr.V.P.Sriram, Dr.Satyavani K'
-          }
-        ]
-      },
-      {
-        time: '07:30 PM - 08:00 PM',
-        title: 'MV Alumni - Debate (SGLT2i vs GLP1RA)',
-        chairpersons: 'Dr.Hemanga Barman, Dr.Mitalee H Barman, Dr.V.P.Sriram'
-      },
-      {
-        time: '08:00 PM onwards',
-        title: 'Networking Dinner',
-        isBreak: true
-      }
+      { time: '08:00 AM onwards', title: 'Registration from 8:00 AM onwards', isBreak: true },
+      { time: '09:00 AM – 09:20 AM', title: 'Oral papers' },
+      { time: '09:20 AM – 09:40 AM', title: 'Oral papers' },
+      { time: '09:40 AM – 10:00 AM', title: 'Oral papers' },
+      { time: '10:00 AM - 10:20 AM', title: 'Sarcopenia in Diabetes — Recognising the Invisible Complication', faculty: 'TBD' },
+      { time: '10:20 AM - 10:40 AM', title: 'Resistance Training — The Prescription Every Diabetologist Should Know', faculty: 'TBD' },
+      { time: '10:40 AM - 11:00 AM', title: 'Frailty, Falls & Diabetes — When Intensive Treatment Becomes Harmful', faculty: 'TBD' },
+      { time: '11:00 AM - 11:30 AM', title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '11:30 AM - 12:00 PM', title: 'Starting Insulin Without Fear — Breaking the Psychological Barrier', faculty: 'TBD' },
+      { time: '12:00 PM - 12:20 PM', title: 'Basal Insulin Failure — Recognising When It Is Time to Intensify', faculty: 'TBD' },
+      { time: '12:20 PM - 12:40 PM', title: 'Insulin Resistance at the Extreme — The Difficult Insulin Patient', faculty: 'TBD' },
+      { time: '12:40 PM - 1:00 PM', title: 'Euglycaemic DKA — The SGLT2 Era Has Changed the Presentation', faculty: 'TBD' },
+      { time: '1:00 PM - 1:30 PM', title: 'Hypoglycaemia — The Adverse Event We Should Prevent, Not Just Treat', faculty: 'TBD' },
+      { time: '1:30 PM - 2:30 PM', title: 'LUNCH & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '2:30 PM - 2:50 PM', title: 'The Mouth–Diabetes Connection: An Overlooked Link', faculty: 'Kritika Datta' },
+      { time: '2:50 PM - 3:10 PM', title: 'Periodontal Disease & Diabetes: A Two-Way Street', faculty: 'Vinitha Ramachandran' },
+      { time: '3:10 PM - 3:30 PM', title: 'PMOS & Diabetes: A Metabolic Challenge in Women’s Health', faculty: 'Chitra Selvan' },
+      { time: '3:30 PM - 4:30 PM', title: 'MV Life Time Achievement Award in Hall A\nInauguration & Key Note lecture in Hall A', faculty: 'TBD' },
+      { time: '4:30 PM - 5:00 PM', title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '5:00 PM - 5:20 PM', title: 'Diabetes & Sexual Dysfunction — Opening the Conversation', faculty: 'TBD' },
+      { time: '5:20 PM - 5:40 PM', title: 'Sleep Apnoea, Sleep Quality & Glucose Metabolism', faculty: 'TBD' },
+      { time: '5:40 PM - 6:00 PM', title: 'MVCON DEBATE — Should HbA1c Remain the Primary Measure of Diabetes Control?' },
+      { time: '6:00 PM - 6:20 PM', title: 'Oral papers' },
+      { time: '6:20 PM - 6:40 PM', title: 'Oral papers' },
+      { time: '6:40 PM - 7:00 PM', title: 'Oral papers' },
+      { time: '07:00 PM onwards', title: 'Dinner 7 pm onwards', isBreak: true }
+    ]
+  },
+  day2: {
+    A: [
+      { time: '08:00 AM onwards', title: 'Registration from 8:00 AM onwards', isBreak: true },
+      { time: '09:00 AM – 09:20 AM', title: 'Why Does Weight Matter So Much in Diabetes?', faculty: 'TBD' },
+      { time: '09:20 AM – 09:40 AM', title: 'BMI Is Not Enough — Looking Beyond the Scale', faculty: 'TBD' },
+      { time: '09:40 AM – 10:00 AM', title: 'Visceral Fat, Insulin Resistance & Cardiometabolic Risk', faculty: 'TBD' },
+      { time: '10:00 AM - 10:20 AM', title: 'Selecting Anti-Obesity Therapy — Matching Treatment to the Patient', faculty: 'TBD' },
+      { time: '10:20 AM - 10:40 AM', title: 'The Weight-Loss Plateau — What Should We Do When the Scale Stops Moving?', faculty: 'TBD' },
+      { time: '10:40 AM - 11:00 AM', title: 'Weight Regain — Is Long-Term Treatment the New Reality?', faculty: 'TBD' },
+      { time: '11:00 AM - 11:30 AM', title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '11:30 AM - 12:00 PM', title: 'Gestational Diabetes — From Pregnancy Complication to Lifetime Risk Marker', faculty: 'TBD' },
+      { time: '12:00 PM - 12:20 PM', title: 'Menopause & Metabolic Health — What Changes in the Woman with diabetes?', faculty: 'TBD' },
+      { time: '12:20 PM - 12:40 PM', title: 'Women\'s Diabetes and Mental Health: The Hidden Connection', faculty: 'TBD' },
+      { time: '12:40 PM - 1:00 PM', title: 'Albuminuria: The Signal We Should Never Ignore', faculty: 'TBD' },
+      { time: '1:00 PM - 1:30 PM', title: 'The Diabetic Kidney in 2027 — What More Can We Offer?', faculty: 'TBD' },
+      { time: '1:30 PM - 2:30 PM', title: 'LUNCH & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '2:30 PM - 2:50 PM', title: 'The Indian Plate — Building a Diabetes-Friendly Diet That Patients Can Actually Follow', faculty: 'TBD' },
+      { time: '2:50 PM - 3:10 PM', title: 'Protein, Fibre & Muscle — The Forgotten Triad in Diabetes', faculty: 'TBD' },
+      { time: '3:10 PM - 3:30 PM', title: 'Carbohydrate Quality vs Carbohydrate Quantity — Which Matters More?', faculty: 'TBD' },
+      { time: '3:30 PM - 3:50 PM', title: 'MASLD in Diabetes — The Liver We Don\'t Examine', faculty: 'TBD' },
+      { time: '3:50 PM - 4:10 PM', title: 'Who Has Progressive Liver Disease? A Practical Risk-Stratification Approach', faculty: 'TBD' },
+      { time: '4:10 PM - 4:30 PM', title: 'Can Diabetes Therapy Treat the Liver Too?', faculty: 'TBD' },
+      { time: '4:30 PM - 5:00 PM', title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '5:00 PM - 5:20 PM', title: 'Quiz' },
+      { time: '5:20 PM - 5:40 PM', title: 'Quiz' },
+      { time: '5:40 PM - 6:00 PM', title: 'Legalities in Diabetes', faculty: 'Dr.Viswanathan Vishnu Vijay' },
+      { time: '6:00 PM - 6:20 PM', title: 'AI in diabetic foot care', faculty: 'Dr.Prashanth Arun' },
+      { time: '6:20 PM - 6:40 PM', title: 'Symposium on obesity and diabetes -The New Treatment Paradigm', faculty: 'TBD' },
+      { time: '6:40 PM - 7:00 PM', title: 'Symposium on obesity and diabetes -The New Treatment Paradigm', faculty: 'TBD' },
+      { time: '07:00 PM onwards', title: 'Dinner 7pm onwards', isBreak: true }
+    ],
+    B: [
+      { time: '08:00 AM onwards', title: 'Registration from 8:00 AM onwards', isBreak: true },
+      { time: '09:00 AM – 09:20 AM', title: 'Oral papers' },
+      { time: '09:20 AM – 09:40 AM', title: 'Oral papers' },
+      { time: '09:40 AM – 10:00 AM', title: 'Oral papers' },
+      { time: '10:00 AM - 10:20 AM', title: 'Oral papers' },
+      { time: '10:20 AM - 10:40 AM', title: 'SMART dressing materials in diabetic wound care', faculty: 'TBD' },
+      { time: '10:40 AM - 11:00 AM', title: 'Charcot foot', faculty: 'TBD' },
+      { time: '11:00 AM - 11:30 AM', title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '11:30 AM - 12:00 PM', title: 'Precision Diabetes — Will We Eventually Treat the Biology, Not Just the Glucose?', faculty: 'TBD' },
+      { time: '12:00 PM - 12:20 PM', title: 'Digital Twins, AI & Predictive Diabetes Care — How Close Are We?', faculty: 'TBD' },
+      { time: '12:20 PM - 12:40 PM', title: 'The Future Diabetes Clinic — What Will the Diabetologist Still Do?', faculty: 'TBD' },
+      { time: '12:40 PM - 1:00 PM', title: 'The First 5 Years of Diabetes — The Window We Often Miss', faculty: 'TBD' },
+      { time: '1:00 PM - 1:30 PM', title: 'Treating the Patient, Not the HbA1c — How Should We Individualise Targets?', faculty: 'TBD' },
+      { time: '1:30 PM - 2:30 PM', title: 'LUNCH & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '2:30 PM - 2:50 PM', title: 'Hands on Workshop', faculty: 'Senthil G, Milind Ruke' },
+      { time: '2:50 PM - 3:10 PM', title: 'Hands on Workshop', faculty: 'Senthil G, Milind Ruke' },
+      { time: '3:10 PM - 3:30 PM', title: 'Hands on Workshop', faculty: 'Senthil G, Milind Ruke' },
+      { time: '3:30 PM - 3:50 PM', title: 'Time in Range — From CGM Metric to Clinical Decision', faculty: 'TBD' },
+      { time: '3:50 PM - 4:10 PM', title: 'When HbA1c and Glucose Don\'t Agree — Solving the Discordance', faculty: 'TBD' },
+      { time: '4:10 PM - 4:30 PM', title: 'MVCON CLINICAL CHALLENGE — "WHAT WOULD YOU DO NEXT?"' },
+      { time: '4:30 PM - 5:00 PM', title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '5:00 PM - 5:20 PM', title: 'Nutrition panel discussion', faculty: 'TBD' },
+      { time: '5:20 PM - 5:40 PM', title: 'Diabetes & Bone health', faculty: 'TBD' },
+      { time: '5:40 PM - 6:00 PM', title: 'Oral papers' },
+      { time: '6:00 PM - 6:20 PM', title: 'Oral papers' },
+      { time: '6:20 PM - 6:40 PM', title: 'Oral papers' },
+      { time: '6:40 PM - 7:00 PM', title: 'Oral papers' },
+      { time: '07:00 PM onwards', title: 'Dinner 7 pm onwards', isBreak: true }
+    ]
+  },
+  day3: {
+    A: [
+      { time: '08:00 AM onwards', title: 'Registration starts from 8:00 AM', isBreak: true },
+      { time: '09:00 AM – 09:20 AM', title: 'Young-Onset Diabetes — Why the Usual Approach May Fail', chairpersons: 'TBD' },
+      { time: '09:20 AM – 09:40 AM', title: 'LADA, MODY & Other Atypical Diabetes — When Should We Investigate?', chairpersons: 'TBD' },
+      { time: '09:40 AM - 10:00 AM', title: 'Secondary Diabetes — The Clues Hidden in the History', chairpersons: 'TBD' },
+      { time: '10:00 AM - 10:20 AM', title: 'Diabetic Kidney Disease — What Should We Do Differently Today?', chairpersons: 'TBD' },
+      { time: '10:20 AM - 10:40 AM', title: 'Diabetic Retinopathy — The Findings That Should Change Your Prescription', chairpersons: 'TBD' },
+      { time: '10:40 AM - 11:00 AM', title: 'Neuropathy — Diagnosis Beyond Symptoms', chairpersons: 'TBD' },
+      { time: '11:00 AM - 11:30 AM', title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '11:30 AM - 12:00 PM', title: 'TBD', chairpersons: 'Ramachandran A' },
+      { time: '12:00 PM - 12:30 PM', title: 'TBD', chairpersons: 'Mohan V' },
+      { time: '12:30 PM - 01:15 PM', title: 'Prof. MV Gold Medal Oration 2027\nMV Life Time Achievement Award', chairpersons: 'TBD' },
+      { time: '01:15 PM onwards', title: 'Valedictory function followed by lunch', isBreak: true }
+    ],
+    B: [
+      { time: '08:00 AM onwards', title: 'Registration starts from 8:00 AM', isBreak: true },
+      { time: '09:00 AM – 09:20 AM', title: 'Oral papers' },
+      { time: '09:20 AM – 09:40 AM', title: 'Oral papers' },
+      { time: '09:40 AM - 10:00 AM', title: 'Oral papers' },
+      { time: '10:00 AM - 10:20 AM', title: 'Oral papers' },
+      { time: '10:20 AM - 10:40 AM', title: 'Oral papers' },
+      { time: '10:40 AM - 11:00 AM', title: 'Oral papers' },
+      { time: '11:00 AM - 11:30 AM', title: 'TEA BREAK & VISIT TO THE STALLS /POSTER AREA', isBreak: true },
+      { time: '11:30 AM - 12:00 PM', title: 'TBD' },
+      { time: '12:00 PM - 12:30 PM', title: 'TBD' },
+      { time: '12:30 PM - 01:15 PM', title: 'Prof. MV Gold Medal Oration 2027 in Hall A\nMV Life Time Achievement Award in Hall A', chairpersons: 'TBD' },
+      { time: '01:15 PM onwards', title: 'Valedictory function followed by lunch', isBreak: true }
     ]
   }
 };

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { HeartPulse, Activity } from 'lucide-react';
 
-import ScrollReveal from './ScrollReveal';
+
 
 export default function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState({
@@ -41,7 +41,7 @@ export default function CountdownTimer() {
       {/* Decorative background element */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       
-      <ScrollReveal className="px-6 relative z-10" direction="up">
+      <div className="px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
           
           {/* Left: Title & Icon */}
@@ -84,7 +84,7 @@ export default function CountdownTimer() {
           </div>
 
         </div>
-      </ScrollReveal>
+      </div>
     </section>
   );
 }

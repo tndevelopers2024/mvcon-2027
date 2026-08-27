@@ -45,13 +45,7 @@ export default function PlacesOfAttraction() {
     setIsClient(true);
   }, []);
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % attractions.length);
-  };
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + attractions.length) % attractions.length);
-  };
 
   if (!isClient) return null;
 
@@ -75,100 +69,51 @@ export default function PlacesOfAttraction() {
           </div>
         </ScrollReveal>
 
-        {/* 3D Coverflow Slider */}
-        <div className="relative w-full h-[350px] md:h-[400px] flex justify-center items-center mt-12 group">
-          
-          <div className="relative w-full max-w-6xl h-full flex justify-center items-center">
-            {attractions.map((place, index) => {
-              let offset = index - currentIndex;
-              const total = attractions.length;
-              
-              // Wrap around logic
-              if (offset > Math.floor(total / 2)) offset -= total;
-              if (offset < -Math.floor(total / 2)) offset += total;
+        {/* Expandable Accordion Slider Layout */}
+        <div className="flex w-full max-w-7xl h-[400px] md:h-[500px] lg:h-[600px] gap-2 md:gap-4 px-2 md:px-4 items-stretch justify-center mx-auto mt-12">
+          {attractions.map((place, index) => {
+            const isActive = index === currentIndex;
+            return (
+              <div
+                key={place.id}
+                onClick={() => setCurrentIndex(index)}
+                className={`relative rounded-[2rem] overflow-hidden cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group ${
+                  isActive 
+                    ? 'w-[75%] md:w-[60%] lg:flex-[4] shadow-2xl' 
+                    : 'w-[10%] md:w-[15%] lg:flex-[0.5] shadow-md opacity-80 hover:opacity-100'
+                }`}
+              >
+                <img
+                  src={place.image}
+                  alt={place.name}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                
+                {/* Gradient Overlay for active item */}
+                <div className={`absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-0'}`} />
+                
+                {/* Content (Title) for active item */}
+                <div className={`absolute bottom-0 left-0 w-full p-6 md:p-10 flex flex-col justify-end transition-all duration-700 ${isActive ? 'translate-y-0 opacity-100 delay-200' : 'translate-y-10 opacity-0'}`}>
+                  <div className="w-12 h-1 bg-[#F26522] rounded-full mb-4 shadow-lg shadow-orange-500/50"></div>
+                  <h3 className="text-white text-2xl md:text-3xl lg:text-5xl font-extrabold drop-shadow-lg mb-2 leading-tight">
+                    {place.name}
+                  </h3>
+                  <p className="text-white/90 text-sm md:text-base lg:text-lg max-w-md drop-shadow-md hidden md:block">
+                    Experience the vibrant culture and rich heritage of Chennai.
+                  </p>
+                </div>
 
-              let positionClass = '';
-              let zIndexClass = '';
-              let scaleClass = '';
-              let opacityClass = 'opacity-100'; // Default is 100, we use a white overlay for inactive items
-
-              if (offset === 0) {
-                positionClass = 'translate-x-0';
-                zIndexClass = 'z-30';
-                scaleClass = 'scale-100';
-              } else if (offset === -1) {
-                positionClass = '-translate-x-[45%] md:-translate-x-[55%]';
-                zIndexClass = 'z-20';
-                scaleClass = 'scale-[0.8]';
-              } else if (offset === 1) {
-                positionClass = 'translate-x-[45%] md:translate-x-[55%]';
-                zIndexClass = 'z-20';
-                scaleClass = 'scale-[0.8]';
-              } else if (offset === -2) {
-                positionClass = '-translate-x-[85%] md:-translate-x-[105%]';
-                zIndexClass = 'z-10';
-                scaleClass = 'scale-[0.6]';
-              } else if (offset === 2) {
-                positionClass = 'translate-x-[85%] md:translate-x-[105%]';
-                zIndexClass = 'z-10';
-                scaleClass = 'scale-[0.6]';
-              } else {
-                positionClass = 'translate-x-0';
-                zIndexClass = '-z-10';
-                scaleClass = 'scale-0';
-                opacityClass = 'opacity-0';
-              }
-
-              const isActive = offset === 0;
-
-              return (
-                <div
-                  key={place.id}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`absolute w-[300px] sm:w-[400px] md:w-[500px] h-[250px] sm:h-[300px] md:h-[380px] rounded-2xl overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-2xl ${positionClass} ${zIndexClass} ${scaleClass} ${opacityClass} cursor-pointer`}
-                >
-                  <img
-                    src={place.image}
-                    alt={place.name}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(place.name.split(' ')[0])}&background=1F83C6&color=fff&size=512`;
-                    }}
-                  />
-                  
-                  {/* White overlay for inactive items (matches screenshot's faded look) */}
-                  {!isActive && (
-                    <div className="absolute inset-0 bg-white/60 transition-opacity duration-700" />
-                  )}
-
-                  {/* Dark Pill Text for active item */}
-                  <div className={`absolute bottom-6 left-1/2 -translate-x-1/2 transition-all duration-500 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                    <div className="bg-black/60 backdrop-blur-sm text-white text-sm font-semibold px-6 py-2.5 rounded-full whitespace-nowrap shadow-lg">
+                {/* Vertical Text for Inactive Items */}
+                <div className={`absolute inset-0 transition-opacity duration-500 ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+                  <div className="w-full h-full bg-slate-900/50 backdrop-blur-[2px] flex items-center justify-center group-hover:bg-slate-900/30 transition-colors duration-500">
+                    <span className="text-white font-bold tracking-[0.2em] uppercase transform -rotate-90 whitespace-nowrap text-[10px] md:text-sm drop-shadow-md">
                       {place.name}
-                    </div>
+                    </span>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-
-          {/* Navigation Arrows positioned exactly over the adjacent inactive items */}
-          <button 
-            onClick={prevSlide}
-            className="absolute left-[10%] md:left-[22%] lg:left-[25%] z-40 bg-white text-slate-900 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          <button 
-            onClick={nextSlide}
-            className="absolute right-[10%] md:right-[22%] lg:right-[25%] z-40 bg-white text-slate-900 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
+              </div>
+            );
+          })}
         </div>
 
         {/* Pagination Dots */}
