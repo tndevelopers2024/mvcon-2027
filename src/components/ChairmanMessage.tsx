@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import ScrollReveal from './ScrollReveal';
+import { User } from 'lucide-react';
 
 export default function ChairmanMessage() {
   return (
@@ -33,13 +34,11 @@ export default function ChairmanMessage() {
               <div className="absolute -bottom-6 -left-6 md:-left-12 bg-white dark:bg-slate-800 shadow-2xl rounded-2xl p-4 border border-orange-50 dark:border-slate-700 transition-transform duration-300 hover:-translate-y-2">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-orange-50 dark:bg-slate-700 flex items-center justify-center shrink-0">
-                    <svg className="w-6 h-6 text-orange-500 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                    </svg>
+                    <User className='w-6 h-6 text-orange-500 dark:text-orange-400'/>
                   </div>
                   <div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider">75+ Years of</p>
-                    <p className="text-base font-bold text-slate-900 dark:text-white">Legacy</p>
+                    <p className="text-base font-bold text-slate-900 dark:text-white">Dr. Vijay Viswanathan</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider">Organising Chairman</p>
                   </div>
                 </div>
               </div>
@@ -76,15 +75,6 @@ export default function ChairmanMessage() {
                 <p>
                   As the Immediate Past President of RSSDI, India’s largest organization for healthcare professionals and researchers in diabetes, and the Honorary President of D-Foot International, I have dedicated my mission to developing a multidisciplinary approach to reduce preventable amputations worldwide. MVCON reflects this strategic vision, &amp; I look forward to welcoming you to Chennai, to a prestigious event that promises learning, inspiration, and collaboration for the diabetes community.
                 </p>
-              </div>
-
-              <div className="flex items-center gap-6 mt-10 pt-8 border-t border-slate-200 dark:border-slate-700/50">
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Dr. Vijay Viswanathan</h3>
-                  <p className="text-blue-600 dark:text-blue-400 font-semibold uppercase tracking-wider text-sm mt-1">
-                    Organising Chairman
-                  </p>
-                </div>
               </div>
             </div>
           </ScrollReveal>

@@ -36,7 +36,7 @@ export default function GlobalLoader() {
             className="relative z-10 flex flex-col items-center"
           >
             {/* Logo */}
-            <div className="relative w-64 h-32 sm:w-80 sm:h-40 mb-10 bg-white/5 rounded-3xl p-6 backdrop-blur-sm border border-white/10 shadow-2xl">
+            <div className="relative w-64 h-32 sm:w-80 sm:h-40 mb-10 bg-white rounded-3xl p-6 backdrop-blur-sm border border-white/10 shadow-2xl">
               <img 
                 src="/images/logo.png" 
                 alt="MVCON Logo" 

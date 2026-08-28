@@ -94,7 +94,7 @@ export default function HeroCarousel() {
               <div className="absolute inset-0 bg-gradient-to-r from-background via-background to-transparent z-10 w-full md:w-3/4 lg:w-3/4" />
             </div>
 
-            <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-start justify-start px-8 lg:px-16 py-8 gap-10 relative z-20 h-full">
+            <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center justify-start px-8 lg:px-16 py-8 gap-10 relative z-20 h-full">
               <div
                 className={`flex-1 max-w-3xl text-left transition-all duration-1000 ${
                   isActive ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-12 opacity-0'
@@ -111,7 +111,7 @@ export default function HeroCarousel() {
                 <p className="text-lg italic text-text-muted lg:border-l-4 lg:border-primary lg:pl-4 mb-8 lg:border-t-0 border-t-4 pt-4 lg:pt-0 max-w-2xl">
                   {slide.quote}
                 </p>
-                <div className="flex flex-col sm:flex-row items-center justify-start gap-6 mb-10 text-text-muted font-medium">
+                <div className="flex flex-col sm:flex-row justify-start gap-6 mb-10 text-text-muted font-medium">
                   <div className="flex items-center gap-2">
                     <Calendar size={20} className="text-primary" />
                     <span>{slide.date}</span>
