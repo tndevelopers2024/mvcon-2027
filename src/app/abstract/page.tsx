@@ -72,13 +72,6 @@ export default function AbstractPage() {
                   MVCON 2027 Scientific Abstract Submission is open and will close on <strong className="text-slate-900 border-b-2 border-orange-300">31st December 2026</strong>.
                 </p>
               </div>
-              <div className="bg-blue-50/80 border border-blue-100 rounded-2xl p-6 md:p-8 relative overflow-hidden shadow-inner">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#1F83C6]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                <p className="text-slate-700 leading-relaxed text-lg relative z-10">
-                  <strong className="text-[#1F83C6] font-extrabold block mb-2 uppercase tracking-wide text-sm">Mandatory Requirement</strong>
-                  Registration for the conference is mandatory for abstract submission. Abstracts should be submitted through the online portal along with your MVCON 2027 Registration number.
-                </p>
-              </div>
             </div>
           </div>
         </section>
@@ -164,7 +157,7 @@ export default function AbstractPage() {
                 
                 <div className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:bg-white/20 transition-all hover:-translate-y-1">
                   <div className="w-10 h-10 rounded-full bg-orange-400/20 text-orange-400 flex items-center justify-center mb-5 font-bold text-lg">4</div>
-                  <h4 className="font-bold text-lg mb-2 text-white">Media</h4>
+                  <h4 className="font-bold text-lg mb-2 text-white">Results</h4>
                   <p className="text-white/80 leading-relaxed">One table or one figure not exceeding 300 words in the abstract may be included.</p>
                 </div>
 
@@ -238,9 +231,6 @@ export default function AbstractPage() {
           >
             Submit Abstract Online <ArrowRight className="w-6 h-6" />
           </Link>
-          <p className="text-slate-500 font-medium mt-6 relative z-10">
-            Ensure you have your <span className="font-bold text-slate-700">MVCON 2027 Registration number</span> ready before submitting.
-          </p>
         </div>
 
       </div>

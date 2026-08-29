@@ -9,7 +9,7 @@ const slides = [
     id: 1,
     title: 'MVCON 2027',
     badge: '2ND EDITION',
-    subtitle: 'Annual Scientific Update on Diabetes & Diabetic Foot Care',
+    subtitle: 'Welcome to MVCON 2027 - Annual conference on diabetes and Foot care',
     quote:
       '"MVCON 2027 marks the second edition of MV\'s annual scientific update bringing together leading diabetologists, surgeons, researchers, academicians and paramedical experts."',
     date: '19, 20, 21 March 2027',
