@@ -42,12 +42,12 @@ export default function AbstractPage() {
         <section className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden flex flex-col lg:flex-row group">
           <div className="w-full lg:w-5/12 relative min-h-[300px] lg:min-h-full overflow-hidden">
             <Image 
-              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop" 
+              src="/images/abstract/date.png" 
               alt="Planning and Timeline" 
               fill 
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
+              className="group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black/40" />
+           
             <div className="absolute bottom-6 left-6 right-6 lg:hidden">
                <h2 className="text-3xl font-extrabold text-white">Submission Timeline</h2>
             </div>
@@ -120,12 +120,11 @@ export default function AbstractPage() {
             {/* Top Right: Image (col-span-1) */}
             <div className="lg:col-span-1 relative min-h-[350px] lg:min-h-full rounded-[2rem] overflow-hidden shadow-xl border-4 border-white group">
               <Image 
-                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop" 
+                src="/images/abstract/rules.png" 
                 alt="Medical Research" 
                 fill 
                 className="object-cover group-hover:scale-105 transition-transform duration-1000"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#0A3D73]/30 to-transparent mix-blend-multiply" />
             </div>
 
             {/* Bottom: Structure (col-span-3) */}
@@ -175,7 +174,7 @@ export default function AbstractPage() {
         <section className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden flex flex-col lg:flex-row group">
           <div className="w-full lg:w-5/12 relative min-h-[300px] lg:min-h-full overflow-hidden">
             <Image 
-              src="/images/abstract/abstract-img1.jpg" 
+              src="/images/abstract/award1.jpg" 
               alt="Conference Stage" 
               fill 
               className="object-cover group-hover:scale-105 transition-transform duration-700"
