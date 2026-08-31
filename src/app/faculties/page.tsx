@@ -57,7 +57,7 @@ const faculties: Faculty[] = [
   { id: '50', name: "Dr.V.Ravindranath", role: "Faculty", type: "national", img: "/images/faculty/ravindran.jpg" },
   { id: '51', name: "Dr.Rimo C Mathews", role: "Faculty", type: "national", img: "/images/faculty/Dr.Rimo-C-Mathews.jpeg" },
   { id: '52', name: "Dr.T.Sasi Kumar", role: "Faculty", type: "national", img: "/images/faculty/DR. SASI KUMAR.jpg" },
-  { id: '53', name: "Dr.K.Sathyavani", role: "Faculty", type: "national", img: "/images/faculty/sathyavani.jpg" },
+  { id: '53', name: "Dr.Satyavani K", role: "Faculty", type: "national", img: "/images/faculty/sathyavani.jpg" },
   { id: '54', name: "Ms.Seena Rajasekar", role: "Faculty", type: "national", img: "/images/faculty/Mrs.Seena Rajsekar.jpg" },
   { id: '56', name: "Dr.Siva Shankari S", role: "Faculty", type: "national", img: "/images/faculty/Dr.Siva-Shankari-S.jpeg" },
   { id: '57', name: "Dr.G.Senthil", role: "Faculty", type: "national", img: "/images/faculty/Dr. G. Senthil.jpg" },
@@ -108,7 +108,7 @@ export default function FacultiesPage() {
             Our <span className="text-[#1F83C6]">Faculties</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-300 font-medium max-w-2xl mx-auto">
-            Learn from the world's leading experts in diabetes and diabetic foot care.
+            Learn from the leading experts in diabetes and diabetic foot care.
           </p>
         </div>
       </div>
@@ -191,13 +191,13 @@ export default function FacultiesPage() {
                     {faculty.role}
                   </p>
                   
-                  <span className={`inline-block px-4 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest border ${
+                  {/* <span className={`inline-block px-4 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest border ${
                     faculty.type === 'international' 
                       ? 'text-[#F26522] border-[#F26522]/30 bg-[#F26522]/5' 
                       : 'text-[#1F83C6] border-[#1F83C6]/30 bg-[#1F83C6]/5'
                   }`}>
                     {faculty.type}
-                  </span>
+                  </span> */}
                 </div>
               </div>
             ))}
