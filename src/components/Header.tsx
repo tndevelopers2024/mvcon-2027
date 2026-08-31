@@ -11,6 +11,7 @@ const navLinks = [
   { name: 'Scientific Program', href: '/scientific-program' },
   { name: 'Faculties', href: '/faculties' },
   { name: 'Abstract Submission', href: '/abstract' },
+  { name: 'Gallery', href: '/gallery' },
   { name: 'Contact Us', href: '/contact' },
 ];
 

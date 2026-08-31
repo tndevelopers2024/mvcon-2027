@@ -55,7 +55,7 @@ const faculties: Faculty[] = [
   { id: '48', name: "Dr.S.R.Ramakrishnan", role: "Faculty", type: "national", img: "/images/faculty/Dr.S.R.Ramakrishnan.jpg" },
   { id: '49', name: "Dr.R.Ravikumar", role: "Faculty", type: "national", img: "/images/faculty/Dr R Ravikumar.jpg" },
   { id: '50', name: "Dr.V.Ravindranath", role: "Faculty", type: "national", img: "/images/faculty/ravindran.jpg" },
-  { id: '51', name: "Dr.Rimo C Mathews", role: "Faculty", type: "national", img: "/images/faculty/Dr.Rimo-C-Mathews.jpeg" },
+  // { id: '51', name: "Dr.Rimo C Mathews", role: "Faculty", type: "national", img: "/images/faculty/Dr.Rimo-C-Mathews.jpeg" },
   { id: '52', name: "Dr.T.Sasi Kumar", role: "Faculty", type: "national", img: "/images/faculty/DR. SASI KUMAR.jpg" },
   { id: '53', name: "Dr.Satyavani K", role: "Faculty", type: "national", img: "/images/faculty/sathyavani.jpg" },
   { id: '54', name: "Ms.Seena Rajasekar", role: "Faculty", type: "national", img: "/images/faculty/Mrs.Seena Rajsekar.jpg" },
@@ -72,14 +72,14 @@ const faculties: Faculty[] = [
   { id: '68', name: "Dr.K.Uma Mahesh", role: "Faculty", type: "national", img: "/images/faculty/Dr. Uma Mahesh.png" },
   { id: '69', name: "Dr.Usha Aiyyagari", role: "Faculty", type: "national", img: "/images/faculty/Dr Usha Aiyyagari.png" },
   { id: '70', name: "Ms.Vaishnavi Vijay", role: "Faculty", type: "national", img: "/images/faculty/Ms.Vaishnavi Vijay.jpg" },
-  { id: '71', name: "Dr.Varun Ravindranath", role: "Faculty", type: "national", img: "/images/faculty/Dr.Varun-Ravindranath.jpeg" },
+  // { id: '71', name: "Dr.Varun Ravindranath", role: "Faculty", type: "national", img: "/images/faculty/Dr.Varun-Ravindranath.jpeg" },
   { id: '72', name: "Dr.Vinitha Ramachandran", role: "Faculty", type: "national", img: "/images/faculty/Dr.Vinitha-Ramachandran.jpeg" },
   { id: '74', name: "Dr.Vijay Viswanathan", role: "Faculty", type: "national", img: "/images/faculty/vijay-viswanathan.jpg" },
   { id: '75', name: "Dr.G.Vijaya Kumar", role: "Faculty", type: "national", img: "/images/faculty/DR. VIJAYA KUMAR.jpg" },
   { id: '76', name: "Dr.Vishnu Priya Prashanth", role: "Faculty", type: "national", img: "/images/faculty/Dr.Vishnu Priya Prashanth.jpg" },
   { id: '77', name: "Dr.Vishnupriya Reddy", role: "Faculty", type: "national", img: "/images/faculty/Dr. Vishnupriya Reddy.jpg" },
   { id: '78', name: "Dr.Viswanathan Vishnu Vijay", role: "Faculty", type: "national", img: "/images/faculty/Dr. Viswanathan Vishnu Vijay.jpg" },
-  { id: '80', name: "Dr.Janaka karalliedde", role: "Faculty", type: "international", img: "/images/faculty/Dr-Janaka-karalliedde.jpg" },
+  // { id: '80', name: "Dr.Janaka karalliedde", role: "Faculty", type: "international", img: "/images/faculty/Dr-Janaka-karalliedde.jpg" },
   { id: '80', name: "Mr.Srikar Nallan", role: "Faculty", type: "international", img: "/images/faculty/Srikar-nallan.jpg" },
 ];
 
@@ -187,9 +187,9 @@ export default function FacultiesPage() {
                   <h3 className="text-lg md:text-xl font-extrabold text-slate-900 mb-1.5 group-hover:text-[#1F83C6] transition-colors leading-tight">
                     {faculty.name}
                   </h3>
-                  <p className="text-sm font-semibold text-slate-500 mb-5">
+                  {/* <p className="text-sm font-semibold text-slate-500 mb-5">
                     {faculty.role}
-                  </p>
+                  </p> */}
                   
                   {/* <span className={`inline-block px-4 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest border ${
                     faculty.type === 'international' 
