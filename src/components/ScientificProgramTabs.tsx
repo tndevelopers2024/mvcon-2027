@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Calendar, MapPin, Search, Clock, Users, Microscope, MessageSquare, Network } from 'lucide-react';
+import { Calendar, MapPin, Search, Clock, Users, Microscope, MessageSquare, Network, MousePointer2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { scheduleData } from '../data/schedule';
 
@@ -23,6 +23,7 @@ export default function ScientificProgramTabs() {
   const [activeTab, setActiveTab] = useState<Tab>('overview');
   const [activeHall, setActiveHall] = useState<Hall>('A');
   const [searchQuery, setSearchQuery] = useState('');
+  const [showHint, setShowHint] = useState(true);
 
   const isDaySelected = activeTab.startsWith('day');
   const currentKey = activeTab + (isDaySelected ? activeHall : '');
@@ -49,14 +50,38 @@ export default function ScientificProgramTabs() {
         {days.map((day) => {
           const isActive = activeTab === day.id;
           return (
-            <button
-              key={day.id}
-              onClick={() => setActiveTab(day.id)}
-              className={`flex flex-col w-[160px] h-[100px] rounded-lg overflow-hidden border-2 transition-all shadow-sm ${
-                isActive ? 'border-[#FDE047]' : 'border-slate-200 hover:border-slate-300'
-              }`}
-            >
-              <div className="bg-black text-white text-xs font-bold py-1.5 w-full text-center">
+            <div key={day.id} className="relative">
+              {day.id === 'day1' && showHint && (
+                <motion.div
+                  initial={{ opacity: 0, x: 80, y: 80 }}
+                  animate={{
+                    opacity: [0, 1, 1, 1, 0],
+                    x: [80, 0, 0, 0, 0],
+                    y: [80, 0, 0, 0, 0],
+                    scale: [1, 1, 0.85, 1, 1]
+                  }}
+                  transition={{ duration: 6, times: [0, 0.3, 0.4, 0.6, 1], delay: 1, ease: "easeInOut" }}
+                  onAnimationComplete={() => setShowHint(false)}
+                  className="absolute top-1/2 left-1/2 z-50 pointer-events-none drop-shadow-xl"
+                >
+                  <MousePointer2 className="w-10 h-10 fill-white text-slate-800 -translate-x-2 -translate-y-2" />
+                  
+                  {/* Click ripple */}
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: [0, 0, 0, 0.4, 0], scale: [0.5, 0.5, 0.5, 2, 3] }}
+                    transition={{ duration: 3, times: [0, 0.3, 0.4, 0.5, 1], delay: 1 }}
+                    className="absolute top-0 left-0 w-4 h-4 bg-blue-500 rounded-full -translate-x-2 -translate-y-2"
+                  />
+                </motion.div>
+              )}
+              <button
+                onClick={() => setActiveTab(day.id)}
+                className={`flex flex-col w-[160px] h-[100px] rounded-lg overflow-hidden border-2 transition-all shadow-sm ${
+                  isActive ? 'border-[#FDE047]' : 'border-slate-200 hover:border-slate-300'
+                }`}
+              >
+                <div className="bg-black text-white text-xs font-bold py-1.5 w-full text-center">
                 {day.label}
               </div>
               <div className={`flex-1 flex flex-col justify-center items-center w-full transition-colors ${isActive ? 'bg-[#FDE047]' : 'bg-white'}`}>
@@ -69,7 +94,8 @@ export default function ScientificProgramTabs() {
                   </div>
                 </div>
               </div>
-            </button>
+              </button>
+            </div>
           );
         })}
 

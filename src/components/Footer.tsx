@@ -6,7 +6,7 @@ import { ArrowRight, MapPin, Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-slate-950 pt-32 pb-12 mt-24 z-10 border-t border-slate-800">
+    <footer className="relative bg-slate-950 pt-32 max-md:pt-40 pb-12 mt-24 z-10 border-t border-slate-800">
       
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">

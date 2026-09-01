@@ -54,7 +54,7 @@ export default function VenueSection() {
         {/* Info Card Overlay (floating) */}
         <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 md:left-12 lg:left-24 max-w-sm pointer-events-none z-20">
           <ScrollReveal direction="right">
-            <div className="bg-gradient-to-br from-primary/95 to-blue-700/95 backdrop-blur-md p-8 rounded-[2rem] text-white shadow-2xl pointer-events-auto border border-white/20 relative overflow-hidden group">
+            <div className="bg-gradient-to-br from-primary/95 to-blue-700/95 backdrop-blur-md p-8 rounded-[2rem] text-white shadow-2xl pointer-events-auto border border-white/20 relative overflow-hidden group max-md:hidden">
               {/* Abstract Background Shapes */}
               <div className="absolute -top-20 -right-20 w-48 h-48 bg-white/10 rounded-full blur-3xl group-hover:bg-white/20 transition-all duration-700 pointer-events-none" />
               

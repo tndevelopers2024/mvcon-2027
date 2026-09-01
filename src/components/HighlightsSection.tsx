@@ -24,7 +24,7 @@ const highlights = [
     id: '04',
     title: 'Networking Opportunity',
     icon: Users,
-    imageSrc: '/images/highlight4.JPG',
+    imageSrc: '/images/highlight4.jpg',
   },
 ];
 

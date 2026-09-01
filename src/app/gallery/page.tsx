@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Camera, Image as ImageIcon, Sparkles } from 'lucide-react';
+import GalleryGrid, { GalleryImage } from '@/components/GalleryGrid';
 
 export const metadata = {
   title: 'Gallery | MVCON 2027',
@@ -7,12 +8,83 @@ export const metadata = {
 };
 
 // Gallery images from /images/gallery/1.jpg to 75.jpg
-const galleryImages = Array.from({ length: 75 }, (_, i) => ({
-  id: i + 1,
-  src: `/images/gallery/${i + 1}.jpg`,
-  alt: `MVCON Moment ${i + 1}`,
-  size: (i + 1) % 4 === 0 ? 'large' : (i + 1) % 3 === 0 ? 'medium' : 'small'
-}));
+const galleryImages: GalleryImage[] = [
+  { id: 1, src: '/images/gallery/1.jpg', alt: 'MVCON Moment 1', size: 'small' },
+  { id: 2, src: '/images/gallery/2.jpg', alt: 'MVCON Moment 2', size: 'small' },
+  { id: 3, src: '/images/gallery/3.jpg', alt: 'MVCON Moment 3', size: 'medium' },
+  { id: 4, src: '/images/gallery/4.jpg', alt: 'MVCON Moment 4', size: 'large' },
+  { id: 5, src: '/images/gallery/5.jpg', alt: 'MVCON Moment 5', size: 'small' },
+  { id: 6, src: '/images/gallery/6.jpg', alt: 'MVCON Moment 6', size: 'medium' },
+  { id: 7, src: '/images/gallery/7.jpg', alt: 'MVCON Moment 7', size: 'small' },
+  { id: 8, src: '/images/gallery/8.jpg', alt: 'MVCON Moment 8', size: 'large' },
+  { id: 9, src: '/images/gallery/9.jpg', alt: 'MVCON Moment 9', size: 'medium' },
+  { id: 10, src: '/images/gallery/10.jpg', alt: 'MVCON Moment 10', size: 'small' },
+  { id: 11, src: '/images/gallery/11.jpg', alt: 'MVCON Moment 11', size: 'small' },
+  { id: 12, src: '/images/gallery/12.jpg', alt: 'MVCON Moment 12', size: 'large' },
+  { id: 13, src: '/images/gallery/13.jpg', alt: 'MVCON Moment 13', size: 'small' },
+  { id: 14, src: '/images/gallery/14.jpg', alt: 'MVCON Moment 14', size: 'small' },
+  { id: 15, src: '/images/gallery/15.jpg', alt: 'MVCON Moment 15', size: 'medium' },
+  { id: 16, src: '/images/gallery/16.jpg', alt: 'MVCON Moment 16', size: 'large' },
+  { id: 17, src: '/images/gallery/17.jpg', alt: 'MVCON Moment 17', size: 'small' },
+  { id: 18, src: '/images/gallery/18.jpg', alt: 'MVCON Moment 18', size: 'medium' },
+  { id: 19, src: '/images/gallery/19.jpg', alt: 'MVCON Moment 19', size: 'small' },
+  { id: 20, src: '/images/gallery/20.jpg', alt: 'MVCON Moment 20', size: 'large' },
+  { id: 21, src: '/images/gallery/21.jpg', alt: 'MVCON Moment 21', size: 'medium' },
+  { id: 22, src: '/images/gallery/22.jpg', alt: 'MVCON Moment 22', size: 'small' },
+  { id: 23, src: '/images/gallery/23.jpg', alt: 'MVCON Moment 23', size: 'small' },
+  { id: 24, src: '/images/gallery/24.jpg', alt: 'MVCON Moment 24', size: 'large' },
+  { id: 25, src: '/images/gallery/25.jpg', alt: 'MVCON Moment 25', size: 'small' },
+  { id: 26, src: '/images/gallery/26.jpg', alt: 'MVCON Moment 26', size: 'small' },
+  { id: 27, src: '/images/gallery/27.jpg', alt: 'MVCON Moment 27', size: 'medium' },
+  { id: 28, src: '/images/gallery/28.jpg', alt: 'MVCON Moment 28', size: 'large' },
+  { id: 29, src: '/images/gallery/29.jpg', alt: 'MVCON Moment 29', size: 'small' },
+  { id: 30, src: '/images/gallery/30.jpg', alt: 'MVCON Moment 30', size: 'medium' },
+  { id: 31, src: '/images/gallery/31.jpg', alt: 'MVCON Moment 31', size: 'small' },
+  { id: 32, src: '/images/gallery/32.jpg', alt: 'MVCON Moment 32', size: 'large' },
+  { id: 33, src: '/images/gallery/33.jpg', alt: 'MVCON Moment 33', size: 'medium' },
+  { id: 34, src: '/images/gallery/34.jpg', alt: 'MVCON Moment 34', size: 'small' },
+  { id: 35, src: '/images/gallery/35.jpg', alt: 'MVCON Moment 35', size: 'small' },
+  { id: 36, src: '/images/gallery/36.jpg', alt: 'MVCON Moment 36', size: 'large' },
+  { id: 37, src: '/images/gallery/37.jpg', alt: 'MVCON Moment 37', size: 'small' },
+  { id: 38, src: '/images/gallery/38.jpg', alt: 'MVCON Moment 38', size: 'small' },
+  { id: 39, src: '/images/gallery/39.jpg', alt: 'MVCON Moment 39', size: 'medium' },
+  { id: 40, src: '/images/gallery/40.jpg', alt: 'MVCON Moment 40', size: 'large' },
+  { id: 41, src: '/images/gallery/41.jpg', alt: 'MVCON Moment 41', size: 'small' },
+  { id: 42, src: '/images/gallery/42.jpg', alt: 'MVCON Moment 42', size: 'medium' },
+  { id: 43, src: '/images/gallery/43.jpg', alt: 'MVCON Moment 43', size: 'small' },
+  { id: 44, src: '/images/gallery/44.jpg', alt: 'MVCON Moment 44', size: 'large' },
+  { id: 45, src: '/images/gallery/45.jpg', alt: 'MVCON Moment 45', size: 'medium' },
+  { id: 46, src: '/images/gallery/46.jpg', alt: 'MVCON Moment 46', size: 'small' },
+  { id: 47, src: '/images/gallery/47.jpg', alt: 'MVCON Moment 47', size: 'small' },
+  { id: 48, src: '/images/gallery/48.jpg', alt: 'MVCON Moment 48', size: 'large' },
+  { id: 49, src: '/images/gallery/49.jpg', alt: 'MVCON Moment 49', size: 'small' },
+  { id: 50, src: '/images/gallery/50.jpg', alt: 'MVCON Moment 50', size: 'small' },
+  { id: 51, src: '/images/gallery/51.jpg', alt: 'MVCON Moment 51', size: 'medium' },
+  { id: 52, src: '/images/gallery/52.jpg', alt: 'MVCON Moment 52', size: 'large' },
+  { id: 53, src: '/images/gallery/53.jpg', alt: 'MVCON Moment 53', size: 'small' },
+  { id: 54, src: '/images/gallery/54.jpg', alt: 'MVCON Moment 54', size: 'medium' },
+  { id: 55, src: '/images/gallery/55.jpg', alt: 'MVCON Moment 55', size: 'small' },
+  { id: 56, src: '/images/gallery/56.jpg', alt: 'MVCON Moment 56', size: 'large' },
+  { id: 57, src: '/images/gallery/57.jpg', alt: 'MVCON Moment 57', size: 'medium' },
+  { id: 58, src: '/images/gallery/58.jpg', alt: 'MVCON Moment 58', size: 'small' },
+  { id: 59, src: '/images/gallery/59.jpg', alt: 'MVCON Moment 59', size: 'small' },
+  { id: 60, src: '/images/gallery/60.jpg', alt: 'MVCON Moment 60', size: 'large' },
+  { id: 61, src: '/images/gallery/61.jpg', alt: 'MVCON Moment 61', size: 'small' },
+  { id: 62, src: '/images/gallery/62.jpg', alt: 'MVCON Moment 62', size: 'small' },
+  { id: 63, src: '/images/gallery/63.jpg', alt: 'MVCON Moment 63', size: 'medium' },
+  { id: 64, src: '/images/gallery/64.jpg', alt: 'MVCON Moment 64', size: 'large' },
+  { id: 65, src: '/images/gallery/65.jpg', alt: 'MVCON Moment 65', size: 'small' },
+  { id: 66, src: '/images/gallery/66.jpg', alt: 'MVCON Moment 66', size: 'medium' },
+  { id: 67, src: '/images/gallery/67.jpg', alt: 'MVCON Moment 67', size: 'small' },
+  { id: 68, src: '/images/gallery/68.jpg', alt: 'MVCON Moment 68', size: 'large' },
+  { id: 69, src: '/images/gallery/69.jpg', alt: 'MVCON Moment 69', size: 'medium' },
+  { id: 70, src: '/images/gallery/70.jpg', alt: 'MVCON Moment 70', size: 'small' },
+  { id: 71, src: '/images/gallery/71.jpg', alt: 'MVCON Moment 71', size: 'small' },
+  { id: 72, src: '/images/gallery/72.jpg', alt: 'MVCON Moment 72', size: 'large' },
+  { id: 73, src: '/images/gallery/73.jpg', alt: 'MVCON Moment 73', size: 'small' },
+  { id: 74, src: '/images/gallery/74.jpg', alt: 'MVCON Moment 74', size: 'small' },
+  { id: 75, src: '/images/gallery/75.jpg', alt: 'MVCON Moment 75', size: 'medium' }
+];
 
 export default function GalleryPage() {
   return (
@@ -21,7 +93,7 @@ export default function GalleryPage() {
       <section className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop" 
+            src="/images/gallery-bg.jpg" 
             alt="Gallery Background" 
             fill 
             className="object-cover"
@@ -61,30 +133,12 @@ export default function GalleryPage() {
             
             <div className="hidden md:flex items-center gap-2 text-orange-500 bg-orange-50 px-4 py-2 rounded-full font-bold border border-orange-100">
               <Sparkles className="w-4 h-4" /> 
-              <span>{galleryImages.length} Photos</span>
+              <span>MVCON 2026</span>
             </div>
           </div>
 
           {/* Masonry-style Grid */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-            {galleryImages.map((image, index) => (
-              <div 
-                key={image.id} 
-                className="group relative overflow-hidden rounded-2xl cursor-pointer break-inside-avoid shadow-sm hover:shadow-xl transition-all duration-500"
-              >
-                <div className="relative w-full overflow-hidden">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={800}
-                    height={image.size === 'large' ? 1200 : image.size === 'medium' ? 800 : 600}
-                    className="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                  />
-
-                </div>
-              </div>
-            ))}
-          </div>
+          <GalleryGrid images={galleryImages} />
 
 
 
