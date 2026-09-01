@@ -13,6 +13,39 @@ export type GalleryImage = {
   size: 'small' | 'medium' | 'large';
 };
 
+function GalleryImageItem({ image, onClick }: { image: GalleryImage; onClick: () => void }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  // Pre-calculate aspect ratio based on size to prevent Cumulative Layout Shift
+  const aspectRatio = image.size === 'large' ? '2/3' : image.size === 'medium' ? '1/1' : '4/3';
+
+  return (
+    <div 
+      className="group relative overflow-hidden rounded-2xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 bg-slate-100"
+      onClick={onClick}
+    >
+      <div className="relative w-full overflow-hidden" style={{ aspectRatio }}>
+        {/* Loading Skeleton */}
+        {!isLoaded && (
+          <div className="absolute inset-0 bg-slate-200 animate-pulse z-10" />
+        )}
+        
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width={800}
+          height={image.size === 'large' ? 1200 : image.size === 'medium' ? 800 : 600}
+          className={`w-full h-full object-cover transform transition-all duration-700 ease-out group-hover:scale-110 ${
+            isLoaded ? 'opacity-100 blur-0' : 'opacity-0 blur-sm scale-105'
+          }`}
+          onLoad={() => setIsLoaded(true)}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function GalleryGrid({ images }: { images: GalleryImage[] }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
@@ -52,23 +85,10 @@ export default function GalleryGrid({ images }: { images: GalleryImage[] }) {
 
   return (
     <>
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 w-full">
         {images.map((image, index) => (
           <AnimatedImageCard key={image.id} index={index}>
-            <div 
-              className="group relative overflow-hidden rounded-2xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500"
-              onClick={() => setSelectedIndex(index)}
-            >
-              <div className="relative w-full overflow-hidden">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={800}
-                  height={image.size === 'large' ? 1200 : image.size === 'medium' ? 800 : 600}
-                  className="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-              </div>
-            </div>
+            <GalleryImageItem image={image} onClick={() => setSelectedIndex(index)} />
           </AnimatedImageCard>
         ))}
       </div>
