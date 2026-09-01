@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Calendar, MapPin } from 'lucide-react';
+import Link from 'next/link';
 
 const slides = [
   {
@@ -122,8 +123,8 @@ export default function HeroCarousel() {
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                  <button className="btn-primary">Register Now</button>
-                  <button className="btn-secondary">View Program</button>
+                  <Link href="/register" className="btn-primary">Register Now</Link>
+                  <Link href="/scientific-program" className="btn-secondary">View Program</Link>
                 </div>
               </div>
             </div>
