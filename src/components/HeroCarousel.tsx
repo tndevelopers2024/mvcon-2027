@@ -20,9 +20,9 @@ const slides = [
     id: 2,
     title: 'MVCON 2027',
     badge: '2ND EDITION',
-    subtitle: 'Global Conference on Metabolic Health & Research',
+    subtitle: 'Conference on Diabetes and its complications with focus on diabetic foot',
     quote:
-      '"Join us as we explore the future of metabolic health, advanced research, and innovative treatments."',
+      '"Join us as we explore the future of advanced research, innovative treatments, case studies and interactive workshops."',
     date: '19, 20, 21 March 2027',
     location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
     imageSrc: '/images/hero2.jpg',
@@ -31,9 +31,9 @@ const slides = [
     id: 3,
     title: 'MVCON 2027',
     badge: '2ND EDITION',
-    subtitle: 'Interactive Workshops & Case Studies',
+    subtitle: 'Learn from renowned experts',
     quote:
-      '"Participate in hands-on workshops with renowned experts from across the globe."',
+      '"Join the community of experts dedicated to advancing the field of diabetes and diabetic foot."',
     date: '19, 20, 21 March 2027',
     location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
     imageSrc: '/images/hero3.jpg',
