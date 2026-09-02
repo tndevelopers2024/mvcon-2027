@@ -49,7 +49,7 @@ export default function Header() {
       isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
     }`}>
       <div className={`transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0 opacity-0' : 'max-h-16 opacity-100'}`}>
-        <TopbarCountdown />
+        {/* <TopbarCountdown /> */}
       </div>
       <header className={`w-full transition-all duration-500 ease-in-out border-b ${
         isScrolled 

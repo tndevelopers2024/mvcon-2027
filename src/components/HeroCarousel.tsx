@@ -43,7 +43,7 @@ const slides = [
     id: 4,
     title: 'MVCON 2027',
     badge: '2ND EDITION',
-    subtitle: 'Connecting Experts Globally',
+    subtitle: '',
     quote:
       '"Join a global community of experts dedicated to advancing the field of metabolic health."',
     date: '19, 20, 21 March 2027',
