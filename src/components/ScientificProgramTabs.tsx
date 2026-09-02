@@ -207,7 +207,7 @@ export default function ScientificProgramTabs() {
                       <div className="w-10 h-10 rounded-full bg-[#F26522] flex items-center justify-center text-white shrink-0">
                         <MapPin className="w-5 h-5" />
                       </div>
-                      GRT Hotels, T.Nagar, Chennai
+                      Radisson Blu Hotel & Suites GRT Chennai (near airport)
                     </div>
                   </div>
 
