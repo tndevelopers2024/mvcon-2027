@@ -39,17 +39,17 @@ const slides = [
     location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
     imageSrc: '/images/hero3.jpg',
   },
-  {
-    id: 4,
-    title: 'MVCON 2027',
-    badge: '2ND EDITION',
-    subtitle: '',
-    quote:
-      '"Join a global community of experts dedicated to advancing the field of metabolic health."',
-    date: '19, 20, 21 March 2027',
-    location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
-    imageSrc: '/images/hero4.jpg',
-  },
+  // {
+  //   id: 4,
+  //   title: 'MVCON 2027',
+  //   badge: '2ND EDITION',
+  //   subtitle: '',
+  //   quote:
+  //     '"Join a global community of experts dedicated to advancing the field of metabolic health."',
+  //   date: '19, 20, 21 March 2027',
+  //   location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
+  //   imageSrc: '/images/hero4.jpg',
+  // },
 ];
 
 export default function HeroCarousel() {
