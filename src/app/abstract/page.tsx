@@ -1,6 +1,7 @@
 import { Calendar, FileText, Trophy, AlertCircle, CheckCircle2, FileEdit, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import ImageCollage from '@/components/ImageCollage';
 
 export const metadata = {
   title: 'Abstract Submission | MVCON 2027',
@@ -13,12 +14,12 @@ export default function AbstractPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image 
+          {/* <Image 
             src="/images/abstract/abstract-bg.jpg" 
             alt="Conference Hall" 
             fill 
             className="object-cover"
-          />
+          /> */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#041E42]/90 via-[#0A3D73]/80 to-[#1F83C6]/60 mix-blend-multiply" />
         </div>
         
@@ -219,6 +220,8 @@ export default function AbstractPage() {
             </div>
           </div>
         </section>
+
+        <ImageCollage />
 
         {/* Action Button */}
         <div className="text-center pt-8 pb-12 relative">

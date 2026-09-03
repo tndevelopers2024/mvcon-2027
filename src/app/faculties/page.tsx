@@ -177,7 +177,6 @@ export default function FacultiesPage() {
                     <img 
                       src={faculty.img} 
                       alt={faculty.name}
-                      className="w-full h-full object-cover"
                     />
                   </div>
                 </div>

@@ -83,7 +83,17 @@ const galleryImages: GalleryImage[] = [
   { id: 72, src: '/images/gallery/72.jpg', alt: 'MVCON Moment 72', size: 'large' },
   { id: 73, src: '/images/gallery/73.jpg', alt: 'MVCON Moment 73', size: 'small' },
   { id: 74, src: '/images/gallery/74.jpg', alt: 'MVCON Moment 74', size: 'small' },
-  { id: 75, src: '/images/gallery/75.jpg', alt: 'MVCON Moment 75', size: 'medium' }
+  { id: 75, src: '/images/gallery/75.jpg', alt: 'MVCON Moment 75', size: 'medium' },
+  { id: 76, src: '/images/gallery/76.jpg', alt: 'MVCON Moment 76', size: 'medium' },
+  { id: 77, src: '/images/gallery/77.jpg', alt: 'MVCON Moment 77', size: 'medium' },
+  { id: 78, src: '/images/gallery/78.jpg', alt: 'MVCON Moment 78', size: 'medium' },
+  { id: 79, src: '/images/gallery/79.jpg', alt: 'MVCON Moment 79', size: 'medium' },
+  { id: 80, src: '/images/gallery/80.jpg', alt: 'MVCON Moment 80', size: 'medium' },
+  { id: 81, src: '/images/gallery/81.jpg', alt: 'MVCON Moment 81', size: 'medium' },
+  { id: 82, src: '/images/gallery/82.jpg', alt: 'MVCON Moment 82', size: 'medium' },
+  { id: 83, src: '/images/gallery/83.jpg', alt: 'MVCON Moment 83', size: 'medium' },
+  { id: 84, src: '/images/gallery/84.jpg', alt: 'MVCON Moment 84', size: 'medium' },
+  { id: 85, src: '/images/gallery/85.jpg', alt: 'MVCON Moment 85', size: 'medium' }
 ];
 
 export default function GalleryPage() {
