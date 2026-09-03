@@ -15,16 +15,13 @@ export type GalleryImage = {
 
 function GalleryImageItem({ image, onClick }: { image: GalleryImage; onClick: () => void }) {
   const [isLoaded, setIsLoaded] = useState(false);
-  
-  // Pre-calculate aspect ratio based on size to prevent Cumulative Layout Shift
-  const aspectRatio = image.size === 'large' ? '2/3' : image.size === 'medium' ? '1/1' : '4/3';
 
   return (
     <div 
-      className="group relative overflow-hidden rounded-2xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 bg-slate-100"
+      className="group relative overflow-hidden rounded-2xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 bg-slate-100 h-full w-full"
       onClick={onClick}
     >
-      <div className="relative w-full overflow-hidden" style={{ aspectRatio }}>
+      <div className="relative w-full h-full overflow-hidden">
         {/* Loading Skeleton */}
         {!isLoaded && (
           <div className="absolute inset-0 bg-slate-200 animate-pulse z-10" />
@@ -85,9 +82,13 @@ export default function GalleryGrid({ images }: { images: GalleryImage[] }) {
 
   return (
     <>
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full auto-rows-[250px] sm:auto-rows-[300px] grid-flow-row-dense">
         {images.map((image, index) => (
-          <AnimatedImageCard key={image.id} index={index}>
+          <AnimatedImageCard 
+            key={image.id} 
+            index={index}
+            className={image.size === 'large' ? 'row-span-2' : 'row-span-1'}
+          >
             <GalleryImageItem image={image} onClick={() => setSelectedIndex(index)} />
           </AnimatedImageCard>
         ))}

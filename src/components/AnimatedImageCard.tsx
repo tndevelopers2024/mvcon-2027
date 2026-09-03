@@ -6,9 +6,11 @@ import { ReactNode } from "react";
 export default function AnimatedImageCard({
   children,
   index,
+  className = "",
 }: {
   children: ReactNode;
   index: number;
+  className?: string;
 }) {
   return (
     <motion.div
@@ -20,7 +22,7 @@ export default function AnimatedImageCard({
         delay: (index % 8) * 0.1,
         ease: "easeOut",
       }}
-      className="break-inside-avoid mb-6"
+      className={`h-full ${className}`}
     >
       {children}
     </motion.div>
