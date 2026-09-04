@@ -53,14 +53,14 @@ export default function Header() {
       <div className={`transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0 opacity-0' : 'max-h-16 opacity-100'}`}>
         {/* <TopbarCountdown /> */}
       </div>
-      <header className={`w-full transition-all duration-500 ease-in-out border-b ${
+      <header className={`w-full transition-all duration-500 ease-in-out border-b py-4 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-md border-slate-200 py-3' 
-          : 'bg-white border-transparent py-6'
+          ? 'bg-white/95 backdrop-blur-md shadow-md border-slate-200' 
+          : 'bg-white border-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-8 lg:px-16 flex justify-between items-center">
         <div className="text-2xl font-bold text-[#1F83C6] uppercase tracking-wide">
-          <Link href="/"><img className={`transition-all duration-500 ease-in-out ${isScrolled ? 'w-24' : 'w-32'}`} src="/images/logo.png" alt="" /></Link>
+          <Link href="/"><img className="w-28" src="/images/logo.png" alt="" /></Link>
         </div>
         <nav className="hidden lg:flex gap-6 items-center">
           {navLinks.map((link) => (
