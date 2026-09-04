@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { Menu, X } from 'lucide-react';
 import TopbarCountdown from './TopbarCountdown';
 
 const navLinks = [
@@ -18,6 +19,7 @@ const navLinks = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -46,7 +48,7 @@ export default function Header() {
 
   return (
     <div className={`sticky top-0 z-50 w-full transition-all duration-500 ease-in-out ${
-      isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+      (isVisible || isMobileMenuOpen) ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
     }`}>
       <div className={`transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0 opacity-0' : 'max-h-16 opacity-100'}`}>
         {/* <TopbarCountdown /> */}
@@ -75,7 +77,36 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        <Link href="/register" className="btn-primary">Register Now</Link>
+        <div className="flex items-center gap-4">
+          <Link href="/register" className="btn-primary hidden sm:inline-flex">Register Now</Link>
+          <button 
+            className="lg:hidden p-2 text-slate-800" 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden bg-white shadow-lg ${isMobileMenuOpen ? 'max-h-screen border-t border-slate-200 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className="px-8 py-6 flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`text-base font-medium py-2 border-b border-slate-100 ${
+                  pathname === link.href
+                    ? 'text-[#1F83C6]'
+                    : 'text-slate-800'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Link href="/register" className="btn-primary w-full text-center sm:hidden mt-2" onClick={() => setIsMobileMenuOpen(false)}>Register Now</Link>
+          </div>
         </div>
       </header>
       </div>
