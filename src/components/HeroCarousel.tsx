@@ -12,7 +12,7 @@ const slides = [
     badge: '2ND EDITION',
     subtitle: 'Welcome to MVCON 2027 - Annual conference on diabetes and Foot care',
     quote:
-      '"MVCON 2027 marks the second edition of MV\'s annual scientific update bringing together leading diabetologists, surgeons, researchers, academicians and paramedical experts."',
+      '"MVCON 2027 marks the second edition of MV\'s annual scientific update bringing together leading Physicians, surgeons, researchers, academicians and paramedical experts."',
     date: '19, 20, 21 March 2027',
     location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
     imageSrc: '/images/hero1.jpg',

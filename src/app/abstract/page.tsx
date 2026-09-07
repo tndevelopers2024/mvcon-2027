@@ -31,7 +31,7 @@ export default function AbstractPage() {
             Submit Your Abstract
           </h1>
           <p className="text-lg md:text-xl text-white/90 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-md">
-            Join leading diabetologists, surgeons, and researchers by presenting your original scientific data at MVCON 2027.
+            Join leading Physicians, surgeons, and researchers by presenting your original scientific data at MVCON 2027.
           </p>
         </div>
       </section>

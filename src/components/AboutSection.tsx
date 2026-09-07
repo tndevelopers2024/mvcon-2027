@@ -41,7 +41,7 @@ export default function AboutSection() {
 
             <div className="space-y-6 text-lg text-text-muted leading-relaxed">
               <p className="font-medium text-foreground">
-                MVCON 2027 marks the second edition of MV's annual scientific update bringing together leading diabetologists, surgeons, researchers, academicians and paramedical experts.
+                MVCON 2027 marks the second edition of MV's annual scientific update bringing together leading Physicians, surgeons, researchers, academicians and paramedical experts.
               </p>
               <p>
                 We invite clinicians, researchers, and healthcare professionals to join us for an intensive scientific exchange designed to bridge the gap between clinical research and daily practice.

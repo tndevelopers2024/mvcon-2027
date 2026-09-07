@@ -56,7 +56,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-slate-400 leading-relaxed mb-8 max-w-sm">
-              The inaugural annual scientific update by MV Diabetes, Chennai. Dedicated to advancing the field of diabetes care and management with a special focus on the diabetic foot.
+              MVCON second edition. The second annual  scientific update by MV Diabetes
             </p>
             
             {/* Social Icons */}
