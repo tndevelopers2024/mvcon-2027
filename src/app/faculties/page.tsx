@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
 
 type FacultyType = 'international' | 'national';
 
@@ -84,10 +83,45 @@ const faculties: Faculty[] = [
 ];
 
 export default function FacultiesPage() {
-  const [filter, setFilter] = useState<FacultyType>('national');
+  const internationalFaculties = faculties.filter((f) => f.type === 'international');
+  const nationalFaculties = faculties.filter((f) => f.type === 'national');
 
-  const filteredFaculties = faculties.filter(
-    (faculty) => faculty.type === filter
+  const renderGrid = (facultyList: Faculty[]) => (
+    <div className={`grid gap-6 md:gap-8 w-full ${
+      facultyList.length === 1
+        ? 'grid-cols-1 max-w-sm mx-auto'
+        : facultyList.length === 2
+        ? 'grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto'
+        : facultyList.length === 3
+        ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-4xl mx-auto'
+        : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
+    }`}>
+      {facultyList.map((faculty) => (
+        <div
+          key={faculty.id}
+          className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-[0_4px_15px_-5px_rgba(0,0,0,0.05)] hover:shadow-2xl transition-all duration-500 border border-slate-100 hover:-translate-y-2 cursor-pointer"
+        >
+          {/* Large Portrait Image */}
+          <div className="relative w-full aspect-square overflow-hidden bg-slate-100">
+            <img 
+              src={faculty.img} 
+              alt={faculty.name}
+              className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 ease-in-out"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </div>
+          
+          {/* Content */}
+          <div className={`p-6 text-center flex-grow flex flex-col items-center justify-center border-b-4 transition-colors duration-300 ${
+            faculty.type === 'international' ? 'border-[#F26522]' : 'border-[#1F83C6]'
+          }`}>
+            <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-[#1F83C6] transition-colors leading-tight">
+              {faculty.name}
+            </h3>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 
   return (
@@ -100,7 +134,7 @@ export default function FacultiesPage() {
             alt="Faculties" 
             className="w-full h-full object-cover opacity-30" 
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/1 to-transparent" />
         </div>
         
         <div className="relative z-10 text-center px-4">
@@ -115,93 +149,31 @@ export default function FacultiesPage() {
 
       <main className="flex-grow max-w-7xl mx-auto px-6 sm:px-8 py-16 w-full">
         
-        {/* Filter Controls */}
-        <div className="flex justify-center gap-4 mb-12">
-          <button
-            onClick={() => setFilter('national')}
-            className={`px-6 py-2.5 rounded-full font-bold transition-all ${
-              filter === 'national'
-                ? 'bg-[#1F83C6] text-white shadow-md'
-                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-            }`}
-          >
-            National
-          </button>
-          <button
-            onClick={() => setFilter('international')}
-            className={`px-6 py-2.5 rounded-full font-bold transition-all ${
-              filter === 'international'
-                ? 'bg-[#1F83C6] text-white shadow-md'
-                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-            }`}
-          >
-            International
-          </button>
-          
-        </div>
+        {/* International Faculty Section */}
+        {internationalFaculties.length > 0 && (
+          <section className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+                International Faculty
+              </h2>
+              <div className="w-16 h-1.5 bg-[#F26522] mx-auto rounded-full" />
+            </div>
+            {renderGrid(internationalFaculties)}
+          </section>
+        )}
 
-        {/* Faculties Grid */}
-        <AnimatePresence mode="wait">
-          <motion.div 
-            key={filter}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className={`grid gap-6 md:gap-8 w-full ${
-              filteredFaculties.length === 1
-                ? 'grid-cols-1 max-w-sm mx-auto'
-                : filteredFaculties.length === 2
-                ? 'grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto'
-                : filteredFaculties.length === 3
-                ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-4xl mx-auto'
-                : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
-            }`}
-          >
-            {filteredFaculties.map((faculty) => (
-              <div
-                key={faculty.id}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-[0_4px_15px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] transition-all duration-300 border border-slate-100 hover:-translate-y-1"
-              >
-                {/* Color Header */}
-                <div className={`h-24 w-full transition-colors duration-500 relative overflow-hidden ${
-                  faculty.type === 'international' ? 'bg-[#F26522]' : 'bg-[#1F83C6]'
-                }`}>
-                  {/* Faint pattern overlay on header */}
-                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
-                </div>
-
-                {/* Avatar (Overlapping) */}
-                <div className="absolute top-6 left-1/2 transform -translate-x-1/2">
-                  <div className="w-34 h-34 rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 bg-white">
-                    <img 
-                      src={faculty.img} 
-                      alt={faculty.name}
-                    />
-                  </div>
-                </div>
-                
-                {/* Content */}
-                <div className="pt-20 pb-8 px-5 text-center flex flex-col items-center">
-                  <h3 className="text-lg md:text-xl font-extrabold text-slate-900 mb-1.5 group-hover:text-[#1F83C6] transition-colors leading-tight">
-                    {faculty.name}
-                  </h3>
-                  {/* <p className="text-sm font-semibold text-slate-500 mb-5">
-                    {faculty.role}
-                  </p> */}
-                  
-                  {/* <span className={`inline-block px-4 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest border ${
-                    faculty.type === 'international' 
-                      ? 'text-[#F26522] border-[#F26522]/30 bg-[#F26522]/5' 
-                      : 'text-[#1F83C6] border-[#1F83C6]/30 bg-[#1F83C6]/5'
-                  }`}>
-                    {faculty.type}
-                  </span> */}
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+        {/* National Faculty Section */}
+        {nationalFaculties.length > 0 && (
+          <section>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+                National Faculty
+              </h2>
+              <div className="w-16 h-1.5 bg-[#1F83C6] mx-auto rounded-full" />
+            </div>
+            {renderGrid(nationalFaculties)}
+          </section>
+        )}
 
       </main>
     </div>

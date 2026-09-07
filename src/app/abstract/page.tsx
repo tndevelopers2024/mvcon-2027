@@ -14,13 +14,13 @@ export default function AbstractPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {/* <Image 
+          <Image 
             src="/images/abstract/abstract-bg.jpg" 
             alt="Conference Hall" 
             fill 
             className="object-cover"
-          /> */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#041E42]/90 via-[#0A3D73]/80 to-[#1F83C6]/60 mix-blend-multiply" />
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#041E42]/60 via-[#0A3D73]/40 to-[#1F83C6]/20 mix-blend-multiply" />
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-12">
