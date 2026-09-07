@@ -73,6 +73,12 @@ export default function AbstractPage() {
                   MVCON 2027 Scientific Abstract Submission is open and will close on <strong className="text-slate-900 border-b-2 border-orange-300">31st December 2026</strong>.
                 </p>
               </div>
+              <div className="flex gap-4">
+                <AlertCircle className="w-6 h-6 text-[#1F83C6] shrink-0 mt-1" />
+                <p className="text-slate-600 leading-relaxed text-lg font-medium">
+                  <span className="font-bold text-slate-800">Registration for the conference is mandatory for abstract submission.</span> Abstracts should be submitted through the online portal along with your MVCON 2026 Registration number.
+                </p>
+              </div>
             </div>
           </div>
         </section>
