@@ -21,7 +21,7 @@ export default function AboutSection() {
             
             <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800">
               <Image
-                src="/images/about.JPG"
+                src="/images/about.jpg"
                 alt="About MVCON"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
