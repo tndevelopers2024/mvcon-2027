@@ -80,6 +80,7 @@ const faculties: Faculty[] = [
   { id: '78', name: "Dr.Viswanathan Vishnu Vijay", role: "Faculty", type: "national", img: "/images/faculty/Dr. Viswanathan Vishnu Vijay.jpg" },
   // { id: '80', name: "Dr.Janaka karalliedde", role: "Faculty", type: "international", img: "/images/faculty/Dr-Janaka-karalliedde.jpg" },
   { id: '80', name: "Mr.Srikar Nallan", role: "Faculty", type: "international", img: "/images/faculty/Srikar-nallan.jpg" },
+  { id: '81', name: "Dr Stephen P. Kidd", role: "Faculty", type: "international", img: "/images/faculty/Dr Stephen P. Kidd.jpeg" },
 ];
 
 export default function FacultiesPage() {
