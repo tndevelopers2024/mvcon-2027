@@ -1,38 +1,44 @@
 import Image from 'next/image';
-import { Camera } from 'lucide-react';
-import { GalleryImage } from '@/components/GalleryGrid';
-import GalleryTabs from '@/components/GalleryTabs';
+import { Camera, Sparkles, Image as ImageIcon, Users } from 'lucide-react';
+import GalleryGrid, { GalleryImage } from '@/components/GalleryGrid';
 
 export const metadata = {
   title: 'Gallery | MVCON 2027',
   description: 'Explore the highlights and moments from previous MVCON events.',
 };
 
-// Day 1 Gallery Images
+// Day 1 Gallery Images - Dr. Jitendra Singh
 const day1Images: GalleryImage[] = [
-  { id: 1, src: '/images/gallery/MP/1.jpg', alt: 'MVCON Day 1 Highlight 1', size: 'medium' },
-  { id: 2, src: '/images/gallery/MP/2.jpg', alt: 'MVCON Day 1 Highlight 2', size: 'medium' },
-  { id: 3, src: '/images/gallery/MP/3.jpg', alt: 'MVCON Day 1 Highlight 3', size: 'medium' },
-  { id: 4, src: '/images/gallery/MP/4.jpg', alt: 'MVCON Day 1 Highlight 4', size: 'medium' },
-  { id: 5, src: '/images/gallery/MP/5.jpg', alt: 'MVCON Day 1 Highlight 5', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/6.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/7.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/8.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/9.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/10.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/11.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/12.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/13.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/14.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/15.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/16.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/17.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/18.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/19.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/20.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/21.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-  { id: 6, src: '/images/gallery/MP/22.jpg', alt: 'MVCON Day 1 Highlight 6', size: 'medium' },
-]
+  { id: 1, src: '/images/gallery/MP/1.jpg', alt: 'Dr. Jitendra Singh Highlight 1', size: 'medium' },
+  { id: 2, src: '/images/gallery/MP/2.jpg', alt: 'Dr. Jitendra Singh Highlight 2', size: 'medium' },  
+  { id: 152, src: '/images/gallery/others/52.jpg', alt: 'MVCON Day 2 Highlight 52', size: 'medium' },
+  { id: 3, src: '/images/gallery/MP/3.jpg', alt: 'Dr. Jitendra Singh Highlight 3', size: 'medium' },
+  { id: 4, src: '/images/gallery/MP/4.jpg', alt: 'Dr. Jitendra Singh Highlight 4', size: 'medium' },
+  { id: 5, src: '/images/gallery/MP/5.jpg', alt: 'Dr. Jitendra Singh Highlight 5', size: 'medium' },
+  { id: 153, src: '/images/gallery/others/53.jpg', alt: 'MVCON Day 2 Highlight 53', size: 'small' },
+  { id: 6, src: '/images/gallery/MP/6.jpg', alt: 'Dr. Jitendra Singh Highlight 6', size: 'medium' },
+  { id: 7, src: '/images/gallery/MP/7.jpg', alt: 'Dr. Jitendra Singh Highlight 7', size: 'medium' },
+  { id: 8, src: '/images/gallery/MP/8.jpg', alt: 'Dr. Jitendra Singh Highlight 8', size: 'medium' },
+  { id: 9, src: '/images/gallery/MP/9.jpg', alt: 'Dr. Jitendra Singh Highlight 9', size: 'medium' },
+  { id: 154, src: '/images/gallery/others/54.jpg', alt: 'MVCON Day 2 Highlight 54', size: 'small' },
+  { id: 10, src: '/images/gallery/MP/10.jpg', alt: 'Dr. Jitendra Singh Highlight 10', size: 'medium' },
+  { id: 11, src: '/images/gallery/MP/11.jpg', alt: 'Dr. Jitendra Singh Highlight 11', size: 'medium' },
+  { id: 12, src: '/images/gallery/MP/12.jpg', alt: 'Dr. Jitendra Singh Highlight 12', size: 'medium' },
+  { id: 156, src: '/images/gallery/others/56.jpg', alt: 'MVCON Day 2 Highlight 56', size: 'small' },
+  { id: 13, src: '/images/gallery/MP/13.jpg', alt: 'Dr. Jitendra Singh Highlight 13', size: 'medium' },
+  { id: 14, src: '/images/gallery/MP/14.jpg', alt: 'Dr. Jitendra Singh Highlight 14', size: 'medium' },
+  { id: 15, src: '/images/gallery/MP/15.jpg', alt: 'Dr. Jitendra Singh Highlight 15', size: 'medium' },
+  { id: 157, src: '/images/gallery/others/57.jpg', alt: 'MVCON Day 2 Highlight 57', size: 'small' },
+  { id: 16, src: '/images/gallery/MP/16.jpg', alt: 'Dr. Jitendra Singh Highlight 16', size: 'medium' },
+  { id: 17, src: '/images/gallery/MP/17.jpg', alt: 'Dr. Jitendra Singh Highlight 17', size: 'medium' },
+  { id: 18, src: '/images/gallery/MP/18.jpg', alt: 'Dr. Jitendra Singh Highlight 18', size: 'medium' },
+  { id: 158, src: '/images/gallery/others/58.jpg', alt: 'MVCON Day 2 Highlight 58', size: 'medium' },
+  { id: 19, src: '/images/gallery/MP/19.jpg', alt: 'Dr. Jitendra Singh Highlight 19', size: 'medium' },
+  { id: 20, src: '/images/gallery/MP/20.jpg', alt: 'Dr. Jitendra Singh Highlight 20', size: 'medium' },
+  { id: 158, src: '/images/gallery/others/60.jpg', alt: 'MVCON Day 2 Highlight 58', size: 'medium' },
+  { id: 21, src: '/images/gallery/MP/21.jpg', alt: 'Dr. Jitendra Singh Highlight 21', size: 'medium' },
+  { id: 22, src: '/images/gallery/MP/22.jpg', alt: 'Dr. Jitendra Singh Highlight 22', size: 'medium' },
+];
 
 // Day 2 Gallery Images (gal1 to gal85)
 const day2Images: GalleryImage[] = [
@@ -85,16 +91,7 @@ const day2Images: GalleryImage[] = [
   { id: 149, src: '/images/gallery/others/49.jpg', alt: 'MVCON Day 2 Highlight 49', size: 'medium' },
   { id: 150, src: '/images/gallery/others/50.jpg', alt: 'MVCON Day 2 Highlight 50', size: 'large' },
   { id: 151, src: '/images/gallery/others/51.jpg', alt: 'MVCON Day 2 Highlight 51', size: 'small' },
-  { id: 152, src: '/images/gallery/others/52.jpg', alt: 'MVCON Day 2 Highlight 52', size: 'large' },
-  { id: 153, src: '/images/gallery/others/53.jpg', alt: 'MVCON Day 2 Highlight 53', size: 'small' },
-  { id: 154, src: '/images/gallery/others/54.jpg', alt: 'MVCON Day 2 Highlight 54', size: 'small' },
-  { id: 155, src: '/images/gallery/others/55.jpg', alt: 'MVCON Day 2 Highlight 55', size: 'small' },
-  { id: 156, src: '/images/gallery/others/56.jpg', alt: 'MVCON Day 2 Highlight 56', size: 'small' },
-  { id: 157, src: '/images/gallery/others/57.jpg', alt: 'MVCON Day 2 Highlight 57', size: 'small' },
-  { id: 158, src: '/images/gallery/others/58.jpg', alt: 'MVCON Day 2 Highlight 58', size: 'medium' },
-  { id: 159, src: '/images/gallery/others/59.jpg', alt: 'MVCON Day 2 Highlight 59', size: 'large' },
   { id: 160, src: '/images/gallery/others/60.jpg', alt: 'MVCON Day 2 Highlight 60', size: 'small' },
-  { id: 161, src: '/images/gallery/others/61.jpg', alt: 'MVCON Day 2 Highlight 61', size: 'small' },
   { id: 162, src: '/images/gallery/others/62.jpg', alt: 'MVCON Day 2 Highlight 62', size: 'small' },
   { id: 163, src: '/images/gallery/others/63.jpg', alt: 'MVCON Day 2 Highlight 63', size: 'small' },
   { id: 164, src: '/images/gallery/others/64.jpg', alt: 'MVCON Day 2 Highlight 64', size: 'large' },
@@ -200,12 +197,60 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Gallery Section with Tabs */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 -mt-16 relative z-20">
-        <div className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden p-8 md:p-12">
-          <GalleryTabs day1Images={day1Images} day2Images={day2Images} />
-        </div>
-      </section>
+      {/* Gallery Sections */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 -mt-16 relative z-20 space-y-12">
+        {/* First Section: Dr. Jitendra Singh */}
+        <section className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden p-8 md:p-12">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 pb-6 border-b border-slate-100">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-blue-50 text-[#1F83C6] rounded-2xl flex items-center justify-center border border-blue-100 shrink-0 shadow-sm">
+                <ImageIcon className="w-7 h-7" />
+              </div>
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800">
+                  Dr. Jitendra Singh
+                </h2>
+                <p className="text-slate-500 font-medium mt-1">
+                  Hon&apos;ble Union Minister of State visit and memorable interactions at MVCON 2026
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 text-[#1F83C6] bg-blue-50 px-4 py-2 rounded-full font-bold border border-blue-100 text-sm shadow-sm shrink-0">
+              <Sparkles className="w-4 h-4" />
+              <span>Special Highlights</span>
+            </div>
+          </div>
+
+          <GalleryGrid images={day1Images} />
+        </section>
+
+        {/* Second Section: Faculties Speaking */}
+        <section className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden p-8 md:p-12">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 pb-6 border-b border-slate-100">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-orange-50 text-[#F26522] rounded-2xl flex items-center justify-center border border-orange-100 shrink-0 shadow-sm">
+                <Users className="w-7 h-7" />
+              </div>
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800">
+                  Faculties Speaking
+                </h2>
+                <p className="text-slate-500 font-medium mt-1">
+                  Glimpses from scientific deliberations, keynote presentations, and faculty sessions
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 text-[#F26522] bg-orange-50 px-4 py-2 rounded-full font-bold border border-orange-100 text-sm shadow-sm shrink-0">
+              <Sparkles className="w-4 h-4" />
+              <span>Conference Sessions</span>
+            </div>
+          </div>
+
+          <GalleryGrid images={day2Images} />
+        </section>
+      </div>
     </main>
   );
 }

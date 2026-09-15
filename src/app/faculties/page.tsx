@@ -31,9 +31,11 @@ const faculties: Faculty[] = [
   { id: '21', name: "Dr.B.Kannan", role: "Faculty", type: "national", img: "/images/faculty/Dr.B.Kannan.jpeg" },
   { id: '22', name: "Dr.Kannan Natarajan", role: "Faculty", type: "national", img: "/images/faculty/DR Kannan Natrajan.png" },
   { id: '23', name: "Dr.Krishna G Seshadri", role: "Faculty", type: "national", img: "/images/faculty/Prof. Krishna G Seshadri.jpg" },
+  { id: '23', name: "Dr.Kritika Datta", role: "Faculty", type: "national", img: "/images/faculty/Dr.Kritika_Datta.png" },
   { id: '24', name: "Dr.Kumar P", role: "Faculty", type: "national", img: "/images/faculty/Dr.Kumar-P.jpeg" },
   { id: '25', name: "Dr.SS.Lakshmanan", role: "Faculty", type: "national", img: "/images/faculty/s-s-lakshmanan.jpg" },
   { id: '26', name: "Dr.Leela Baid", role: "Faculty", type: "national", img: "/images/faculty/Dr. Leela Baid.png" },
+  { id: '27', name: "Dr.R.Manimaran", role: "Faculty", type: "national", img: "/images/faculty/Manimaran.jpeg" },
   { id: '27', name: "Dr.Manoj P", role: "Faculty", type: "national", img: "/images/faculty/Dr.Manoj-P.jpeg" },
   { id: '29', name: "Dr.Meenakshi Bajaj", role: "Faculty", type: "national", img: "/images/faculty/meenakshi-bajaj.jpg" },
   { id: '30', name: "Dr.Milind Ruke", role: "Faculty", type: "national", img: "/images/faculty/MILIND.png" },
@@ -128,21 +130,20 @@ export default function FacultiesPage() {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
       {/* Hero Banner */}
-      <div className="relative w-full h-[400px] flex items-center justify-center overflow-hidden bg-slate-900 mt-0">
+      <div className="relative w-full h-[600px] flex items-end justify-center overflow-hidden mt-0">
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/faculty.jpg" 
             alt="Faculties" 
-            className="w-full h-full object-cover opacity-30" 
+            className="w-full h-full object-cover" 
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/1 to-transparent" />
         </div>
         
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-4 tracking-tight">
-            Our <span className="text-[#1F83C6]">Faculties</span>
+        <div className="relative z-10 text-center px-4 bg-gradient-to-t from-[#041E42] via-[#041E42]/85 to-transparent w-full pt-28 pb-8">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-4 tracking-tight drop-shadow-lg">
+            Our <span className="text-[#E65230]">Faculties</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-300 font-medium max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/95 font-medium max-w-2xl mx-auto drop-shadow-md">
             Learn from the leading experts in diabetes and diabetic foot care.
           </p>
         </div>

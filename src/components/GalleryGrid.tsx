@@ -85,7 +85,7 @@ export default function GalleryGrid({ images }: { images: GalleryImage[] }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full auto-rows-[250px] sm:auto-rows-[300px] grid-flow-row-dense">
         {images.map((image, index) => (
           <AnimatedImageCard 
-            key={image.id} 
+            key={`${image.id}-${index}`} 
             index={index}
             className={image.size === 'large' ? 'row-span-2' : 'row-span-1'}
           >
