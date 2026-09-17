@@ -46,42 +46,59 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const isTransparent = !isScrolled && pathname !== '/register' && pathname !== '/login';
+
   return (
-    <div className={`sticky top-0 z-50 w-full transition-all duration-500 ease-in-out ${
+    <div className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ease-in-out ${
       (isVisible || isMobileMenuOpen) ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
     }`}>
-      <div className={`transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0 opacity-0' : 'max-h-16 opacity-100'}`}>
-        {/* <TopbarCountdown /> */}
-      </div>
-      <header className={`w-full transition-all duration-500 ease-in-out border-b py-4 ${
-        isScrolled 
+      <header className={`w-full transition-all duration-300 ease-in-out border-b py-4 ${
+        !isTransparent 
           ? 'bg-white/95 backdrop-blur-md shadow-md border-slate-200' 
-          : 'bg-white border-transparent'
+          : 'bg-transparent border-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-8 lg:px-16 flex justify-between items-center">
         <div className="text-2xl font-bold text-[#1F83C6] uppercase tracking-wide">
-          <Link href="/"><img className="w-28" src="/images/logo.png" alt="" /></Link>
+          <Link href="/"><img className="w-28 drop-shadow-sm" src="/images/logo.png" alt="MVCON Logo" /></Link>
         </div>
         <nav className="hidden lg:flex gap-6 items-center">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`text-sm font-medium transition-colors duration-200 relative pb-1 border-b-2 ${
-                pathname === link.href
-                  ? 'text-[#1F83C6] border-[#1F83C6]'
-                  : 'text-slate-800 border-transparent hover:text-[#1F83C6]'
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                style={{
+                  color: isTransparent
+                    ? '#ffffff'
+                    : isActive
+                      ? '#1F83C6'
+                      : '#1e293b',
+                }}
+                className={`text-sm font-semibold transition-colors duration-200 relative pb-1 border-b-2 ${
+                  isTransparent
+                    ? isActive
+                      ? '!text-white !border-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]'
+                      : '!text-white/95 !border-transparent hover:!text-white hover:!border-white/60 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]'
+                    : isActive
+                      ? '!text-[#1F83C6] !border-[#1F83C6]'
+                      : '!text-slate-800 !border-transparent hover:!text-[#1F83C6]'
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </nav>
         <div className="flex items-center gap-4">
-          <Link href="/register" className="btn-primary hidden sm:inline-flex">Register Now</Link>
+          <Link href="/register" className="btn-primary hidden sm:inline-flex shadow-md">Register Now</Link>
           <button 
-            className="lg:hidden p-2 text-slate-800" 
+            style={{ color: isTransparent ? '#ffffff' : '#1e293b' }}
+            className={`lg:hidden p-2 transition-colors ${
+              !isTransparent ? '!text-slate-800' : '!text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]'
+            }`} 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle Menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -109,6 +126,6 @@ export default function Header() {
           </div>
         </div>
       </header>
-      </div>
+    </div>
   );
 }

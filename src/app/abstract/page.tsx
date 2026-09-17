@@ -2,6 +2,7 @@ import { Calendar, FileText, Trophy, AlertCircle, CheckCircle2, FileEdit, ArrowR
 import Link from 'next/link';
 import Image from 'next/image';
 import ImageCollage from '@/components/ImageCollage';
+import AbstractSubmissionModal, { AbstractSubmitButton } from '@/components/AbstractSubmissionModal';
 
 export const metadata = {
   title: 'Abstract Submission | MVCON 2027',
@@ -33,6 +34,13 @@ export default function AbstractPage() {
           <p className="text-lg md:text-xl text-white/90 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-md">
             Join leading Physicians, surgeons, and researchers by presenting your original scientific data at MVCON 2027.
           </p>
+          <div className="mt-8 flex justify-center">
+            <AbstractSubmitButton className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-xl shadow-orange-500/30 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300 cursor-pointer">
+              <FileEdit className="w-5 h-5" />
+              Submit Abstract Online
+              <ArrowRight className="w-5 h-5" />
+            </AbstractSubmitButton>
+          </div>
         </div>
       </section>
 
@@ -233,15 +241,15 @@ export default function AbstractPage() {
         <div className="text-center pt-8 pb-12 relative">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-32 bg-gradient-to-r from-[#1F83C6]/0 via-[#1F83C6]/20 to-[#1F83C6]/0 blur-3xl pointer-events-none" />
           
-          <Link 
-            href="#" 
-            className="relative z-10 inline-flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-12 py-5 rounded-2xl text-xl font-bold shadow-xl shadow-orange-500/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300"
-          >
+          <AbstractSubmitButton className="relative z-10 inline-flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-12 py-5 rounded-2xl text-xl font-bold shadow-xl shadow-orange-500/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300 cursor-pointer">
             Submit Abstract Online <ArrowRight className="w-6 h-6" />
-          </Link>
+          </AbstractSubmitButton>
         </div>
 
       </div>
+
+      {/* Abstract Submission Popup Modal */}
+      <AbstractSubmissionModal />
     </main>
   );
 }

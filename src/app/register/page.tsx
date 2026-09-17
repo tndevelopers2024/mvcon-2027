@@ -118,7 +118,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-80px)] bg-slate-50 py-12 px-4 flex justify-center items-center">
+    <div className="min-h-screen bg-slate-50 pt-28 pb-16 px-4 flex justify-center items-center">
       <div className="w-full max-w-4xl bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 overflow-hidden relative">
         
         {/* Header section with brand colors */}

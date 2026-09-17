@@ -8,6 +8,7 @@ export default function ImageCollage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const images = [
+    '/images/abstract/img0.jpg',
     '/images/abstract/img1.jpg',
     '/images/abstract/img2.jpg',
     '/images/abstract/img3.jpg',
@@ -33,7 +34,7 @@ export default function ImageCollage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
           {images.map((src, i) => (
             <div 
               key={i} 

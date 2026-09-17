@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Calendar, MapPin } from 'lucide-react';
+import { Calendar, MapPin, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const slides = [
   {
     id: 1,
-    title: 'MVCON 2027',
+    title: '2027',
     badge: '2ND EDITION',
     subtitle: 'Welcome to MVCON 2027 - Annual conference on diabetes and Foot care',
     quote:
@@ -19,7 +19,7 @@ const slides = [
   },
   {
     id: 2,
-    title: 'MVCON 2027',
+    title: '2027',
     badge: '2ND EDITION',
     subtitle: 'Conference on Diabetes and its complications with focus on diabetic foot',
     quote:
@@ -30,7 +30,7 @@ const slides = [
   },
   {
     id: 3,
-    title: 'MVCON 2027',
+    title: '2027',
     badge: '2ND EDITION',
     subtitle: 'Learn from renowned experts',
     quote:
@@ -39,17 +39,6 @@ const slides = [
     location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
     imageSrc: '/images/hero3.jpg',
   },
-  // {
-  //   id: 4,
-  //   title: 'MVCON 2027',
-  //   badge: '2ND EDITION',
-  //   subtitle: '',
-  //   quote:
-  //     '"Join a global community of experts dedicated to advancing the field of metabolic health."',
-  //   date: '19, 20, 21 March 2027',
-  //   location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
-  //   imageSrc: '/images/hero4.jpg',
-  // },
 ];
 
 export default function HeroCarousel() {
@@ -62,86 +51,156 @@ export default function HeroCarousel() {
     return () => clearInterval(timer);
   }, []);
 
-  return (
-    <div className="relative w-full overflow-hidden min-h-[85vh] bg-background flex items-center z-10">
-      <style>{`
-        @keyframes flipIn {
-          0% { transform: perspective(1000px) rotateY(-90deg) scale(0.9); opacity: 0; }
-          100% { transform: perspective(1000px) rotateY(0deg) scale(1); opacity: 1; }
-        }
-        .animate-flip-in {
-          animation: flipIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-      `}</style>
+  const handlePrev = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
 
+  const handleNext = () => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <section className="relative w-full h-[500px] sm:h-[540px] md:h-[580px] lg:h-[620px] overflow-hidden bg-background flex flex-col justify-end pb-3">
+      {/* Full-Height Background Slides */}
       {slides.map((slide, index) => {
         const isActive = index === currentSlide;
         return (
           <div
             key={slide.id}
-            className={`absolute inset-0 w-full h-full flex justify-center transition-opacity duration-1000 ${
-              isActive ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
+            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
+              isActive ? 'opacity-100 z-0 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
             }`}
           >
-            {/* Background Image with Gradients */}
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-              <Image
-                src={slide.imageSrc}
-                alt="Background"
-                fill
-                className="object-cover object-center"
-                priority={slide.id === 1}
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-background via-background to-transparent z-10 w-full md:w-3/4 lg:w-3/4" />
-            </div>
-
-            <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center justify-start px-8 lg:px-16 py-8 gap-10 relative z-20 h-full">
-              <div
-                className={`flex-1 max-w-3xl text-left transition-all duration-1000 ${
-                  isActive ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-12 opacity-0'
-                }`}
-              >
-                {slide.badge && (
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-background/95 dark:bg-black/30 border border-border-color rounded-full text-sm font-semibold text-text-muted mb-6 backdrop-blur-sm">
-                    <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
-                    {slide.badge}
-                  </div>
-                )}
-                <h1 className="text-primary text-5xl lg:text-6xl font-bold mb-2">{slide.title}</h1>
-                <h2 className="text-foreground text-4xl lg:text-5xl font-bold leading-tight mb-6">{slide.subtitle}</h2>
-                <p className="text-lg italic text-text-muted lg:border-l-4 lg:border-primary lg:pl-4 mb-8 lg:border-t-0 border-t-4 pt-4 lg:pt-0 max-w-2xl">
-                  {slide.quote}
-                </p>
-                <div className="flex flex-col sm:flex-row justify-start gap-6 mb-10 text-text-muted font-medium">
-                  <div className="flex items-center gap-2">
-                    <Calendar size={20} className="text-primary" />
-                    <span>{slide.date}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin size={20} className="text-primary" />
-                    <span>{slide.location}</span>
-                  </div>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                  <Link href="/register" className="btn-primary">Register Now</Link>
-                  <Link href="/scientific-program" className="btn-secondary">View Program</Link>
-                </div>
-              </div>
-            </div>
+            <Image
+              src={slide.imageSrc}
+              alt={slide.subtitle || 'MVCON Slide'}
+              fill
+              quality={90}
+              className="object-cover object-[bottom_20%]"
+              priority={slide.id === 1}
+            />
           </div>
         );
       })}
-      <div className="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 flex gap-3 z-30">
-        {slides.map((_, index) => (
-          <div
-            key={index}
-            className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
-              index === currentSlide ? 'bg-primary scale-125' : 'bg-black/20 dark:bg-white/20'
-            }`}
-            onClick={() => setCurrentSlide(index)}
-          />
-        ))}
+
+      {/* Top subtle vignette for transparent header contrast */}
+      <div className="absolute inset-x-0 top-0 h-28 sm:h-32 bg-gradient-to-b from-black/50 via-black/20 to-transparent z-10 pointer-events-none" />
+
+      {/* Custom smooth gradient transition over full-height background */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-[340px] sm:h-[380px] md:h-[420px] z-10 pointer-events-none"
+        style={{
+          background: 'linear-gradient(0deg, rgba(255, 255, 255, 1) 4%, rgba(0, 212, 255, 0) 100%)',
+        }}
+      />
+
+      {/* Left Arrow Button */}
+      <button
+        type="button"
+        onClick={handlePrev}
+        className="absolute left-3 md:left-6 top-1/3 -translate-y-1/2 z-20 w-10 h-10 md:w-11 md:h-11 rounded-xl bg-black/40 hover:bg-black/65 text-white/90 hover:text-white backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all shadow-lg hover:scale-105 active:scale-95"
+        aria-label="Previous Slide"
+      >
+        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+      </button>
+
+      {/* Right Arrow Button */}
+      <button
+        type="button"
+        onClick={handleNext}
+        className="absolute right-3 md:right-6 top-1/3 -translate-y-1/2 z-20 w-10 h-10 md:w-11 md:h-11 rounded-xl bg-black/40 hover:bg-black/65 text-white/90 hover:text-white backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all shadow-lg hover:scale-105 active:scale-95"
+        aria-label="Next Slide"
+      >
+        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+      </button>
+
+      {/* Centered Content Section Over Background Image */}
+      <div className="relative z-20 max-w-6xl mx-auto px-4 text-center flex flex-col items-center">
+        {slides.map((slide, index) => {
+          const isActive = index === currentSlide;
+          if (!isActive) return null;
+
+          return (
+            <div
+              key={slide.id}
+              className="w-full flex flex-col items-center text-center transition-all duration-500"
+            >
+              {/* Badge */}
+              {slide.badge && (
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/90 dark:bg-black/40 border border-slate-200 dark:border-white/10 rounded-full text-[11px] md:text-xs font-semibold text-slate-700 dark:text-slate-200 mb-2 shadow-xs backdrop-blur-sm">
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse"></span>
+                  {slide.badge}
+                </div>
+              )}
+
+              {/* Logo + 2027 Title */}
+              <div className="flex items-center justify-center gap-2.5 md:gap-3 mb-1.5">
+                <img src="/images/logo.png" alt="MVCON Logo" className="h-8 sm:h-10 md:h-11 object-contain" />
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#F26522] tracking-tight">
+                  {slide.title}
+                </h1>
+              </div>
+
+              {/* Subtitle / Main Headline */}
+              <h2 className="text-sm sm:text-lg md:text-2xl font-bold text-foreground tracking-tight leading-snug mb-1.5 max-w-2xl">
+                {slide.subtitle}
+              </h2>
+
+              {/* Quote / Description */}
+              <p className="text-[14px] sm:text-lg text-text-muted leading-relaxed mb-2 italic font-normal line-clamp-1 hidden sm:block">
+                {slide.quote}
+              </p>
+
+              {/* Date & Location */}
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-2.5 text-xs sm:text-sm text-text-muted font-medium">
+                <div className="flex items-center gap-1.5">
+                  <Calendar size={15} className="text-primary" />
+                  <span className='text-black text-bold text-lg'>{slide.date}</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <MapPin size={15} className="text-primary" />
+                  <span className='text-black text-bold text-lg'>{slide.location}</span>
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              {/* <div className="flex flex-wrap items-center justify-center gap-3">
+                <Link
+                  href="/register"
+                  className="btn-primary inline-flex items-center gap-1.5 px-5 py-2 rounded-lg font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all"
+                >
+                  Register Now
+                  <ArrowRight size={15} />
+                </Link>
+                <Link
+                  href="/scientific-program"
+                  className="btn-secondary inline-flex items-center gap-1.5 px-5 py-2 rounded-lg font-bold text-xs sm:text-sm transition-all"
+                >
+                  View Program
+                </Link>
+              </div> */}
+            </div>
+          );
+        })}
+
+        {/* Carousel Dots */}
+        <div className="flex justify-center items-center gap-2 mt-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              aria-label={`Go to slide ${index + 1}`}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === currentSlide
+                  ? 'w-6 bg-primary'
+                  : 'w-2 bg-slate-300 dark:bg-white/20 hover:bg-slate-400'
+              }`}
+              onClick={() => setCurrentSlide(index)}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
+

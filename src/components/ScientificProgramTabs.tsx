@@ -187,13 +187,12 @@ export default function ScientificProgramTabs() {
                 <div className="flex flex-col items-center justify-center text-center h-full min-h-[300px]">
                   <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16 lg:gap-24 mb-12 w-full max-w-5xl mx-auto">
                     <img src="/images/logo1.png" alt="Sponsor Logo Left" className="h-16 md:h-20 object-contain" />
-                    <img src="/images/logo.png" alt="MVCON Logo" className="h-20 md:h-28 object-contain scale-110" />
+                    <div className="flex flex-col items-center">
+                      <img src="/images/logo.png" alt="MVCON Logo" className="h-20 md:h-28 object-contain scale-110" />
+                      <span className="text-5xl md:text-7xl font-extrabold text-[#1F83C6] mb-12 tracking-tight">2027</span>
+                    </div>
                     <img src="/images/logo3.png" alt="Sponsor Logo Right" className="h-16 md:h-20 object-contain" />
                   </div>
-                  
-                  <h2 className="text-5xl md:text-7xl font-extrabold text-[#1F83C6] mb-12 tracking-tight">
-                    MVCON 2027
-                  </h2>
 
                   <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-20">
                     <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-full border border-slate-200 shadow-sm text-slate-700 font-semibold">
@@ -233,7 +232,7 @@ export default function ScientificProgramTabs() {
                           <Users className="w-7 h-7" />
                         </div>
                         <p className="text-slate-700 font-medium text-sm leading-relaxed">
-                          <strong className="block text-slate-900 mb-1">Wide range of sessions:</strong>
+                          <strong className="block text-slate-900 mb-1">Wide range of sessions</strong>
                           Talks on diabetes and management of its complications such as kidney, eye, heart and dedicated sessions on diabetic foot
                         </p>
                       </div>
@@ -243,7 +242,7 @@ export default function ScientificProgramTabs() {
                           <Microscope className="w-7 h-7" />
                         </div>
                         <p className="text-slate-700 font-medium text-sm leading-relaxed">
-                          <strong className="block text-slate-900 mb-1">Live workshops:</strong>
+                          <strong className="block text-slate-900 mb-1">Live workshops</strong>
                           Hands-on debridement practice and demonstrations of advanced techniques such as Negative Pressure Wound Therapy.
                         </p>
                       </div>
@@ -253,7 +252,7 @@ export default function ScientificProgramTabs() {
                           <MessageSquare className="w-7 h-7" />
                         </div>
                         <p className="text-slate-700 font-medium text-sm leading-relaxed">
-                          <strong className="block text-slate-900 mb-1">Scientific exchanges:</strong>
+                          <strong className="block text-slate-900 mb-1">Scientific exchanges</strong>
                           Symposiums, Panel discussions, Original research presentations (oral and poster), Quiz competition, and Debates
                         </p>
                       </div>
@@ -263,7 +262,7 @@ export default function ScientificProgramTabs() {
                           <Network className="w-7 h-7" />
                         </div>
                         <p className="text-slate-700 font-medium text-sm leading-relaxed">
-                          <strong className="block text-slate-900 mb-1">Networking opportunity:</strong>
+                          <strong className="block text-slate-900 mb-1">Networking opportunity</strong>
                           A dedicated Delegate Lounge for interaction with peers and faculty
                         </p>
                       </div>
