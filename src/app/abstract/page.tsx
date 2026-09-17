@@ -146,9 +146,17 @@ export default function AbstractPage() {
             <div className="lg:col-span-3 mt-8 lg:mt-12 bg-gradient-to-br from-[#0A3D73] to-[#041E42] rounded-[2rem] p-8 md:p-10 shadow-xl relative overflow-hidden text-white">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[#1F83C6]/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
               
-              <h3 className="font-bold text-white text-2xl mb-8 flex items-center gap-3 relative z-10">
-                <FileEdit className="w-7 h-7 text-orange-400" /> Abstract Structure
-              </h3>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 relative z-10">
+                <h3 className="font-bold text-white text-2xl flex items-center gap-3">
+                  <FileEdit className="w-7 h-7 text-orange-400" /> Abstract Structure
+                </h3>
+
+                <AbstractSubmitButton className="inline-flex items-center gap-2.5 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-xl text-sm md:text-base font-bold shadow-lg shadow-orange-500/30 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-orange-500/40 transition-all duration-300 cursor-pointer w-fit">
+                  <FileText className="w-4 h-4" />
+                  Submit Abstract Online
+                  <ArrowRight className="w-4 h-4" />
+                </AbstractSubmitButton>
+              </div>
               
               <div className="flex flex-wrap justify-center gap-6 relative z-10">
                 <div className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:bg-white/20 transition-all hover:-translate-y-1">
