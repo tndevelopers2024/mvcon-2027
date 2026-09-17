@@ -7,7 +7,16 @@ import { Trophy, X } from 'lucide-react';
 export default function ImageCollage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const images = Array.from({ length: 9 }).map((_, i) => `/images/abstract/img${i + 1}.jpg`);
+  const images = [
+    '/images/abstract/img1.jpg',
+    '/images/abstract/img2.jpg',
+    '/images/abstract/img3.jpg',
+    '/images/abstract/img4.jpg',
+    '/images/abstract/img5.jpg',
+    '/images/abstract/img7.jpg',
+    '/images/abstract/img8.jpg',
+    '/images/abstract/img9.jpg',
+  ];
 
   return (
     <>
