@@ -253,7 +253,7 @@ export default function ScientificProgramTabs() {
                         </div>
                         <p className="text-slate-700 font-medium text-sm leading-relaxed">
                           <strong className="block text-slate-900 mb-1">Scientific exchanges</strong>
-                          Symposiums, Panel discussions, Original research presentations (oral and poster), Quiz competition, and Debates
+                          Research, Recognition & Excellence Interactive quiz, a vibrant platform for showcasing innovative  research through oral and poster presentations and exciting awards for outstanding winners
                         </p>
                       </div>
 

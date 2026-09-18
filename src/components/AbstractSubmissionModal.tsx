@@ -130,28 +130,20 @@ export default function AbstractSubmissionModal() {
         payload.append('abstractFile', abstractFile);
       }
 
-      // Send to backend API if available, with graceful fallback
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL 
-        ? `${process.env.NEXT_PUBLIC_API_URL}/api/abstracts` 
-        : '/api/abstracts';
+      // Send to backend API
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+      const res = await fetch(`${backendUrl}/api/abstracts`, {
+        method: 'POST',
+        body: payload,
+      });
 
-      try {
-        const res = await fetch(apiUrl, {
-          method: 'POST',
-          body: payload,
-        });
-        if (res.ok) {
-          const data = await res.json();
-          setSubmissionId(data.submissionId || data.id || `MVCON-ABS-2027-${Math.floor(1000 + Math.random() * 9000)}`);
-        } else {
-          // Fallback reference ID if endpoint is not configured yet
-          setSubmissionId(`MVCON-ABS-2027-${Math.floor(1000 + Math.random() * 9000)}`);
-        }
-      } catch {
-        // Fallback for standalone demo
-        setSubmissionId(`MVCON-ABS-2027-${Math.floor(1000 + Math.random() * 9000)}`);
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || 'Submission failed. Please check your details and try again.');
       }
 
+      setSubmissionId(data.submissionId);
       setIsSuccess(true);
     } catch (err: any) {
       setErrorMessage(err.message || 'Submission failed. Please check your network connection.');

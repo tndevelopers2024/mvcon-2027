@@ -46,7 +46,26 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isTransparent = !isScrolled && pathname !== '/register' && pathname !== '/login';
+  const [currentUser, setCurrentUser] = useState<{ fullName?: string; role?: string } | null>(null);
+
+  useEffect(() => {
+    const checkUser = () => {
+      try {
+        const u = localStorage.getItem('mvcon_user');
+        if (u) setCurrentUser(JSON.parse(u));
+        else setCurrentUser(null);
+      } catch {
+        setCurrentUser(null);
+      }
+    };
+    checkUser();
+  }, [pathname]);
+
+  const isTransparent = !isScrolled && pathname !== '/register' && pathname !== '/login' && pathname !== '/dashboard' && pathname !== '/admin';
+
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
 
   return (
     <div className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ease-in-out ${
@@ -90,8 +109,28 @@ export default function Header() {
             );
           })}
         </nav>
-        <div className="flex items-center gap-4">
-          <Link href="/register" className="btn-primary hidden sm:inline-flex shadow-md">Register Now</Link>
+        <div className="flex items-center gap-3">
+          {currentUser ? (
+            <Link 
+              href={currentUser.role === 'admin' ? '/admin' : '/dashboard'} 
+              className="px-4 py-2 bg-[#1F83C6] hover:bg-[#156ca5] text-white font-bold text-xs sm:text-sm rounded-xl shadow-md shadow-[#1F83C6]/20 transition-all flex items-center gap-1.5"
+            >
+              {currentUser.role === 'admin' ? 'Admin Panel' : 'My Pass / Portal'}
+            </Link>
+          ) : (
+            <div className="flex items-center gap-2">
+              <Link 
+                href="/login" 
+                className={`text-xs sm:text-sm font-bold px-3 py-2 rounded-xl transition-colors ${
+                  isTransparent ? 'text-white hover:text-sky-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]' : 'text-slate-700 hover:text-[#1F83C6]'
+                }`}
+              >
+                Sign In
+              </Link>
+              <Link href="/register" className="btn-primary hidden sm:inline-flex shadow-md">Register Now</Link>
+            </div>
+          )}
+
           <button 
             style={{ color: isTransparent ? '#ffffff' : '#1e293b' }}
             className={`lg:hidden p-2 transition-colors ${
@@ -122,7 +161,20 @@ export default function Header() {
                 {link.name}
               </Link>
             ))}
-            <Link href="/register" className="btn-primary w-full text-center sm:hidden mt-2" onClick={() => setIsMobileMenuOpen(false)}>Register Now</Link>
+            {currentUser ? (
+              <Link 
+                href={currentUser.role === 'admin' ? '/admin' : '/dashboard'} 
+                className="btn-primary w-full text-center mt-2" 
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {currentUser.role === 'admin' ? 'Admin Dashboard' : 'Open Attendee Portal'}
+              </Link>
+            ) : (
+              <div className="flex flex-col gap-2 mt-2">
+                <Link href="/login" className="w-full text-center py-2.5 font-bold text-slate-700 bg-slate-100 rounded-xl" onClick={() => setIsMobileMenuOpen(false)}>Sign In</Link>
+                <Link href="/register" className="btn-primary w-full text-center sm:hidden" onClick={() => setIsMobileMenuOpen(false)}>Register Now</Link>
+              </div>
+            )}
           </div>
         </div>
       </header>

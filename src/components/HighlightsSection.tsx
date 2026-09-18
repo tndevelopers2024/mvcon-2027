@@ -21,7 +21,7 @@ const highlights = [
     title: 'Scientific Exchanges',
     icon: MessageSquare,
     imageSrc: '/images/highlight3.jpg',
-    description: 'Engage in stimulating discussions and share groundbreaking research with peers and industry leaders.',
+    description: 'Research, Recognition & Excellence Interactive quiz, a vibrant platform for showcasing innovative research through oral and poster presentations and exciting awards for outstanding winners',
   },
   {
     id: '04',

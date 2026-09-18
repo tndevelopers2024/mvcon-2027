@@ -62,6 +62,7 @@ const faculties: Faculty[] = [
   { id: '54', name: "Ms.Seena Rajasekar", role: "Faculty", type: "national", img: "/images/faculty/Mrs.Seena Rajsekar.jpg" },
   { id: '56', name: "Dr.Siva Shankari S", role: "Faculty", type: "national", img: "/images/faculty/Dr.Siva-Shankari-S.jpeg" },
   { id: '57', name: "Dr.G.Senthil", role: "Faculty", type: "national", img: "/images/faculty/Dr. G. Senthil.jpg" },
+  { id: '57', name: "Dr.Senthil Kumar K", role: "Faculty", type: "national", img: "/images/faculty/Dr.Senthil_Kumar_K.jpeg" },
   { id: '58', name: "Dr.A.Shanmugam", role: "Faculty", type: "national", img: "/images/faculty/Dr A Shanmugam.jpg" },
   { id: '59', name: "Dr.K.Shanmugam", role: "Faculty", type: "national", img: "/images/faculty/Dr. K. Shanmugam.jpg" },
   { id: '60', name: "Dr.A.Shanmugavelu", role: "Faculty", type: "national", img: "/images/faculty/DR. A. SHANMUGAVELAN.jpg" },
@@ -135,7 +136,7 @@ export default function FacultiesPage() {
           <img 
             src="/images/faculty.jpg" 
             alt="Faculties" 
-            className="w-full h-full object-cover" 
+            className="w-full h-full object-cover object-top" 
           />
         </div>
         

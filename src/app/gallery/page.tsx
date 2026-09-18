@@ -211,7 +211,7 @@ export default function GalleryPage() {
                   Dr. Jitendra Singh
                 </h2>
                 <p className="text-slate-500 font-medium mt-1">
-                  Hon&apos;ble Union Minister of State visit and memorable interactions at MVCON 2026
+                  Hon'ble Union Minister of State's visit and memorable interactions at MVCON 2026
                 </p>
               </div>
             </div>
@@ -234,10 +234,10 @@ export default function GalleryPage() {
               </div>
               <div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800">
-                  Faculties Speaking
+                  Faculty Highlights
                 </h2>
                 <p className="text-slate-500 font-medium mt-1">
-                  Glimpses from scientific deliberations, keynote presentations, and faculty sessions
+                  Glimpses from Keynote Presentations and Scientific Sessions
                 </p>
               </div>
             </div>
