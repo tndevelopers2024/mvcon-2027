@@ -75,7 +75,7 @@ export default function AbstractPage() {
               <div className="flex gap-4">
                 <AlertCircle className="w-6 h-6 text-[#1F83C6] shrink-0 mt-1" />
                 <p className="text-slate-600 leading-relaxed text-base sm:text-lg font-medium">
-                  MVCON 2027 Abstract Submission is open and will close on <strong className="text-slate-900 border-b-2 border-orange-300">31st January 2026</strong>.
+                  MVCON 2027 Abstract Submission is open and will close on <strong className="text-slate-900 border-b-2 border-orange-300">31st January 2027</strong>.
                 </p>
               </div>
               <div className="flex gap-4">

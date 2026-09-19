@@ -286,7 +286,7 @@ export default function AbstractSubmissionModal() {
                     type="text"
                     name="registrationId"
                     required
-                    placeholder="e.g. MVCON-2027-1042"
+                    placeholder="Registration ID"
                     value={formData.registrationId}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#1F83C6] focus:ring-2 focus:ring-[#1F83C6]/20 outline-none text-sm text-slate-800 placeholder:text-slate-400 transition-all font-mono"
@@ -302,7 +302,7 @@ export default function AbstractSubmissionModal() {
                     type="text"
                     name="presentingAuthor"
                     required
-                    placeholder="e.g. Dr. John Doe"
+                    placeholder="Full Name"
                     value={formData.presentingAuthor}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#1F83C6] focus:ring-2 focus:ring-[#1F83C6]/20 outline-none text-sm text-slate-800 placeholder:text-slate-400 transition-all"
@@ -318,7 +318,7 @@ export default function AbstractSubmissionModal() {
                     type="email"
                     name="email"
                     required
-                    placeholder="e.g. doctor@hospital.org"
+                    placeholder="Email"
                     value={formData.email}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#1F83C6] focus:ring-2 focus:ring-[#1F83C6]/20 outline-none text-sm text-slate-800 placeholder:text-slate-400 transition-all"
@@ -334,7 +334,7 @@ export default function AbstractSubmissionModal() {
                     type="tel"
                     name="phone"
                     required
-                    placeholder="e.g. +91 98765 43210"
+                    placeholder="Mobile Number"
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#1F83C6] focus:ring-2 focus:ring-[#1F83C6]/20 outline-none text-sm text-slate-800 placeholder:text-slate-400 transition-all"
@@ -350,7 +350,7 @@ export default function AbstractSubmissionModal() {
                     type="text"
                     name="institution"
                     required
-                    placeholder="e.g. Apollo Hospitals / Madras Medical College"
+                    placeholder="Institution"
                     value={formData.institution}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#1F83C6] focus:ring-2 focus:ring-[#1F83C6]/20 outline-none text-sm text-slate-800 placeholder:text-slate-400 transition-all"
@@ -365,7 +365,7 @@ export default function AbstractSubmissionModal() {
                   <input
                     type="text"
                     name="department"
-                    placeholder="e.g. Dept. of Endocrinology, Senior Resident"
+                    placeholder="Department"
                     value={formData.department}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#1F83C6] focus:ring-2 focus:ring-[#1F83C6]/20 outline-none text-sm text-slate-800 placeholder:text-slate-400 transition-all"
