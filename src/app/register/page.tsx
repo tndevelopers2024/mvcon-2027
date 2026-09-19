@@ -497,11 +497,18 @@ export default function RegisterPage() {
             </div>
           </div>
         ) : (
-          <div className="bg-[#0b1623] p-10 text-center relative overflow-hidden">
+          <div className="bg-[#0b1623] p-8 sm:p-10 text-center relative overflow-hidden">
             <div className="absolute top-[-50%] left-[-10%] w-64 h-64 bg-[#1F83C6] rounded-full mix-blend-screen filter blur-[80px] opacity-40" />
             <div className="absolute bottom-[-50%] right-[-10%] w-64 h-64 bg-[#F26522] rounded-full mix-blend-screen filter blur-[80px] opacity-30" />
             
-            <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-3 relative z-10">MVCON 2027 Registration</h1>
+            <div className="flex justify-center items-center gap-2 mb-3"> 
+              <img 
+                  src="/images/logo.png" alt="MVCON Logo" className="w-34 object-contain" 
+                />
+              <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-3 relative z-10">2027 Registration</h1>
+            </div>
+
+            
             <p className="text-slate-400 font-medium relative z-10 mb-4">Secure your spot with verified attendee access</p>
             
             <div className="relative z-10 inline-block bg-white/10 backdrop-blur-sm border border-white/20 px-6 py-2 rounded-full">

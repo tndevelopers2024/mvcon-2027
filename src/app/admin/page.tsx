@@ -22,6 +22,7 @@ interface AbstractSubmission {
   email: string;
   phone: string;
   institution: string;
+  city?: string;
   department?: string;
   fileUrl: string;
   fileName: string;
@@ -247,6 +248,7 @@ export default function AdminDashboardPage() {
       abs.registrationId.toLowerCase().includes(q) ||
       abs.email.toLowerCase().includes(q) ||
       abs.institution.toLowerCase().includes(q) ||
+      Boolean(abs.city && abs.city.toLowerCase().includes(q)) ||
       Boolean(abs.department && abs.department.toLowerCase().includes(q))
     );
   });
@@ -262,6 +264,7 @@ export default function AdminDashboardPage() {
       'Phone',
       'MVCON Registration ID',
       'Institution',
+      'City',
       'Department',
       'File Name',
       'File URL',
@@ -277,6 +280,7 @@ export default function AdminDashboardPage() {
       `"${a.phone}"`,
       a.registrationId,
       `"${a.institution}"`,
+      `"${a.city || ''}"`,
       `"${a.department || ''}"`,
       `"${a.originalFileName}"`,
       `"${backendUrl}${a.fileUrl}"`,
@@ -989,7 +993,7 @@ export default function AdminDashboardPage() {
                       <th className="py-3.5 px-4">Ref ID</th>
                       <th className="py-3.5 px-4">Presenting Author</th>
                       <th className="py-3.5 px-4">MVCON Reg ID</th>
-                      <th className="py-3.5 px-4">Institution & Department</th>
+                      <th className="py-3.5 px-4">Institution & City</th>
                       <th className="py-3.5 px-4">Attached Document</th>
                       <th className="py-3.5 px-4">Submitted Date</th>
                       <th className="py-3.5 px-4 text-right">Actions</th>
@@ -1072,16 +1076,14 @@ export default function AdminDashboardPage() {
                               </span>
                             </td>
 
-                            {/* Institution & Department */}
+                            {/* Institution, City & Department */}
                             <td className="py-4 px-4">
                               <div className="font-semibold text-slate-800 text-xs max-w-[200px] truncate">
                                 {abs.institution}
                               </div>
-                              {abs.department && (
-                                <div className="text-[11px] text-slate-500 max-w-[200px] truncate mt-0.5">
-                                  {abs.department}
-                                </div>
-                              )}
+                              <div className="text-[11px] text-slate-500 max-w-[200px] truncate mt-0.5">
+                                {[abs.city, abs.department].filter(Boolean).join(' • ')}
+                              </div>
                             </td>
 
                             {/* Attached File */}
@@ -1367,8 +1369,10 @@ export default function AdminDashboardPage() {
                 </div>
 
                 <div className="pb-4 border-b border-slate-100">
-                  <span className="text-xs text-slate-400 block uppercase font-bold">Institution / Hospital</span>
-                  <span className="font-medium text-slate-900 block mt-0.5">{selectedAbstract.institution}</span>
+                  <span className="text-xs text-slate-400 block uppercase font-bold">Institution & Location</span>
+                  <span className="font-medium text-slate-900 block mt-0.5">
+                    {selectedAbstract.institution}{selectedAbstract.city ? `, ${selectedAbstract.city}` : ''}
+                  </span>
                   {selectedAbstract.department && (
                     <span className="text-xs text-slate-500 block mt-1">
                       Department: {selectedAbstract.department}

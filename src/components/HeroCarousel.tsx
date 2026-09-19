@@ -147,7 +147,7 @@ export default function HeroCarousel() {
               </h2>
 
               {/* Quote / Description */}
-              <p className="text-[14px] sm:text-lg text-text-muted leading-relaxed mb-2 italic font-normal line-clamp-1 hidden sm:block">
+              <p className="text-[14px] sm:text-lg text-text-muted leading-relaxed mb-2 font-normal line-clamp-1 hidden sm:block">
                 {slide.quote}
               </p>
 

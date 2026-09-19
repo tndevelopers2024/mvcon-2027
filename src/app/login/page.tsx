@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Mail, Lock, LogIn, ArrowRight, Loader2, AlertCircle, ShieldCheck, Eye, EyeOff } from 'lucide-react';
+import { Mail, Lock, ArrowRight, Loader2, AlertCircle, ShieldCheck, Eye, EyeOff } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -79,10 +79,19 @@ export default function LoginPage() {
           <div className="absolute top-[-50%] left-[-10%] w-64 h-64 bg-[#1F83C6] rounded-full mix-blend-screen filter blur-[60px] opacity-40" />
           <div className="absolute bottom-[-50%] right-[-10%] w-64 h-64 bg-[#F26522] rounded-full mix-blend-screen filter blur-[60px] opacity-30" />
           
+          {/* Brand Logo */}
           <div className="relative z-10 flex justify-center mb-6">
-            <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20 shadow-xl">
-              <LogIn className="w-8 h-8 text-white" />
-            </div>
+            <Link 
+              href="/" 
+              title="Return to Home"
+              className="inline-flex items-center justify-center bg-white/95 hover:bg-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-2xl shadow-xl border border-white/40 transition-all hover:scale-105 duration-200"
+            >
+              <img 
+                src="/images/logo.png" 
+                alt="MVCON Logo" 
+                className="h-11 sm:h-12 w-auto object-contain" 
+              />
+            </Link>
           </div>
           <h1 className="text-3xl font-extrabold text-white mb-2 relative z-10 tracking-tight">Welcome Back</h1>
           <p className="text-slate-400 font-medium relative z-10">Sign in to MVCON 2027 Portal</p>

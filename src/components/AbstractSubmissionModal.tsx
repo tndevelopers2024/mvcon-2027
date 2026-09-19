@@ -43,13 +43,14 @@ export default function AbstractSubmissionModal() {
   const [submissionId, setSubmissionId] = useState('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  // Form State - only the requested inputs
+  // Form State - requested inputs
   const [formData, setFormData] = useState({
     registrationId: '',
     presentingAuthor: '',
     email: '',
     phone: '',
     institution: '',
+    city: '',
     department: '',
   });
 
@@ -159,6 +160,7 @@ export default function AbstractSubmissionModal() {
       email: '',
       phone: '',
       institution: '',
+      city: '',
       department: '',
     });
     setAbstractFile(null);
@@ -357,15 +359,31 @@ export default function AbstractSubmissionModal() {
                   />
                 </div>
 
-                {/* DEPARTMENT & DESIGNATION */}
+                {/* CITY */}
                 <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                    CITY <span className="text-red-500 font-bold">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="city"
+                    required
+                    placeholder="City"
+                    value={formData.city}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#1F83C6] focus:ring-2 focus:ring-[#1F83C6]/20 outline-none text-sm text-slate-800 placeholder:text-slate-400 transition-all"
+                  />
+                </div>
+
+                {/* DEPARTMENT & DESIGNATION */}
+                <div className="md:col-span-2">
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                     DEPARTMENT &amp; DESIGNATION
                   </label>
                   <input
                     type="text"
                     name="department"
-                    placeholder="Department"
+                    placeholder="Department & Designation"
                     value={formData.department}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#1F83C6] focus:ring-2 focus:ring-[#1F83C6]/20 outline-none text-sm text-slate-800 placeholder:text-slate-400 transition-all"
