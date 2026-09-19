@@ -173,24 +173,27 @@ export default function GalleryPage() {
   return (
     <main className="min-h-screen bg-slate-50 pb-24">
       {/* Hero Section */}
-      <section className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[400px] md:h-[700px] flex items-end justify-center overflow-hidden pb-20">
         <div className="absolute inset-0 z-0">
           <Image 
             src="/images/gallery-bg.jpg" 
             alt="Gallery Background" 
             fill 
-            className="object-cover"
+            className="object-cover object-bottom"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#041E42]/90 via-[#0A3D73]/80 to-[#1F83C6]/60 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#041E42]/90 via-[#0A3D73]/30 to-[#1F83C6]/20 mix-blend-multiply" />
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-12">
           <div className="inline-flex items-center gap-2 mb-6 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-bold uppercase tracking-widest shadow-xl">
             <Camera className="w-4 h-4" /> MVCON Moments
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg">
-            MVCON 2026 Gallery
+          <div className="flex items-center justify-center gap-2">
+            <img className="w-54 drop-shadow-sm" src="/images/logo.png" alt="MVCON Logo" />
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg">
+             2026 Gallery
           </h1>
+          </div>
           <p className="text-lg md:text-xl text-white/90 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-md">
             A visual journey through MVCON 2026. Discover the memories, learning, and networking moments from our previous conference.
           </p>
