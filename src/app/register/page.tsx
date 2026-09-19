@@ -403,6 +403,16 @@ export default function RegisterPage() {
       };
 
       const rzpInstance = new (window as any).Razorpay(rzpOptions);
+      rzpInstance.on('payment.failed', (response: any) => {
+        console.error('Razorpay payment failed:', response?.error);
+        setIsProcessingPayment(false);
+        setIsVerifyingOtp(false);
+        setOtpError(
+          response?.error?.description ||
+          response?.error?.reason ||
+          'Payment was blocked or failed. Please check your payment details or try again.'
+        );
+      });
       rzpInstance.open();
     } catch (err: any) {
       setOtpError(err.message || 'Verification or payment initiation failed.');

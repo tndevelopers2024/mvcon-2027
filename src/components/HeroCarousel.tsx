@@ -60,7 +60,7 @@ export default function HeroCarousel() {
   };
 
   return (
-    <section className="relative w-full h-[720px] sm:h-[540px] md:h-[580px] lg:h-[620px] overflow-hidden bg-background flex flex-col justify-end pb-3 sm:pb-4">
+    <section className="relative w-full h-[720px] sm:h-[540px] md:h-[90vh] lg:h-[90vh] overflow-hidden bg-background flex flex-col justify-end pb-3 sm:pb-4">
       {/* Full-Height Background Slides */}
       {slides.map((slide, index) => {
         const isActive = index === currentSlide;
