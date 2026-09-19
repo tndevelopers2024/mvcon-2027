@@ -18,10 +18,10 @@ const highlights = [
   },
   {
     id: '03',
-    title: 'Scientific Exchanges',
+    title: 'Research, Recognition & Excellence',
     icon: MessageSquare,
     imageSrc: '/images/highlight3.jpg',
-    description: 'Research, Recognition & Excellence Interactive quiz, a vibrant platform for showcasing innovative research through oral and poster presentations and exciting awards for outstanding winners',
+    description: 'Interactive quiz, a vibrant platform for showcasing innovative research through oral and poster presentations and exciting awards for outstanding winners',
   },
   {
     id: '04',

@@ -32,12 +32,12 @@ export default function ScientificProgramTabs() {
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 py-12 overflow-hidden">
       
       {/* Main Tabs */}
-      <div className="flex flex-wrap justify-center gap-4 mb-10">
+      <div className="flex flex-nowrap items-center justify-start md:justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 overflow-x-auto thin-scrollbar scroll-smooth w-full px-2 sm:px-0 py-2 pb-3">
         
         {/* Overview Tab */}
         <button
           onClick={() => setActiveTab('overview')}
-          className={`flex items-center justify-center w-[160px] h-[100px] rounded-lg border-2 transition-all shadow-sm ${
+          className={`shrink-0 flex items-center justify-center w-[135px] sm:w-[150px] md:w-[160px] h-[88px] sm:h-[95px] md:h-[100px] rounded-lg border-2 transition-all shadow-sm ${
             activeTab === 'overview' 
               ? 'bg-[#FDE047] border-[#FDE047] text-slate-900 font-bold' 
               : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 font-medium'
@@ -50,7 +50,7 @@ export default function ScientificProgramTabs() {
         {days.map((day) => {
           const isActive = activeTab === day.id;
           return (
-            <div key={day.id} className="relative">
+            <div key={day.id} className="relative shrink-0">
               {day.id === 'day1' && showHint && (
                 <motion.div
                   initial={{ opacity: 0, x: 80, y: 80 }}
@@ -77,7 +77,7 @@ export default function ScientificProgramTabs() {
               )}
               <button
                 onClick={() => setActiveTab(day.id)}
-                className={`flex flex-col w-[160px] h-[100px] rounded-lg overflow-hidden border-2 transition-all shadow-sm ${
+                className={`flex flex-col w-[135px] sm:w-[150px] md:w-[160px] h-[88px] sm:h-[95px] md:h-[100px] rounded-lg overflow-hidden border-2 transition-all shadow-sm ${
                   isActive ? 'border-[#FDE047]' : 'border-slate-200 hover:border-slate-300'
                 }`}
               >
@@ -85,9 +85,9 @@ export default function ScientificProgramTabs() {
                 {day.label}
               </div>
               <div className={`flex-1 flex flex-col justify-center items-center w-full transition-colors ${isActive ? 'bg-[#FDE047]' : 'bg-white'}`}>
-                <span className={`text-[10px] uppercase font-semibold mb-1 ${isActive ? 'text-slate-700' : 'text-slate-500'}`}>{day.dayName}</span>
+                <span className={`text-[10px] uppercase font-semibold mb-0.5 sm:mb-1 ${isActive ? 'text-slate-700' : 'text-slate-500'}`}>{day.dayName}</span>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-extrabold text-slate-900 leading-none">{day.date}</span>
+                  <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-none">{day.date}</span>
                   <div className="flex flex-col items-start leading-none">
                     <span className={`text-[9px] font-bold ${isActive ? 'text-slate-700' : 'text-slate-500'}`}>{day.monthYear.split(' ')[0]}</span>
                     <span className={`text-[9px] font-bold ${isActive ? 'text-slate-700' : 'text-slate-500'}`}>{day.monthYear.split(' ')[1]}</span>
@@ -102,7 +102,7 @@ export default function ScientificProgramTabs() {
         {/* Register Tab */}
         <button
           onClick={() => setActiveTab('register')}
-          className={`flex items-center justify-center w-[160px] h-[100px] rounded-lg border-2 transition-all shadow-sm ${
+          className={`shrink-0 flex items-center justify-center w-[135px] sm:w-[150px] md:w-[160px] h-[88px] sm:h-[95px] md:h-[100px] rounded-lg border-2 transition-all shadow-sm text-sm sm:text-base ${
             activeTab === 'register' 
               ? 'bg-[#FDE047] border-[#FDE047] text-slate-900 font-bold' 
               : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 font-medium'
@@ -119,7 +119,7 @@ export default function ScientificProgramTabs() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="flex justify-center gap-4 mb-8 overflow-hidden"
+            className="flex flex-nowrap justify-start sm:justify-center gap-3 sm:gap-4 mb-8 overflow-x-auto thin-scrollbar w-full px-2 sm:px-0 py-1 pb-2"
           >
             {halls.map((hall) => {
               const isActive = activeHall === hall.id;
@@ -127,12 +127,12 @@ export default function ScientificProgramTabs() {
                 <button
                   key={hall.id}
                   onClick={() => setActiveHall(hall.id)}
-                  className={`flex flex-col w-[260px] h-[70px] rounded-lg overflow-hidden border-2 transition-all shadow-sm ${
+                  className={`shrink-0 flex flex-col w-[200px] sm:w-[240px] md:w-[260px] h-[60px] sm:h-[70px] rounded-lg overflow-hidden border-2 transition-all shadow-sm ${
                     isActive ? 'border-[#FDE047]' : 'border-slate-200 hover:border-slate-300'
                   }`}
                 >
                   <div className={`flex-1 flex items-center justify-center w-full px-4 transition-colors ${isActive ? 'bg-[#FDE047]' : 'bg-white'}`}>
-                    <span className={`text-sm font-medium text-center ${isActive ? 'text-slate-900' : 'text-slate-600'}`}>
+                    <span className={`text-xs sm:text-sm font-medium text-center ${isActive ? 'text-slate-900' : 'text-slate-600'}`}>
                       {hall.name}
                     </span>
                   </div>
@@ -252,8 +252,8 @@ export default function ScientificProgramTabs() {
                           <MessageSquare className="w-7 h-7" />
                         </div>
                         <p className="text-slate-700 font-medium text-sm leading-relaxed">
-                          <strong className="block text-slate-900 mb-1">Scientific exchanges</strong>
-                          Research, Recognition & Excellence Interactive quiz, a vibrant platform for showcasing innovative  research through oral and poster presentations and exciting awards for outstanding winners
+                          <strong className="block text-slate-900 mb-1">Research, Recognition & Excellence</strong>
+                          Interactive quiz, a vibrant platform for showcasing innovative  research through oral and poster presentations and exciting awards for outstanding winners
                         </p>
                       </div>
 

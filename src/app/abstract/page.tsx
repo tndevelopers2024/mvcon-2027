@@ -11,65 +11,62 @@ export const metadata = {
 
 export default function AbstractPage() {
   return (
-    <main className="min-h-screen bg-slate-50 pb-24">
+    <main className="min-h-screen bg-slate-50 pb-24 overflow-x-hidden w-full">
       {/* Hero Section */}
-      <section className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full min-h-[460px] sm:min-h-[520px] md:h-[560px] flex items-center justify-center overflow-hidden pt-24 pb-12 sm:pt-32 sm:pb-20">
         <div className="absolute inset-0 z-0">
           <Image 
             src="/images/abstract/abstract-bg.jpg" 
             alt="Conference Hall" 
             fill 
             className="object-cover"
+            priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#041E42]/60 via-[#0A3D73]/40 to-[#1F83C6]/20 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#041E42]/80 via-[#0A3D73]/60 to-[#1F83C6]/40 mix-blend-multiply" />
         </div>
         
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-12">
-          <div className="inline-flex items-center gap-2 mb-6 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-bold uppercase tracking-widest">
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-2 mb-4 sm:mb-6 px-4 py-1.5 sm:px-5 sm:py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-widest">
             <FileEdit className="w-4 h-4" /> Call for Abstracts
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white mb-4 sm:mb-6 tracking-tight drop-shadow-lg">
             Submit Your Abstract
           </h1>
-          <p className="text-lg md:text-xl text-white/90 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-md">
             Join leading Physicians, surgeons, and researchers by presenting your original scientific data at MVCON 2027.
           </p>
-          <div className="mt-8 flex justify-center">
-            <AbstractSubmitButton className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-xl shadow-orange-500/30 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300 cursor-pointer">
-              <FileEdit className="w-5 h-5" />
+          <div className="mt-6 sm:mt-8 flex justify-center">
+            <AbstractSubmitButton className="inline-flex items-center gap-2.5 sm:gap-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg font-bold shadow-xl shadow-orange-500/30 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300 cursor-pointer">
+              <FileEdit className="w-4 h-4 sm:w-5 sm:h-5" />
               Submit Abstract Online
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </AbstractSubmitButton>
           </div>
         </div>
       </section>
 
       {/* Content Sections */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 -mt-16 relative z-20 space-y-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 mt-6 sm:-mt-12 md:-mt-16 relative z-20 space-y-14 sm:space-y-20">
         
         {/* Section 1: Timeline (Image Left, Text Right) */}
-        <section className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden flex flex-col lg:flex-row group">
-          <div className="w-full lg:w-5/12 relative min-h-[300px] lg:min-h-full overflow-hidden">
+        <section className="bg-white rounded-3xl sm:rounded-[2rem] shadow-xl sm:shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden flex flex-col lg:flex-row group">
+          <div className="w-full lg:w-5/12 relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto lg:min-h-full overflow-hidden bg-slate-900">
             <Image 
               src="/images/abstract/date.png" 
               alt="Planning and Timeline" 
               fill 
-              className="group-hover:scale-105 transition-transform duration-700"
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
             />
-           
-            <div className="absolute bottom-6 left-6 right-6 lg:hidden">
-               <h2 className="text-3xl font-extrabold text-white">Submission Timeline</h2>
-            </div>
           </div>
           
-          <div className="w-full lg:w-7/12 p-8 md:p-12 flex flex-col justify-center relative">
+          <div className="w-full lg:w-7/12 p-6 sm:p-8 md:p-12 flex flex-col justify-center relative">
             <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             
-            <div className="hidden lg:flex items-center gap-4 mb-8 pb-6 border-b border-slate-100">
-              <div className="w-14 h-14 bg-orange-50 text-orange-500 rounded-2xl flex items-center justify-center border border-orange-100 shrink-0">
-                <Calendar className="w-7 h-7" />
+            <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 pb-4 sm:pb-6 border-b border-slate-100">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-orange-50 text-orange-500 rounded-2xl flex items-center justify-center border border-orange-100 shrink-0">
+                <Calendar className="w-6 h-6 sm:w-7 sm:h-7" />
               </div>
-              <h2 className="text-3xl font-extrabold text-slate-800">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800">
                 Submission Timeline
               </h2>
             </div>
@@ -77,8 +74,8 @@ export default function AbstractPage() {
             <div className="space-y-6">
               <div className="flex gap-4">
                 <AlertCircle className="w-6 h-6 text-[#1F83C6] shrink-0 mt-1" />
-                <p className="text-slate-600 leading-relaxed text-lg font-medium">
-                  MVCON 2027 Abstract Submission is open and will close on <strong className="text-slate-900 border-b-2 border-orange-300">31st December 2026</strong>.
+                <p className="text-slate-600 leading-relaxed text-base sm:text-lg font-medium">
+                  MVCON 2027 Abstract Submission is open and will close on <strong className="text-slate-900 border-b-2 border-orange-300">31st January 2026</strong>.
                 </p>
               </div>
               <div className="flex gap-4">
@@ -246,11 +243,11 @@ export default function AbstractPage() {
         <ImageCollage />
 
         {/* Action Button */}
-        <div className="text-center pt-8 pb-12 relative">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-32 bg-gradient-to-r from-[#1F83C6]/0 via-[#1F83C6]/20 to-[#1F83C6]/0 blur-3xl pointer-events-none" />
+        <div className="text-center pt-8 pb-12 relative overflow-hidden max-w-full">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[450px] h-32 bg-gradient-to-r from-[#1F83C6]/0 via-[#1F83C6]/20 to-[#1F83C6]/0 blur-3xl pointer-events-none" />
           
-          <AbstractSubmitButton className="relative z-10 inline-flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-12 py-5 rounded-2xl text-xl font-bold shadow-xl shadow-orange-500/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300 cursor-pointer">
-            Submit Abstract Online <ArrowRight className="w-6 h-6" />
+          <AbstractSubmitButton className="relative z-10 inline-flex items-center justify-center gap-2.5 sm:gap-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 sm:px-10 py-3.5 sm:py-4.5 rounded-2xl text-base sm:text-xl font-bold shadow-xl shadow-orange-500/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/40 transition-all duration-300 cursor-pointer max-w-full">
+            Submit Abstract Online <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </AbstractSubmitButton>
         </div>
 

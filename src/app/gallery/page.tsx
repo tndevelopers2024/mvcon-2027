@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Camera, Sparkles, Image as ImageIcon, Users } from 'lucide-react';
+import { Camera, Sparkles, Image as ImageIcon, Users, Award } from 'lucide-react';
 import GalleryGrid, { GalleryImage } from '@/components/GalleryGrid';
 
 export const metadata = {
@@ -11,31 +11,25 @@ export const metadata = {
 const day1Images: GalleryImage[] = [
   { id: 1, src: '/images/gallery/MP/1.jpg', alt: 'Dr. Jitendra Singh Highlight 1', size: 'medium' },
   { id: 2, src: '/images/gallery/MP/2.jpg', alt: 'Dr. Jitendra Singh Highlight 2', size: 'medium' },  
-  { id: 152, src: '/images/gallery/others/52.jpg', alt: 'MVCON Day 2 Highlight 52', size: 'medium' },
+  
   { id: 3, src: '/images/gallery/MP/3.jpg', alt: 'Dr. Jitendra Singh Highlight 3', size: 'medium' },
   { id: 4, src: '/images/gallery/MP/4.jpg', alt: 'Dr. Jitendra Singh Highlight 4', size: 'medium' },
   { id: 5, src: '/images/gallery/MP/5.jpg', alt: 'Dr. Jitendra Singh Highlight 5', size: 'medium' },
-  { id: 153, src: '/images/gallery/others/53.jpg', alt: 'MVCON Day 2 Highlight 53', size: 'small' },
   { id: 6, src: '/images/gallery/MP/6.jpg', alt: 'Dr. Jitendra Singh Highlight 6', size: 'medium' },
   { id: 7, src: '/images/gallery/MP/7.jpg', alt: 'Dr. Jitendra Singh Highlight 7', size: 'medium' },
   { id: 8, src: '/images/gallery/MP/8.jpg', alt: 'Dr. Jitendra Singh Highlight 8', size: 'medium' },
   { id: 9, src: '/images/gallery/MP/9.jpg', alt: 'Dr. Jitendra Singh Highlight 9', size: 'medium' },
-  { id: 154, src: '/images/gallery/others/54.jpg', alt: 'MVCON Day 2 Highlight 54', size: 'small' },
   { id: 10, src: '/images/gallery/MP/10.jpg', alt: 'Dr. Jitendra Singh Highlight 10', size: 'medium' },
   { id: 11, src: '/images/gallery/MP/11.jpg', alt: 'Dr. Jitendra Singh Highlight 11', size: 'medium' },
   { id: 12, src: '/images/gallery/MP/12.jpg', alt: 'Dr. Jitendra Singh Highlight 12', size: 'medium' },
-  { id: 156, src: '/images/gallery/others/56.jpg', alt: 'MVCON Day 2 Highlight 56', size: 'small' },
   { id: 13, src: '/images/gallery/MP/13.jpg', alt: 'Dr. Jitendra Singh Highlight 13', size: 'medium' },
   { id: 14, src: '/images/gallery/MP/14.jpg', alt: 'Dr. Jitendra Singh Highlight 14', size: 'medium' },
   { id: 15, src: '/images/gallery/MP/15.jpg', alt: 'Dr. Jitendra Singh Highlight 15', size: 'medium' },
-  { id: 157, src: '/images/gallery/others/57.jpg', alt: 'MVCON Day 2 Highlight 57', size: 'small' },
   { id: 16, src: '/images/gallery/MP/16.jpg', alt: 'Dr. Jitendra Singh Highlight 16', size: 'medium' },
   { id: 17, src: '/images/gallery/MP/17.jpg', alt: 'Dr. Jitendra Singh Highlight 17', size: 'medium' },
   { id: 18, src: '/images/gallery/MP/18.jpg', alt: 'Dr. Jitendra Singh Highlight 18', size: 'medium' },
-  { id: 158, src: '/images/gallery/others/58.jpg', alt: 'MVCON Day 2 Highlight 58', size: 'medium' },
   { id: 19, src: '/images/gallery/MP/19.jpg', alt: 'Dr. Jitendra Singh Highlight 19', size: 'medium' },
   { id: 20, src: '/images/gallery/MP/20.jpg', alt: 'Dr. Jitendra Singh Highlight 20', size: 'medium' },
-  { id: 158, src: '/images/gallery/others/60.jpg', alt: 'MVCON Day 2 Highlight 58', size: 'medium' },
   { id: 21, src: '/images/gallery/MP/21.jpg', alt: 'Dr. Jitendra Singh Highlight 21', size: 'medium' },
   { id: 22, src: '/images/gallery/MP/22.jpg', alt: 'Dr. Jitendra Singh Highlight 22', size: 'medium' },
 ];
@@ -169,32 +163,46 @@ const day2Images: GalleryImage[] = [
   { id: 214, src: '/images/gallery/others/137.jpg', alt: 'MVCON Day 2 Highlight 98', size: 'small' },
 ];
 
+// Section 3 Gallery Images - Workshops & Award Highlights (Dummy Image)
+const day3Images: GalleryImage[] = [
+  { id: 152, src: '/images/gallery/others/52.jpg', alt: 'MVCON Day 2 Highlight 52', size: 'medium' },
+  { id: 153, src: '/images/gallery/others/53.jpg', alt: 'MVCON Day 2 Highlight 53', size: 'small' },
+  { id: 154, src: '/images/gallery/others/54.jpg', alt: 'MVCON Day 2 Highlight 54', size: 'small' },
+  { id: 156, src: '/images/gallery/others/56.jpg', alt: 'MVCON Day 2 Highlight 56', size: 'small' },
+  { id: 157, src: '/images/gallery/others/57.jpg', alt: 'MVCON Day 2 Highlight 57', size: 'small' },
+  { id: 158, src: '/images/gallery/others/58.jpg', alt: 'MVCON Day 2 Highlight 58', size: 'medium' },
+  { id: 160, src: '/images/gallery/others/60.jpg', alt: 'MVCON Day 2 Highlight 58', size: 'medium' },
+];
+
 export default function GalleryPage() {
   return (
     <main className="min-h-screen bg-slate-50 pb-24">
       {/* Hero Section */}
-      <section className="relative w-full h-[400px] md:h-[700px] flex items-end justify-center overflow-hidden pb-20">
+      <section className="relative w-full h-[640px] sm:h-[660px] md:h-[700px] flex items-end justify-center overflow-hidden pb-20 md:pb-24">
         <div className="absolute inset-0 z-0">
           <Image 
             src="/images/gallery-bg.jpg" 
             alt="Gallery Background" 
             fill 
-            className="object-cover object-bottom"
+            priority
+            className="object-cover object-center sm:object-bottom scale-[1.22] -translate-y-12 sm:scale-100 sm:translate-y-0 transition-transform duration-300"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#041E42]/90 via-[#0A3D73]/30 to-[#1F83C6]/20 mix-blend-multiply" />
+          {/* Gradients: dark at bottom for text contrast, clear at top/middle so faces are bright and visible */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#041E42]/95 via-[#0A3D73]/30 to-[#1F83C6]/15 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#041E42]/90 via-[#041E42]/40 to-transparent sm:hidden" />
         </div>
         
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-12">
-          <div className="inline-flex items-center gap-2 mb-6 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-bold uppercase tracking-widest shadow-xl">
-            <Camera className="w-4 h-4" /> MVCON Moments
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 mb-3 sm:mb-4 md:mb-6 px-4 py-1.5 sm:px-5 sm:py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-widest shadow-xl">
+            <Camera className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> MVCON Moments
           </div>
-          <div className="flex items-center justify-center gap-2">
-            <img className="w-54 drop-shadow-sm" src="/images/logo.png" alt="MVCON Logo" />
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg">
+          <div className="flex items-center justify-center gap-2 mb-3 md:mb-6">
+            <img className="w-28 sm:w-36 md:w-54 drop-shadow-sm" src="/images/logo.png" alt="MVCON Logo" />
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white tracking-tight drop-shadow-lg">
              2026 Gallery
           </h1>
           </div>
-          <p className="text-lg md:text-xl text-white/90 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+          <p className="text-sm sm:text-base md:text-xl text-white/90 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-md">
             A visual journey through MVCON 2026. Discover the memories, learning, and networking moments from our previous conference.
           </p>
         </div>
@@ -228,6 +236,32 @@ export default function GalleryPage() {
           <GalleryGrid images={day1Images} />
         </section>
 
+        {/* Third Section: Workshops & Award Highlights */}
+        <section className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden p-8 md:p-12">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 pb-6 border-b border-slate-100">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center border border-emerald-100 shrink-0 shadow-sm">
+                <Award className="w-7 h-7" />
+              </div>
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800">
+                  Honoring Excellence in Pharma
+                </h2>
+                <p className="text-slate-500 font-medium mt-1">
+                  Honoring the vision, innovation, and contributions shaping the future of healthcare.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 text-emerald-600 bg-emerald-50 px-4 py-2 rounded-full font-bold border border-emerald-100 text-sm shadow-sm shrink-0">
+              <Sparkles className="w-4 h-4" />
+              <span>Pharma Honors</span>
+            </div>
+          </div>
+
+          <GalleryGrid images={day3Images} />
+        </section>
+
         {/* Second Section: Faculties Speaking */}
         <section className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden p-8 md:p-12">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 pb-6 border-b border-slate-100">
@@ -253,6 +287,8 @@ export default function GalleryPage() {
 
           <GalleryGrid images={day2Images} />
         </section>
+
+        
       </div>
     </main>
   );

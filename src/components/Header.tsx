@@ -71,14 +71,14 @@ export default function Header() {
     <div className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ease-in-out ${
       (isVisible || isMobileMenuOpen) ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
     }`}>
-      <header className={`w-full transition-all duration-300 ease-in-out border-b py-4 ${
-        !isTransparent 
-          ? 'bg-white/95 backdrop-blur-md shadow-md border-slate-200' 
-          : 'bg-transparent border-transparent'
+      <header className={`w-full transition-all duration-300 ease-in-out border-b py-3 sm:py-4 bg-white/95 backdrop-blur-md shadow-sm border-slate-200 ${
+        isTransparent 
+          ? 'lg:bg-transparent lg:backdrop-blur-none lg:shadow-none lg:border-transparent' 
+          : 'lg:bg-white/95 lg:backdrop-blur-md lg:shadow-md lg:border-slate-200'
       }`}>
-        <div className="max-w-7xl mx-auto px-8 lg:px-16 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 flex justify-between items-center">
         <div className="text-2xl font-bold text-[#1F83C6] uppercase tracking-wide">
-          <Link href="/"><img className="w-28 drop-shadow-sm" src="/images/logo.png" alt="MVCON Logo" /></Link>
+          <Link href="/"><img className="w-24 sm:w-28 drop-shadow-sm" src="/images/logo.png" alt="MVCON Logo" /></Link>
         </div>
         <nav className="hidden lg:flex gap-6 items-center">
           {navLinks.map((link) => {
@@ -109,7 +109,7 @@ export default function Header() {
             );
           })}
         </nav>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           {currentUser ? (
             <Link 
               href={currentUser.role === 'admin' ? '/admin' : '/dashboard'} 
@@ -118,11 +118,13 @@ export default function Header() {
               {currentUser.role === 'admin' ? 'Admin Panel' : 'My Pass / Portal'}
             </Link>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 sm:gap-2">
               <Link 
                 href="/login" 
                 className={`text-xs sm:text-sm font-bold px-3 py-2 rounded-xl transition-colors ${
-                  isTransparent ? 'text-white hover:text-sky-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]' : 'text-slate-700 hover:text-[#1F83C6]'
+                  isTransparent 
+                    ? 'text-slate-700 hover:text-[#1F83C6] lg:text-white lg:hover:text-sky-300 lg:drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]' 
+                    : 'text-slate-700 hover:text-[#1F83C6]'
                 }`}
               >
                 Sign In
@@ -132,10 +134,7 @@ export default function Header() {
           )}
 
           <button 
-            style={{ color: isTransparent ? '#ffffff' : '#1e293b' }}
-            className={`lg:hidden p-2 transition-colors ${
-              !isTransparent ? '!text-slate-800' : '!text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]'
-            }`} 
+            className="lg:hidden p-2 transition-colors text-slate-800 hover:text-[#1F83C6]" 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Menu"
           >

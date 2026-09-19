@@ -13,7 +13,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative bg-slate-950 pt-32 max-md:pt-40 pb-12 mt-24 z-10 border-t border-slate-800">
+    <footer className="relative bg-slate-950 pt-36 sm:pt-40 md:pt-36 pb-12 mt-28 sm:mt-36 md:mt-28 z-10 border-t border-slate-800">
       
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
@@ -26,18 +26,18 @@ export default function Footer() {
       {/* Floating CTA Section */}
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12 max-w-5xl z-20">
         <div className="bg-gradient-to-r from-primary to-secondary rounded-3xl p-1 shadow-2xl overflow-hidden group">
-          <div className="bg-slate-900 rounded-[22px] px-8 py-10 md:py-14 md:px-16 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+          <div className="bg-slate-900 rounded-[22px] px-6 py-7 sm:px-8 sm:py-10 md:py-12 md:px-16 flex flex-col md:flex-row items-center justify-between gap-5 md:gap-8 relative overflow-hidden">
             {/* Inner background glow */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             
             <div className="relative z-10 text-center md:text-left">
-              <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-2">Ready to join MVCON?</h3>
-              <p className="text-slate-400 font-medium text-lg">Secure your spot for the premier diabetes update.</p>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1.5 sm:mb-2">Ready to join MVCON?</h3>
+              <p className="text-slate-400 font-medium text-sm sm:text-base md:text-lg">Secure your spot for the premier diabetes update.</p>
             </div>
             
-            <Link href="/register" className="relative z-10 flex-shrink-0 bg-white text-slate-900 hover:bg-slate-100 px-8 py-4 rounded-xl font-bold text-lg transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center gap-3">
+            <Link href="/register" className="relative z-10 flex-shrink-0 bg-white text-slate-900 hover:bg-slate-100 px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center gap-2 sm:gap-3">
               Register Now
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
           </div>
         </div>

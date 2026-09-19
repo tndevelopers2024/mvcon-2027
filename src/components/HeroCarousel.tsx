@@ -60,7 +60,7 @@ export default function HeroCarousel() {
   };
 
   return (
-    <section className="relative w-full h-[500px] sm:h-[540px] md:h-[580px] lg:h-[620px] overflow-hidden bg-background flex flex-col justify-end pb-3">
+    <section className="relative w-full h-[720px] sm:h-[540px] md:h-[580px] lg:h-[620px] overflow-hidden bg-background flex flex-col justify-end pb-3 sm:pb-4">
       {/* Full-Height Background Slides */}
       {slides.map((slide, index) => {
         const isActive = index === currentSlide;
@@ -76,7 +76,7 @@ export default function HeroCarousel() {
               alt={slide.subtitle || 'MVCON Slide'}
               fill
               quality={90}
-              className="object-cover object-[bottom_20%]"
+              className="object-cover object-center sm:object-[bottom_20%]"
               priority={slide.id === 1}
             />
           </div>
@@ -90,7 +90,7 @@ export default function HeroCarousel() {
       <div
         className="absolute inset-x-0 bottom-0 h-[340px] sm:h-[380px] md:h-[420px] z-10 pointer-events-none"
         style={{
-          background: 'linear-gradient(0deg, rgba(255, 255, 255, 1) 4%, rgba(0, 212, 255, 0) 100%)',
+          background: 'linear-gradient(0deg, rgba(255, 255, 255, 1) 15%, rgba(255, 255, 255, 0.85) 55%, rgba(0, 212, 255, 0) 100%)',
         }}
       />
 
@@ -98,24 +98,24 @@ export default function HeroCarousel() {
       <button
         type="button"
         onClick={handlePrev}
-        className="absolute left-3 md:left-6 top-1/3 -translate-y-1/2 z-20 w-10 h-10 md:w-11 md:h-11 rounded-xl bg-black/40 hover:bg-black/65 text-white/90 hover:text-white backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all shadow-lg hover:scale-105 active:scale-95"
+        className="absolute left-2 sm:left-4 md:left-6 top-[28%] sm:top-1/3 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-xl bg-black/40 hover:bg-black/65 text-white/90 hover:text-white backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all shadow-lg hover:scale-105 active:scale-95"
         aria-label="Previous Slide"
       >
-        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
       </button>
 
       {/* Right Arrow Button */}
       <button
         type="button"
         onClick={handleNext}
-        className="absolute right-3 md:right-6 top-1/3 -translate-y-1/2 z-20 w-10 h-10 md:w-11 md:h-11 rounded-xl bg-black/40 hover:bg-black/65 text-white/90 hover:text-white backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all shadow-lg hover:scale-105 active:scale-95"
+        className="absolute right-2 sm:right-4 md:right-6 top-[28%] sm:top-1/3 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-xl bg-black/40 hover:bg-black/65 text-white/90 hover:text-white backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all shadow-lg hover:scale-105 active:scale-95"
         aria-label="Next Slide"
       >
-        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
       </button>
 
       {/* Centered Content Section Over Background Image */}
-      <div className="relative z-20 max-w-6xl mx-auto px-4 text-center flex flex-col items-center">
+      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
         {slides.map((slide, index) => {
           const isActive = index === currentSlide;
           if (!isActive) return null;
@@ -134,15 +134,15 @@ export default function HeroCarousel() {
               )}
 
               {/* Logo + 2027 Title */}
-              <div className="flex items-center justify-center gap-2.5 md:gap-3 mb-1.5">
-                <img src="/images/logo.png" alt="MVCON Logo" className="h-8 sm:h-10 md:h-11 object-contain" />
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#F26522] tracking-tight">
+              <div className="flex items-center justify-center gap-2 sm:gap-3 mb-1.5">
+                <img src="/images/logo.png" alt="MVCON Logo" className="h-7 sm:h-9 md:h-11 object-contain drop-shadow-xs" />
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#F26522] tracking-tight leading-none">
                   {slide.title}
                 </h1>
               </div>
 
               {/* Subtitle / Main Headline */}
-              <h2 className="text-sm sm:text-lg md:text-2xl font-bold text-foreground tracking-tight leading-snug mb-1.5 max-w-2xl">
+              <h2 className="text-sm sm:text-base md:text-xl lg:text-2xl font-bold text-foreground tracking-tight leading-snug mb-2 max-w-2xl px-2">
                 {slide.subtitle}
               </h2>
 
@@ -152,14 +152,15 @@ export default function HeroCarousel() {
               </p>
 
               {/* Date & Location */}
-              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-2.5 text-xs sm:text-sm text-text-muted font-medium">
-                <div className="flex items-center gap-1.5">
-                  <Calendar size={15} className="text-primary" />
-                  <span className='text-black text-bold text-lg'>{slide.date}</span>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-5 mb-2.5 px-2 text-slate-900 dark:text-slate-100 font-semibold text-xs sm:text-sm md:text-base">
+                <div className="inline-flex items-center gap-1.5 shrink-0">
+                  <Calendar className="w-4 h-4 text-primary shrink-0" />
+                  <span>{slide.date}</span>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <MapPin size={15} className="text-primary" />
-                  <span className='text-black text-bold text-lg'>{slide.location}</span>
+                <span className="hidden sm:inline text-slate-300 dark:text-slate-600">•</span>
+                <div className="inline-flex items-center gap-1.5 text-center max-w-lg">
+                  <MapPin className="w-4 h-4 text-primary shrink-0" />
+                  <span>{slide.location}</span>
                 </div>
               </div>
 
@@ -184,7 +185,7 @@ export default function HeroCarousel() {
         })}
 
         {/* Carousel Dots */}
-        <div className="flex justify-center items-center gap-2 mt-2">
+        <div className="flex justify-center items-center gap-2 mt-1 sm:mt-2">
           {slides.map((_, index) => (
             <button
               key={index}

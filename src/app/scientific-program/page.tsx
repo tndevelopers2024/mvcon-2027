@@ -36,8 +36,8 @@ export default function ScientificProgramPage() {
       </div>
 
       {/* Main Tabs Interface */}
-      <main className="flex-grow relative z-20 -mt-16">
-        <div className="bg-white/50 backdrop-blur-3xl mx-4 sm:mx-8 lg:mx-auto max-w-7xl rounded-t-[3rem] shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.1)] border-t border-x border-white/60">
+      <main className="flex-grow relative z-20 -mt-16 pb-12 sm:pb-16">
+        <div className="bg-white/50 backdrop-blur-3xl mx-4 sm:mx-8 lg:mx-auto max-w-7xl rounded-[2rem] sm:rounded-[3rem] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border border-white/60 overflow-hidden pb-8 sm:pb-12">
           <ScientificProgramTabs />
         </div>
       </main>
