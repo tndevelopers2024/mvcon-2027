@@ -724,14 +724,7 @@ export default function RegisterPage() {
                         Save QR Pass Image
                       </a>
                     )}
-                    <button
-                      type="button"
-                      onClick={() => window.print()}
-                      className="flex-1 py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm"
-                    >
-                      <Printer className="w-4 h-4 text-slate-600" />
-                      Print Official Pass
-                    </button>
+                    
                   </div>
                 </div>
 
