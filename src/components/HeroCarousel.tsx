@@ -54,6 +54,18 @@ const slides: Slide[] = [
     imageSrc: '/images/hero3.png',
     mobileImageSrc: '/images/mob-hero3.jpeg',
   },
+  {
+    id: 4,
+    title: '2027',
+    badge: '2ND EDITION',
+    subtitle: 'Present Research That Inspires & Excel',
+    quote:
+      '" A platform for postgraduates, researchers, dentists, nutritionists, physicians, and surgeons to showcase original research & interesting case reports and win exciting prizes. Please make a collage of 2 photos in the abstract submission gallery"',
+    date: '19, 20, 21 March 2027',
+    location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
+    imageSrc: '/images/hero4.png',
+    mobileImageSrc: '/images/mob-hero4.jpeg',
+  },
 ];
 
 export default function HeroCarousel() {
