@@ -31,6 +31,13 @@ interface AttendeeUser {
   createdAt?: string;
 }
 
+const getMediaUrl = (url?: string) => {
+  if (!url) return '';
+  if (url.startsWith('data:') || url.startsWith('http://') || url.startsWith('https://') || url.startsWith('blob:')) return url;
+  const backend = (process.env.NEXT_PUBLIC_BACKEND_URL || '').replace(/\/$/, '');
+  return backend ? `${backend}${url.startsWith('/') ? '' : '/'}${url}` : url;
+};
+
 export default function AttendeeDashboardPage() {
   const router = useRouter();
   const [user, setUser] = useState<AttendeeUser | null>(null);
@@ -64,7 +71,7 @@ export default function AttendeeDashboardPage() {
       setUser(parsedUser);
 
       // Fetch fresh data from backend
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
       fetch(`${backendUrl}/api/auth/me?email=${encodeURIComponent(parsedUser.email)}`, {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       })
@@ -117,7 +124,7 @@ export default function AttendeeDashboardPage() {
 
     setIsUpdatingPassword(true);
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
       const token = localStorage.getItem('mvcon_token');
 
       const res = await fetch(`${backendUrl}/api/auth/update-password`, {
@@ -404,7 +411,7 @@ export default function AttendeeDashboardPage() {
                     {user.qrCode ? (
                       <div className="bg-white p-2.5 rounded-xl shadow-md border-2 border-slate-200">
                         <img 
-                          src={user.qrCode} 
+                          src={getMediaUrl(user.qrCode)} 
                           alt="Entry QR Code" 
                           className="w-40 h-40 object-contain rounded"
                         />
@@ -449,7 +456,7 @@ export default function AttendeeDashboardPage() {
                   <div className="space-y-2.5 pt-2">
                     {user.qrCode && (
                       <a
-                        href={user.qrCode}
+                        href={getMediaUrl(user.qrCode)}
                         download={`MVCON2027_${user.registrationId}_Pass.png`}
                         className="w-full py-3 px-4 bg-[#1F83C6] hover:bg-[#156ca5] text-white font-bold text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all shadow-md shadow-[#1F83C6]/20"
                       >

@@ -17,6 +17,13 @@ const steps = [
   { id: 3, title: "Location & Billing" }
 ];
 
+const getMediaUrl = (url?: string) => {
+  if (!url) return '';
+  if (url.startsWith('data:') || url.startsWith('http://') || url.startsWith('https://') || url.startsWith('blob:')) return url;
+  const backend = (process.env.NEXT_PUBLIC_BACKEND_URL || '').replace(/\/$/, '');
+  return backend ? `${backend}${url.startsWith('/') ? '' : '/'}${url}` : url;
+};
+
 export default function RegisterPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [profilePhoto, setProfilePhoto] = useState<File | null>(null);
@@ -181,7 +188,7 @@ export default function RegisterPage() {
     setOtpError(null);
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
       const response = await fetch(`${backendUrl}/api/register/send-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -220,7 +227,7 @@ export default function RegisterPage() {
     setOtpError(null);
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
       const response = await fetch(`${backendUrl}/api/register/send-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -294,7 +301,7 @@ export default function RegisterPage() {
     setOtpError(null);
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
 
       // 1. Verify OTP first with backend
       const verifyRes = await fetch(`${backendUrl}/api/register/verify-otp`, {
@@ -676,7 +683,7 @@ export default function RegisterPage() {
                       <div className="p-6 pt-3 bg-white/5 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
                         <div className="bg-white p-2.5 rounded-2xl shadow-xl flex-shrink-0 border border-slate-200">
                           <img 
-                            src={registeredData.qrCode} 
+                            src={getMediaUrl(registeredData.qrCode)} 
                             alt={`QR Code Pass for ${registeredData.registrationId}`} 
                             className="w-32 h-32 sm:w-36 sm:h-36 object-contain rounded-lg"
                           />
@@ -709,7 +716,7 @@ export default function RegisterPage() {
                   <div className="flex items-center gap-3 pt-1">
                     {registeredData.qrCode && (
                       <a
-                        href={registeredData.qrCode}
+                        href={getMediaUrl(registeredData.qrCode)}
                         download={`MVCON2027_${registeredData.registrationId}_Pass.png`}
                         className="flex-1 py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm"
                       >

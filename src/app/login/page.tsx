@@ -36,7 +36,7 @@ export default function LoginPage() {
     setErrorMessage(null);
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
       const response = await fetch(`${backendUrl}/api/auth/login`, {
         method: 'POST',
         headers: {

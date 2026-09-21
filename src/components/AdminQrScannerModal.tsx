@@ -270,7 +270,7 @@ export default function AdminQrScannerModal({
     setIsCheckedInLocally(false);
 
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
       const response = await fetch(`${backendUrl}/api/register/verify-qr`, {
         method: 'POST',
         headers: {
@@ -367,7 +367,7 @@ export default function AdminQrScannerModal({
 
     setIsCheckingIn(true);
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
       const response = await fetch(`${backendUrl}/api/register/check-in`, {
         method: 'POST',
         headers: {

@@ -129,14 +129,21 @@ export default function FacultiesPage() {
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="max-md:mt-15 min-h-screen bg-slate-50 flex flex-col">
       {/* Hero Banner */}
-      <div className="relative w-full h-[600px] flex items-end justify-center overflow-hidden mt-0">
+      <div className="relative w-full min-h-[90vh] flex items-end justify-center overflow-hidden mt-0">
         <div className="absolute inset-0 z-0">
+          {/* Mobile Hero Banner */}
+          <img 
+            src="/images/mob-faculty.jpg" 
+            alt="Faculties" 
+            className="w-full h-full object-cover object-top block md:hidden" 
+          />
+          {/* Desktop & Tablet Hero Banner */}
           <img 
             src="/images/faculty.jpg" 
             alt="Faculties" 
-            className="w-full h-full object-cover object-top" 
+            className="w-full h-full object-cover object-top hidden md:block" 
           />
         </div>
         

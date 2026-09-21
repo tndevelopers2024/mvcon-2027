@@ -79,6 +79,13 @@ interface ScanStats {
   dateWise: DateWiseScan[];
 }
 
+const getMediaUrl = (url?: string) => {
+  if (!url) return '';
+  if (url.startsWith('data:') || url.startsWith('http://') || url.startsWith('https://') || url.startsWith('blob:')) return url;
+  const backend = (process.env.NEXT_PUBLIC_BACKEND_URL || '').replace(/\/$/, '');
+  return backend ? `${backend}${url.startsWith('/') ? '' : '/'}${url}` : url;
+};
+
 export default function AdminDashboardPage() {
   const router = useRouter();
   const [attendees, setAttendees] = useState<Attendee[]>([]);
@@ -131,7 +138,7 @@ export default function AdminDashboardPage() {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
       
       // Fetch registrations
       const regRes = await fetch(`${backendUrl}/api/register`);
@@ -272,7 +279,7 @@ export default function AdminDashboardPage() {
       'Submission Date',
     ];
 
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
     const rows = filteredAbstracts.map((a) => [
       a.submissionId,
       `"${a.presentingAuthor}"`,
@@ -304,7 +311,7 @@ export default function AdminDashboardPage() {
     if (e) e.stopPropagation();
     if (!confirm('Are you sure you want to delete this abstract submission? This will also remove the attached document.')) return;
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
       const res = await fetch(`${backendUrl}/api/abstracts/${id}`, { method: 'DELETE' });
       const data = await res.json();
       if (data.success) {
@@ -1021,7 +1028,7 @@ export default function AdminDashboardPage() {
                       </tr>
                     ) : (
                       filteredAbstracts.map((abs) => {
-                        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+                        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
                         const fileDownloadUrl = `${backendUrl}${abs.fileUrl}`;
                         const isPdf = abs.fileName?.toLowerCase().endsWith('.pdf') || abs.mimeType?.includes('pdf');
 
@@ -1149,34 +1156,36 @@ export default function AdminDashboardPage() {
       {/* Attendee Full Profile Modal */}
       <AnimatePresence>
         {selectedAttendee && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-slate-950/70 backdrop-blur-sm overflow-hidden">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative"
+              className="w-full max-w-lg max-h-[90vh] bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative flex flex-col my-auto"
             >
-              <div className="bg-[#0b1623] p-6 text-white relative">
+              {/* Pinned Header */}
+              <div className="bg-[#0b1623] p-5 sm:p-6 text-white relative shrink-0">
                 <button
                   onClick={() => setSelectedAttendee(null)}
-                  className="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-full transition-colors"
+                  className="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-full transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
                 <div className="text-xs uppercase tracking-wider text-sky-400 font-bold mb-1">
                   Attendee Verification Card
                 </div>
-                <h3 className="text-2xl font-extrabold">{selectedAttendee.fullName}</h3>
+                <h3 className="text-xl sm:text-2xl font-extrabold">{selectedAttendee.fullName}</h3>
                 <p className="text-sm font-mono text-[#F26522] font-bold mt-1">
                   {selectedAttendee.registrationId}
                 </p>
               </div>
 
-              <div className="p-6 space-y-4 text-sm text-slate-700">
+              {/* Scrollable Body */}
+              <div className="p-5 sm:p-6 space-y-4 text-sm text-slate-700 overflow-y-auto flex-1 overscroll-contain">
                 <div className="grid grid-cols-2 gap-4 pb-4 border-b border-slate-100">
                   <div>
                     <span className="text-xs text-slate-400 block uppercase font-bold">Email Address</span>
-                    <span className="font-medium text-slate-900">{selectedAttendee.email}</span>
+                    <span className="font-medium text-slate-900 break-all">{selectedAttendee.email}</span>
                   </div>
                   <div>
                     <span className="text-xs text-slate-400 block uppercase font-bold">Phone Number</span>
@@ -1244,7 +1253,7 @@ export default function AdminDashboardPage() {
                   <div className="p-4 bg-slate-50 border border-slate-200/80 rounded-2xl flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
                     <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-200 flex-shrink-0">
                       <img
-                        src={selectedAttendee.qrCode}
+                        src={getMediaUrl(selectedAttendee.qrCode)}
                         alt={`Entry QR for ${selectedAttendee.registrationId}`}
                         className="w-24 h-24 object-contain mx-auto"
                       />
@@ -1258,7 +1267,7 @@ export default function AdminDashboardPage() {
                         Scan at reception counter to verify attendee details and grant entry.
                       </p>
                       <a
-                        href={selectedAttendee.qrCode}
+                        href={getMediaUrl(selectedAttendee.qrCode)}
                         download={`MVCON27_${selectedAttendee.registrationId}_QR.png`}
                         className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-[#1F83C6] hover:text-[#156ca5]"
                       >
@@ -1281,7 +1290,7 @@ export default function AdminDashboardPage() {
                     <button
                       onClick={async () => {
                         try {
-                          const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+                          const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
                           await fetch(`${backendUrl}/api/register/check-in`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -1293,21 +1302,22 @@ export default function AdminDashboardPage() {
                           console.error(err);
                         }
                       }}
-                      className="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-sm transition-all text-xs"
+                      className="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-sm transition-all text-xs cursor-pointer"
                     >
                       Admit Attendee
                     </button>
                   )}
                 </div>
+              </div>
 
-                <div className="pt-2">
-                  <button
-                    onClick={() => setSelectedAttendee(null)}
-                    className="w-full py-3 bg-[#1F83C6] hover:bg-[#156ca5] text-white font-bold rounded-xl transition-all shadow-md"
-                  >
-                    Close Profile
-                  </button>
-                </div>
+              {/* Pinned Bottom Actions Bar */}
+              <div className="p-4 bg-slate-50 border-t border-slate-100 shrink-0">
+                <button
+                  onClick={() => setSelectedAttendee(null)}
+                  className="w-full py-2.5 sm:py-3 bg-[#1F83C6] hover:bg-[#156ca5] text-white font-bold rounded-xl transition-all shadow-md cursor-pointer text-sm"
+                >
+                  Close Profile
+                </button>
               </div>
             </motion.div>
           </div>
@@ -1317,14 +1327,15 @@ export default function AdminDashboardPage() {
       {/* Abstract Full Details Modal */}
       <AnimatePresence>
         {selectedAbstract && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-slate-950/70 backdrop-blur-sm overflow-hidden">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative"
+              className="w-full max-w-lg max-h-[90vh] bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative flex flex-col my-auto"
             >
-              <div className="bg-[#0b1623] p-6 text-white relative">
+              {/* Pinned Header */}
+              <div className="bg-[#0b1623] p-5 sm:p-6 text-white relative shrink-0">
                 <button
                   onClick={() => setSelectedAbstract(null)}
                   className="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-full transition-colors cursor-pointer"
@@ -1335,17 +1346,18 @@ export default function AdminDashboardPage() {
                   <FileText className="w-3.5 h-3.5" />
                   Scientific Abstract Submission
                 </div>
-                <h3 className="text-2xl font-extrabold">{selectedAbstract.presentingAuthor}</h3>
+                <h3 className="text-xl sm:text-2xl font-extrabold">{selectedAbstract.presentingAuthor}</h3>
                 <p className="text-sm font-mono text-[#F26522] font-bold mt-1">
                   Ref: {selectedAbstract.submissionId}
                 </p>
               </div>
 
-              <div className="p-6 space-y-4 text-sm text-slate-700 max-h-[75vh] overflow-y-auto">
+              {/* Scrollable Body */}
+              <div className="p-5 sm:p-6 space-y-4 text-sm text-slate-700 overflow-y-auto flex-1 overscroll-contain">
                 <div className="grid grid-cols-2 gap-4 pb-4 border-b border-slate-100">
                   <div>
                     <span className="text-xs text-slate-400 block uppercase font-bold">Email Address</span>
-                    <span className="font-medium text-slate-900">{selectedAbstract.email}</span>
+                    <span className="font-medium text-slate-900 break-all">{selectedAbstract.email}</span>
                   </div>
                   <div>
                     <span className="text-xs text-slate-400 block uppercase font-bold">Phone Number</span>
@@ -1397,7 +1409,7 @@ export default function AdminDashboardPage() {
                   </div>
 
                   <a
-                    href={`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000'}${selectedAbstract.fileUrl}`}
+                    href={`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027'}${selectedAbstract.fileUrl}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     download={selectedAbstract.originalFileName}
@@ -1407,22 +1419,23 @@ export default function AdminDashboardPage() {
                     Download Abstract Document
                   </a>
                 </div>
+              </div>
 
-                <div className="pt-2 flex gap-3">
-                  <button
-                    onClick={() => handleDeleteAbstract(selectedAbstract._id)}
-                    className="px-4 py-2.5 bg-red-50 hover:bg-red-100 border border-red-200 text-red-700 font-bold rounded-xl text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
-                  >
-                    <Trash2 className="w-3.5 h-3.5" />
-                    Delete
-                  </button>
-                  <button
-                    onClick={() => setSelectedAbstract(null)}
-                    className="flex-1 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl transition-all shadow-sm text-xs cursor-pointer"
-                  >
-                    Close Details
-                  </button>
-                </div>
+              {/* Pinned Bottom Actions Bar */}
+              <div className="p-4 bg-slate-50 border-t border-slate-100 shrink-0 flex gap-3">
+                <button
+                  onClick={() => handleDeleteAbstract(selectedAbstract._id)}
+                  className="px-4 py-2.5 bg-red-50 hover:bg-red-100 border border-red-200 text-red-700 font-bold rounded-xl text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                  Delete
+                </button>
+                <button
+                  onClick={() => setSelectedAbstract(null)}
+                  className="flex-1 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl transition-all shadow-sm text-xs cursor-pointer"
+                >
+                  Close Details
+                </button>
               </div>
             </motion.div>
           </div>

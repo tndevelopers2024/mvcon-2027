@@ -5,7 +5,19 @@ import Image from 'next/image';
 import { Calendar, MapPin, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-const slides = [
+interface Slide {
+  id: number;
+  title: string;
+  badge: string;
+  subtitle: string;
+  quote: string;
+  date: string;
+  location: string;
+  imageSrc: string;
+  mobileImageSrc?: string;
+}
+
+const slides: Slide[] = [
   {
     id: 1,
     title: '2027',
@@ -16,6 +28,7 @@ const slides = [
     date: '19, 20, 21 March 2027',
     location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
     imageSrc: '/images/hero1.jpg',
+    mobileImageSrc: '/images/mob-hero1.jpg',
   },
   {
     id: 2,
@@ -27,6 +40,7 @@ const slides = [
     date: '19, 20, 21 March 2027',
     location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
     imageSrc: '/images/hero2.jpg',
+    mobileImageSrc: '/images/mob-hero2.jpeg',
   },
   {
     id: 3,
@@ -38,6 +52,7 @@ const slides = [
     date: '19, 20, 21 March 2027',
     location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
     imageSrc: '/images/hero3.jpg',
+    mobileImageSrc: '/images/mob-hero3.jpeg',
   },
 ];
 
@@ -60,7 +75,7 @@ export default function HeroCarousel() {
   };
 
   return (
-    <section className="relative w-full h-[720px] sm:h-[540px] md:h-[90vh] lg:h-[90vh] overflow-hidden bg-background flex flex-col justify-end pb-3 sm:pb-4">
+    <section className="max-md:mt-10 relative w-full min-h-[90vh] sm:h-[100vh] md:h-[90vh] lg:h-[90vh] overflow-hidden bg-background flex flex-col justify-end pb-3 sm:pb-4">
       {/* Full-Height Background Slides */}
       {slides.map((slide, index) => {
         const isActive = index === currentSlide;
@@ -71,14 +86,41 @@ export default function HeroCarousel() {
               isActive ? 'opacity-100 z-0 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
             }`}
           >
-            <Image
-              src={slide.imageSrc}
-              alt={slide.subtitle || 'MVCON Slide'}
-              fill
-              quality={90}
-              className="object-cover object-center sm:object-[bottom_20%]"
-              priority={slide.id === 1}
-            />
+            {slide.mobileImageSrc ? (
+              <>
+                {/* Mobile View Background Image */}
+                <div className="block md:hidden absolute inset-0 w-full h-full">
+                  <Image
+                    src={slide.mobileImageSrc}
+                    alt={slide.subtitle || 'MVCON Slide'}
+                    fill
+                    quality={90}
+                    className="object-cover object-center"
+                    priority={slide.id === 1}
+                  />
+                </div>
+                {/* Tablet & Desktop Background Image */}
+                <div className="hidden md:block absolute inset-0 w-full h-full">
+                  <Image
+                    src={slide.imageSrc}
+                    alt={slide.subtitle || 'MVCON Slide'}
+                    fill
+                    quality={90}
+                    className="object-cover object-center sm:object-[bottom_20%]"
+                    priority={slide.id === 1}
+                  />
+                </div>
+              </>
+            ) : (
+              <Image
+                src={slide.imageSrc}
+                alt={slide.subtitle || 'MVCON Slide'}
+                fill
+                quality={90}
+                className=" object-center sm:object-[bottom_20%]"
+                priority={slide.id === 1}
+              />
+            )}
           </div>
         );
       })}
@@ -90,7 +132,7 @@ export default function HeroCarousel() {
       <div
         className="absolute inset-x-0 bottom-0 h-[340px] sm:h-[380px] md:h-[420px] z-10 pointer-events-none"
         style={{
-          background: 'linear-gradient(0deg, rgba(255, 255, 255, 1) 15%, rgba(255, 255, 255, 0.85) 55%, rgba(0, 212, 255, 0) 100%)',
+          background: 'linear-gradient(0deg, rgba(255, 255, 255, .9) 15%, rgba(255, 255, 255, 0.35) 55%, rgba(0, 212, 255, 0) 100%)',
         }}
       />
 

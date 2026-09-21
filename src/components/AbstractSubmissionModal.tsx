@@ -132,7 +132,7 @@ export default function AbstractSubmissionModal() {
       }
 
       // Send to backend API
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:2027';
       const res = await fetch(`${backendUrl}/api/abstracts`, {
         method: 'POST',
         body: payload,
