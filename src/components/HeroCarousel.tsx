@@ -40,7 +40,7 @@ const slides: Slide[] = [
     date: '19, 20, 21 March 2027',
     location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
     imageSrc: '/images/hero2.jpg',
-    mobileImageSrc: '/images/mob-hero2.jpeg',
+    mobileImageSrc: '/images/mob-hero2.png',
   },
   {
     id: 3,
@@ -52,7 +52,7 @@ const slides: Slide[] = [
     date: '19, 20, 21 March 2027',
     location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
     imageSrc: '/images/hero3.jpg',
-    mobileImageSrc: '/images/mob-hero3.jpeg',
+    mobileImageSrc: '/images/mob-hero3.png',
   },
 ];
 
