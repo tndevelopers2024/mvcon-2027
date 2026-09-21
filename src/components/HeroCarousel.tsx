@@ -39,8 +39,8 @@ const slides: Slide[] = [
       '"Join us as we explore the future of advanced research, innovative treatments, case studies and interactive workshops."',
     date: '19, 20, 21 March 2027',
     location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
-    imageSrc: '/images/hero2.jpg',
-    mobileImageSrc: '/images/mob-hero2.png',
+    imageSrc: '/images/hero2.png',
+    mobileImageSrc: '/images/mob-hero2.jpeg',
   },
   {
     id: 3,
@@ -51,8 +51,8 @@ const slides: Slide[] = [
       '"Join the community of experts dedicated to advancing the field of diabetes and diabetic foot."',
     date: '19, 20, 21 March 2027',
     location: 'Radisson Blu Hotel & Suites GRT Chennai (near airport)',
-    imageSrc: '/images/hero3.jpg',
-    mobileImageSrc: '/images/mob-hero3.png',
+    imageSrc: '/images/hero3.png',
+    mobileImageSrc: '/images/mob-hero3.jpeg',
   },
 ];
 
