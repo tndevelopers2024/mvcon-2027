@@ -9,6 +9,7 @@ interface Faculty {
   name: string;
   role: string;
   type: 'international' | 'national';
+  country?: string;
   img: string;
 }
 
@@ -82,8 +83,8 @@ const faculties: Faculty[] = [
   { id: '77', name: "Dr.Vishnupriya Reddy", role: "Faculty", type: "national", img: "/images/faculty/Dr. Vishnupriya Reddy.jpg" },
   { id: '78', name: "Dr.Viswanathan Vishnu Vijay", role: "Faculty", type: "national", img: "/images/faculty/Dr. Viswanathan Vishnu Vijay.jpg" },
   // { id: '80', name: "Dr.Janaka karalliedde", role: "Faculty", type: "international", img: "/images/faculty/Dr-Janaka-karalliedde.jpg" },
-  { id: '80', name: "Mr.Srikar Nallan", role: "Faculty", type: "international", img: "/images/faculty/Srikar-nallan.jpg" },
-  { id: '81', name: "Dr Stephen P. Kidd", role: "Faculty", type: "international", img: "/images/faculty/Dr Stephen P. Kidd.jpeg" },
+  { id: '80', name: "Mr.Srikar Nallan", role: "Faculty", type: "international", country: "USA", img: "/images/faculty/Srikar-nallan.jpg" },
+  { id: '81', name: "Dr Stephen P. Kidd", role: "Faculty", type: "international", country: "Australia", img: "/images/faculty/Dr Stephen P. Kidd.jpeg" },
 ];
 
 export default function FacultiesPage() {
@@ -122,6 +123,9 @@ export default function FacultiesPage() {
             <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-[#1F83C6] transition-colors leading-tight">
               {faculty.name}
             </h3>
+            <h4 className="text-md font-semibold text-[#F26522] group-hover:text-[#1F83C6] transition-colors leading-tight">
+              {faculty.country}
+            </h4>
           </div>
         </div>
       ))}

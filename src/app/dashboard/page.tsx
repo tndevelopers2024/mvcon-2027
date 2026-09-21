@@ -432,13 +432,13 @@ export default function AttendeeDashboardPage() {
                 </div>
 
                 {/* Badge Bottom Footer */}
-                <div className="pt-4 border-t-2 border-slate-100 flex flex-wrap justify-between items-center text-xs text-slate-700 font-medium gap-2">
+                {/* <div className="pt-4 border-t-2 border-slate-100 flex flex-wrap justify-between items-center text-xs text-slate-700 font-medium gap-2">
                   <span className="font-bold text-slate-900">Dates: Feb 20 - 22, 2027</span>
                   <span className="text-slate-700 font-semibold">Chennai Trade Centre, India</span>
                   <span className="font-mono text-[11px] text-emerald-800 font-black tracking-wider bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md">
                     SECURE VERIFIED PASS
                   </span>
-                </div>
+                </div> */}
               </div>
 
               {/* Pass Actions & Instructions Side Column */}
