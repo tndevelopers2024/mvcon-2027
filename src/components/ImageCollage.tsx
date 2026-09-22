@@ -8,7 +8,7 @@ interface AwardGalleryItem {
   src: string;
   name?: string;
   prize?: string;
-  presentationType?: 'Oral Presentation' | 'Poster Presentation';
+  presentationType?: 'Oral Presentation' | 'Poster Presentation' | 'Quiz Competition';
   category?: string;
   badge?: {
     text: string;
@@ -111,18 +111,48 @@ export default function ImageCollage() {
       },
     },
 
-    // Conference Highlights
+    // Quiz Competition Winners
     {
-      src: '/images/abstract/img7.jpg',
-      category: 'Faculty & Delegates Interaction',
+      src: '/images/abstract/img9.jpg',
+      name: 'Madras Medical College',
+      prize: '1st Prize',
+      presentationType: 'Quiz Competition',
+      category: 'Quiz Competition • MVCON 2026',
+      badge: {
+        text: '1st Prize',
+        bg: 'bg-gradient-to-r from-amber-400 to-yellow-500',
+        textCol: 'text-slate-900',
+        border: 'border-yellow-300',
+        icon: '🥇',
+      },
     },
     {
       src: '/images/abstract/img8.jpg',
-      category: 'Scientific Excellence Awards',
+      name: 'Madras Medical College',
+      prize: '2nd Prize',
+      presentationType: 'Quiz Competition',
+      category: 'Quiz Competition • MVCON 2026',
+      badge: {
+        text: '2nd Prize',
+        bg: 'bg-gradient-to-r from-slate-200 to-slate-400',
+        textCol: 'text-slate-900',
+        border: 'border-slate-300',
+        icon: '🥈',
+      },
     },
     {
-      src: '/images/abstract/img9.jpg',
-      category: 'MVCON Previous Edition Glimpses',
+      src: '/images/abstract/img7.jpg',
+      name: 'Stanley Medical College',
+      prize: '3rd Prize',
+      presentationType: 'Quiz Competition',
+      category: 'Quiz Competition • MVCON 2026',
+      badge: {
+        text: '3rd Prize',
+        bg: 'bg-gradient-to-r from-amber-600 to-orange-600',
+        textCol: 'text-white',
+        border: 'border-amber-400',
+        icon: '🥉',
+      },
     },
   ];
 
@@ -138,7 +168,7 @@ export default function ImageCollage() {
               Previous Year Award Winners
             </h2>
             <p className="text-slate-600 mt-1 font-medium">
-              Celebrating excellence in scientific research, oral presentations, and poster presentations from MVCON 2026.
+              Celebrating excellence in scientific research, oral presentations, poster presentations, and quiz competitions from MVCON 2026.
             </p>
           </div>
         </div>
@@ -192,9 +222,17 @@ export default function ImageCollage() {
                       <span className={`text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-md border inline-flex items-center gap-1 ${
                         item.presentationType === 'Poster Presentation'
                           ? 'text-sky-700 bg-sky-50 border-sky-200/80'
+                          : item.presentationType === 'Quiz Competition'
+                          ? 'text-purple-700 bg-purple-50 border-purple-200/80'
                           : 'text-orange-600 bg-orange-50 border-orange-200/70'
                       }`}>
-                        <Award className={`w-3 h-3 ${item.presentationType === 'Poster Presentation' ? 'text-sky-600' : 'text-orange-500'}`} />
+                        <Award className={`w-3 h-3 ${
+                          item.presentationType === 'Poster Presentation'
+                            ? 'text-sky-600'
+                            : item.presentationType === 'Quiz Competition'
+                            ? 'text-purple-600'
+                            : 'text-orange-500'
+                        }`} />
                         {item.prize} • {item.presentationType || 'Award'}
                       </span>
                       <span className="text-[11px] font-bold text-slate-400">
@@ -205,7 +243,7 @@ export default function ImageCollage() {
                       {item.name}
                     </h3>
                     <p className="text-xs font-medium text-slate-500 mt-0.5">
-                      Prize Winner in {item.presentationType || 'Scientific Research'}
+                      {item.presentationType === 'Quiz Competition' ? 'Quiz Competition Winner' : `Prize Winner in ${item.presentationType || 'Scientific Research'}`}
                     </p>
                   </div>
                 ) : (
@@ -257,6 +295,8 @@ export default function ImageCollage() {
                 <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-black mb-1.5 shadow-sm border ${
                   awardItems[selectedImage].presentationType === 'Poster Presentation'
                     ? 'bg-sky-500/20 text-sky-300 border-sky-500/40'
+                    : awardItems[selectedImage].presentationType === 'Quiz Competition'
+                    ? 'bg-purple-500/20 text-purple-300 border-purple-500/40'
                     : 'bg-orange-500/20 text-orange-400 border border-orange-500/40'
                 }`}>
                   <span>{awardItems[selectedImage].badge?.icon}</span>

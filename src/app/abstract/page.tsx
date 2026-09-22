@@ -217,10 +217,10 @@ export default function AbstractPage() {
               <div className="bg-white rounded-2xl p-8 border border-yellow-100 shadow-xl shadow-yellow-500/5 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                 <h4 className="text-2xl font-bold text-slate-800 mb-3 flex items-center gap-3 relative z-10">
-                  <span className="text-3xl">🏆</span> Best Oral and Poster Presentations
+                  <span className="text-3xl">🏆</span> Best Oral, Poster &amp; Quiz Presentations
                 </h4>
                 <p className="text-slate-600 text-lg relative z-10">
-                  Outstanding abstracts will be awarded at the valedictory function of MVCON 2027.
+                  Outstanding scientific presentations and quiz winners will be awarded at the valedictory function of MVCON 2027.
                 </p>
               </div>
 
